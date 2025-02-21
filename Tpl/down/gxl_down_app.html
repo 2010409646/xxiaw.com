@@ -1,0 +1,232 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{$down_name}{$down_dec}-{$down_name}{$down_dec}手机APP-{$list_name}</title>
+	<meta name="keywords" content="{$down_name}{$down_dec}下载,{$down_name}{$down_dec}手机APP下载，{$down_name}{$down_dec}，{$down_name}激活码" />
+	<meta name="description" content="{$down_remark}" />
+        <link href="/Public/del/css/global.css" rel="stylesheet">
+	<link rel="stylesheet" href="/Public/code/css/main.css">
+	<link rel="stylesheet" href="/Public/code/css/system.css">
+<script type="text/javascript" src="/kan/js/jquery-1.8.3.min.js"></script>
+  
+  <script type="text/javascript" src="/tongji.js"></script>
+   <script language="JavaScript" type="text/javascript" >Sid=1;Id={$down_id}</script> 
+</head>
+<body>
+<style>
+
+.intro-box img{width: 95%;}
+
+.erwei{
+        display: inline-grid;
+    text-align: center;
+    float: right;
+}
+.soft_cont .details_info .lis {
+    width: 520px !important;
+    margin-top: 30px !important;
+}
+</style>
+<include file="gxl:header" />
+
+    <div class="content">
+	<div class="con_L fl">
+		<div class="details_cont soft_cont">
+	<div class="iconimg">
+
+<img class="lazy"  alt="{$down_name}logo图" src="{$down_iconurl}" style="display: inline;">
+            </div>
+		<h1 class="title">{$down_name} {$down_dec}</h1>
+			<div class="details_info">
+				
+				<ul class="lis" style="float: left;margin-top: 30px;">
+					<li>APP类型：<span>{$down_type|default="免费"}</span></li>
+					<li>系统：<span>Android</span></li>
+					<li>类型：<span>{$list_name|default="免费"}</span></li>
+					<li>语言：<span>{$down_language|default="简体中文"}</span></li>
+					<li>版本号：<span>{$down_version|default="最新"}</span></li>
+					<li>大小：<span>{$down_size|default="10M"}</span></li>
+					
+					
+				</ul>
+			<div class="erwei">
+			<img class="lazy"  alt="{$down_name}二维码下载图" src="/phpqrcode/index.php?code={$down_down4}" style="display: inline;">
+			<span>安卓版下载二维码</span>
+			</div>
+			</div>
+
+			<!-- 定位 -->
+			<div class="conthd">
+				<ul class="">
+					<li class="on" data-wrap="posA">APP介绍</li>
+					<li data-wrap="posB" class="">下载地址</li>
+					<li data-wrap="posE" class="">大家都在用</li>
+					
+				</ul>
+			</div>
+			<!-- 内容 -->
+			<div class="art_cont" id="posA">
+
+
+
+{$down_content}
+<h3 style="text-align:left;">
+
+	{$down_name}免责声明：
+
+</h3>
+
+<p>
+
+	1、本手机APP及手机APP版权属各自产权人所有，
+
+</p>
+
+<p>
+
+	2、只用于个人封装技术研究交流使用，不得用于商业用途，
+
+</p>
+
+<p>
+
+	3、且本网站不承担任何技术及版权问题，请在试用后24小时内删除。
+
+</p>
+
+<p>
+
+	4、如果您对本手机APP有任何意见和建议，欢迎到反馈，请购买正版手机APP！
+
+</p>	
+{$down_hits_insert}
+		</div>
+					</div>
+		<!-- 下载 -->
+		<div class="Qz_title" id="posB">
+			<span>下载地址</span>
+			<div class="downltips">文件较大，请耐心等待下载</div>
+		</div>
+		<div class="downl_lis">
+
+			<div class="lis">
+
+				<a href="{:UU('Home-down/down',array('id'=>$down_id,'type'=>4))}"  class="bendi" title="{$down_name}下载地址"><i></i>安卓版下载</a>
+				
+			<notempty name="down_down2" ><a href="javascript:;" class="baidu" onclick="$('.fixed_bg').fadeIn()"  rel="nofollow">
+					<i></i>IOS版下载
+				</a></notempty>
+							</div>	
+				<notempty name="down_down2" >
+							
+						<div class="fixed_bg">
+				<div class="tiquma">
+					<notempty name="down_code"><h4>提取码</h4>
+					<p>{$down_code}</p><else/><h4>链接地址</h4><p style="font-size:12px">{$down_baidu}</notempty>
+					<div class="tiquma-bottom">
+						<a href="javascript:;" class="shut_tiquma" onclick="$('.fixed_bg').fadeOut()" rel="nofollow">关闭</a>
+						<a href="{$down_baidu}" rel="nofollow" target="_blank">前往下载
+						</a>
+					</div>
+				</div>
+			</div></notempty>
+					</div>
+		<include file="gxl:gb" />
+
+		<div class="Qz_title" id="posE">
+
+			<span>猜你喜欢</span>
+			<a href="{$list_url}" class="more">更多<i></i></a>
+		</div>
+		    	<php>$gamet =gxl_mysql_down('cid:171;field:down_id,down_cid,down_dec,down_name,down_version,down_size,down_pic,down_icon,down_addtime;limit:23;order:down_hits_day desc');</php>
+		<ul class="use_lis">
+			<volist name="gamet" id="gxl" offset="0" length='6' >
+						<li>
+								<div class="info">
+					<a href="{$gxl.down_readurl}" target="_blank" class="bt" title="{$gxl.down_name} {$gxl.down_dec}手机APP下载">{$gxl.down_name}{$gxl.down_dec}</a>
+					<div class="lis">
+						<p>语言：<span>{$gxl.down_language|default="简体中文"}</span></p>
+						<p>大小：<span>{$gxl.down_size|default="1G"}</span></p>
+						<p>日期：<i>{$gxl.down_addtime|date='m-d',###}</i></p>
+					</div>
+					<div class="btn">
+						<a href="{$gxl.down_readurl}" target="_blank">下载</a>
+					</div>
+				</div>
+			</li>
+					</volist>	
+					</ul>
+	</div>
+	<div class="con_R fr">
+		
+		<div class="Qz_title">
+			<span>{$list_name}<i>推荐手机APP</i></span>
+			
+		</div>
+
+		<div class="Rtab_bd Rtab_bd2">
+			<ul style="display: block;">
+
+			<volist name="gamet" id="gxl" offset="6" length='6' >
+							<eq name="i" value="1">	<li class="on">
+					<a href="{$gxl.down_readurl}" target="_blank" class="bt" title="{$gxl.down_name} {$gxl.down_dec}手机APP下载">{$gxl.down_name} {$gxl.down_dec}</a>
+					<div class="info">
+						<a href="{$gxl.down_readurl}" class="img">
+							<img src="{$gxl.down_iconurl}" alt="{$gxl.down_name} {$gxl.down_dec}">
+						</a>
+						<p>语言：<span>{$gxl.down_language|default="简体中文"}</span></p>
+						<p>大小：<span>{$gxl.down_size|default="1G"}</span></p>
+						<p>日期：<span>{$gxl.down_addtime|date='m-d',###}</span></p>
+					</div>
+				</li><else/>
+								<li>
+					<a href="{$gxl.down_readurl}" target="_blank" class="bt" title="{$gxl.down_name} {$gxl.down_dec}手机APP下载">{$gxl.down_name} {$gxl.down_dec}</a>
+					<div class="info">
+						<a href="{$gxl.down_readurl}" class="img">
+							<img src="{$gxl.down_iconurl}" alt="{$gxl.down_name} {$gxl.down_dec}">
+						</a>
+						<p>语言：<span>{$gxl.down_language|default="简体中文"}</span></p>
+						<p>大小：<span>{$gxl.down_size|default="1G"}</span></p>	
+						<p>日期：<span>{$gxl.down_addtime|date='m-d',###}</span></p>
+					</div>
+				</li></eq></volist>
+							</ul>
+			
+		</div>
+
+	
+		<div class="Qz_title">
+			<span>{$list_name}下载最多</span>
+			
+		</div>
+		<div class="Rtab_bd">
+			<ul style="display: block;">
+				<volist name="gamet" id="gxl" offset="12" length='10' >
+				<li >
+					<i class="icon{$i-1}"></i>
+					<a href="{$gxl.down_readurl}" target="_blank" class="bt" title="{$gxl.down_name} {$gxl.down_dec}手机APP下载">{$gxl.down_name} {$gxl.down_dec}</a>
+					<div class="info">
+						<a href="{$gxl.down_readurl}" class="img">
+							<img src="{$gxl.down_iconurl}" alt="{$gxl.down_name} {$gxl.down_dec}">
+						</a>
+							<p>语言：<span>{$gxl.down_language|default="简体中文"}</span></p>
+						<p>大小：<span>{$gxl.down_size|default="1G"}</span></p>	
+						<p>日期：<span>{$gxl.down_addtime|date='m-d',###}</span></p>
+					</div>
+				</li>
+						</volist>	</ul>
+			
+		</div>
+
+	
+	
+	
+	
+	</div>
+</div>
+<script src="/Public/code/js/main.js"></script>
+
+<include file="gxl:fend" />	
+</body>
+</html>

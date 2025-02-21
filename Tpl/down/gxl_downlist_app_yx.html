@@ -1,0 +1,136 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{$list_title}</title>
+	<meta name="keywords" content="{$list_keywords}" />
+	<meta name="Description" content="{$list_description}" />
+    <link href="/Public/del/css/global.css" rel="stylesheet">
+    <link href="/Public/del/css/index.css" rel="stylesheet">
+    <script src="/Public/del/js/jquery-1.8.3.min.js"></script>
+	<script src="/Public/del/js/global.js"></script>
+	 <link rel="stylesheet" href="/layui26/index.css">
+</head>
+<body>    
+<style>
+.swnetcontent{
+	width: 1200px;
+    margin: 0 auto;
+    line-height:30px;
+    font-size: 0.8rem;
+}
+.c-hd h1 span {
+    display: block;
+    float: left;
+    height: 43px;
+    border-bottom: 3px solid #17A1FF;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 0 4px;
+}
+.swnetarticle{
+width: 71%;
+float:left;
+word-break: break-all;
+word-wrap: break-word;
+    padding: 20px;
+}
+</style>
+	<include file="gxl:header" />
+
+    <div class="swnetcontent">
+        <article class="swnetarticle">
+
+        <div class="position">您的位置：<a href="{$site_url}">首页</a> > <a href="{$list_url_big}">{$list_name_big}</a> > {$list_name}</div>
+
+        <div class="content">
+
+            <div>
+
+                <div class="c-hd"><h1><span>{$list_name}分类</span></h1></div>
+                <div class="c-fl-box">
+				<eq name="list_pid" value="0">
+		 <php>$listd = getlistall($list_id);</php> 
+		  <volist name="listd" id="gxl">
+		<a href="{$gxl.list_url}" title="{$gxl.list_name}" <eq name="gxl['list_id']" value="$list_id"> class="all" </eq> >{$gxl.list_name}</a> 
+		</volist>
+<else/> 
+
+<php>$listd = getlistall($list_pid);</php>
+
+ <volist name="listd" id="gxl">
+		<a href="{$gxl.list_url}" <eq name="gxl['list_id']" value="$list_id"  title="{$gxl.list_name}"> class="all" </eq> >{$gxl.list_name}</a> 
+		</volist>
+
+ </eq>
+ 
+					
+					
+                    <div class="clear"></div>
+                </div>             
+				
+			
+                <div class="c-hd">
+                    <h3><span>{$list_name}列表</span></h3>
+                </div>
+
+					 <php>$down_list = gxl_mysql_down('cid:'.$list_id.';limit:20;field:down_id,down_size,down_stars,down_name,down_cid,down_pic,down_addtime,down_dec,down_icon,down_remark;page:true;order:down_id desc');$page = $down_list[0]['page'];</php>
+                <div class="c-soft-list">					
+                   
+                    <ul class="c-list clearfix" id="list_ul_more">
+						 <volist name="down_list" id="gxl">
+                        <li>
+                            <div class="top-tit">
+                                <p class="tit"><a href="{$gxl.down_readurl}" title="{$gxl.down_name} {$gxl.down_dec}" target="_blank">{$gxl.down_name|msubstr=0,36}  {$gxl.down_dec}</a></p>
+                                <span class="top-star">星级：<i class="stars star{$gxl.down_stars}"></i></span>								                                          
+                            </div>
+                            <div class="item">
+                         <notempty name="gxl['down_icon']"> 
+                         <div class="img"><a href="{$gxl.down_readurl}" target="_blank" preview="{$gxl.down_iconurl}"  title="{$gxl.down_name} {$gxl.down_dec}前往下载"><img src="{$gxl.down_iconurl}" alt="{$gxl.down_name}  {$gxl.down_dec}"></a></div></notempty>
+                                <div class="con">
+                                    <p class="other">
+                                        <span class="intro"><label>分类：</label>{$gxl.list_name}</span><span><label>大小：</label>{$gxl.down_size|default='10M'}</span>
+										
+                                    </p>
+                                    <p class="desc">{$gxl.down_remark}</p>
+                                </div>
+                                <div class="down"><a href="{$gxl.down_readurl}" target="_blank"  title="{$gxl.down_name}前往下载">立即下载</a></div>
+                            </div>
+                        </li>
+                       		</volist>				
+                    </ul>                    
+                    <div class="page">{$page}
+</div>
+                </div>
+            </div>
+
+            
+
+            <div class="clear"></div>
+
+        </div>
+    
+
+ </article>
+<aside class="swnetnews">
+	
+	<div class="lis">
+		<span><i>推荐内容</i></span>
+		<ul>
+			<php>$qu1 =gxl_mysql_news('ids:'.gxl_rand(10).';field:news_id,news_cid,news_name;limit:10;order:news_addtime desc');</php>
+			<volist name="qu1" id="sw"  >
+						<li><a href="{$sw.news_readurl}" target="_blank"  title="{$sw.list_name}">{$sw.news_name}</a></li>
+				</volist>
+					</ul>
+	</div>
+
+
+
+</aside>
+</div>
+    <include file="gxl:fend" />	
+
+   
+</script>
+</body>
+</html>

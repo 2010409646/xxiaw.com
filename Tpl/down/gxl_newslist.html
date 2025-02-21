@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <meta charset="UTF-8" /> 
+  <title>{$list_name}</title> 
+  <meta name="keywords" content="{$list_name}" /> 
+  <meta name="description" content="{$list_name}" /> 
+ <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+  <link href="/Public/del/css/global.css" rel="stylesheet" />  
+  <script type="text/javascript" src="/kan/js/jquery-1.8.3.min.js"></script> 
+  <link rel="stylesheet" href="/Public/del/img/index.css" /> 
+  <link rel="stylesheet" href="/layui26/index.css">
+
+  <style>
+
+.swnetcontent{
+	width: 1200px;
+    margin: 0 auto;
+    line-height:30px;
+    font-size: 0.8rem;
+}
+.swnetarticle{
+width: 75%;
+float:left;
+word-break: break-all;
+word-wrap: break-word;
+}
+.hljs-ln td{
+padding:10px;
+word-break: break-all;
+word-wrap: break-word;
+white-space: pre-wrap;
+}
+img{
+max-width:15rem;
+border-radius: 6px;
+}
+
+.hljs-ln-code {
+padding-left: 10px;
+padding-right: 10px;
+word-break: break-all;
+word-wrap: break-word;
+white-space: pre-wrap;
+}
+.swnetnews .lis {
+ 
+    margin-left: 20px;
+}
+.article-list-left .article-list {
+margin-top:20px;
+    padding: 25px;
+    border-bottom: 1px solid #eee;
+}
+.article-list-left .article-list ul li {
+    float: left;
+     width: 22%;
+}
+.article-list-left img {
+    border: none;
+	width:260px;
+	height:160px;
+}
+.article-list ul li {
+    float: left;
+}
+.article-list ul .ar-right {
+    margin-left: 10px;
+    width: 70%;
+    height: 160px;
+    position: relative;
+}
+.article-list ul li h2 {
+    margin: -4px 0 8px 0;
+    line-height: 30px;
+    font-weight: bold;
+	  font-size: 1.3em;
+}
+ .article-list {
+    padding: 25px;
+    border-bottom: 1px solid #eee;
+}
+.article-list a {
+    color: #333;
+    text-decoration: none;
+}
+.article-list ul li h2 {
+    margin: -4px 0 8px 0;
+    line-height: 30px;
+    font-weight: bold;
+}
+.article-list ul li h2 a {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    box-orient: vertical;
+    -webkit-line-clamp: 2;
+    white-space: nowrap;
+}
+ .article-list ul .ar-right .info {
+    max-height: 90px;
+    overflow: hidden;
+    display: block;
+    margin-bottom: 10px;
+    color: #5f666c;
+    line-height: 22px;
+    height: 90px;
+}
+.article-list ul .ar-right .ar-span {
+    font-size: 12px;
+}
+.layui-clear:after {
+    content: '\20';
+    clear: both;
+    *zoom: 1;
+    display: block;
+    height: 0;
+}
+</style>
+ </head> 
+ <body> 
+<include file="gxl:header" /> 
+
+<main  class="swnetcontent">
+<article class="swnetarticle">
+ <php>$news_list = gxl_mysql_news('cid:'.$list_id.';limit:'.C('home_pagenum').';field:news_id,news_pic,news_name,news_cid,news_remark,news_hits;page:true;order:news_addtime desc');$page=$news_list[0]['page'];
+
+ </php>
+<div class="jshwarticle">
+<volist name="news_list" id="sw"> 
+<div class="article-list layui-clear">
+<ul>
+<notempty name="sw['news_pic']" >
+<li class="ar-img">
+<a href="{$sw.news_readurl}" target="_blank">
+
+<img src="{$sw.news_picurl}" alt="{$sw.news_name}" width="260" height="160"></a></li>
+<li class="ar-right"><h2><a href="{$sw.news_readurl}" target="_blank" title="{$sw.news_name}">{$sw.news_name}</a></h2><p class="info">{$sw.news_remark|msubstr=0,120|ltrim}</p></li>
+<else/>
+
+<li class="ar-right" ><h2><a href="{$sw.news_readurl}" target="_blank" title="{$sw.news_name}">{$sw.news_name}</a></h2><p class="info">{$sw.news_remark|msubstr=0,120|ltrim}</p></li>
+</notempty>
+
+
+</ul></div>
+</volist>
+</div>
+ <div class="diy-page">{$page}</div>
+</article>
+<aside class="swnetnews">
+	
+	<div class="lis">
+		<span><i>推荐内容</i></span>
+		<ul>
+			<php>$qu1 =gxl_mysql_news('field:news_id,news_cid,news_name;limit:10;order:news_addtime desc');</php>
+			<volist name="qu1" id="sw"  >
+						<li><a href="{$sw.news_readurl}" target="_blank"  title="{$sw.list_name}">{$sw.news_name}</a></li>
+				</volist>
+					</ul>
+	</div>
+
+
+
+</aside>
+</main>
+
+ 
+    
+
+
+
+
+
+  <include file="gxl:fend" /> 
+  
+ </body>
+</html>
+

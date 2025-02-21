@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <meta charset="UTF-8" /> 
+  <title>{$news_name}</title> 
+  <meta name="keywords" content="{$news_name}" /> 
+  <meta name="description" content="{$news_remark|msubstr=0,120|ltrim}" /> 
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+  <link href="/Public/del/css/global.css" rel="stylesheet" />  
+  <script type="text/javascript" src="/kan/js/jquery-1.8.3.min.js"></script> 
+  <link rel="stylesheet" href="/layui26/index.css">
+  <link rel="stylesheet" href="/Public/hig/styles/github-dark.min.css">
+<script src="/Public/hig/highlight.min.js"></script>
+<script src="/Public/hig/highlightjs-line-numbers.js"></script>
+  <link rel="stylesheet" href="/Public/del/css/index.css" /> 
+  <link rel="stylesheet" href="/Public/del/img/index.css" /> 
+
+  <style>
+.swnetcontent{
+	width: 1200px;
+    margin: 0 auto;
+    line-height:30px;
+    font-size: 0.8rem;
+}
+.jshwarticle{
+padding:20px;
+}
+.swnetarticle a{
+    color: #17a1ff;
+}
+.swnetarticle{
+width: 56rem;
+float:left;
+word-break: break-all;
+word-wrap: break-word;
+}
+pre{
+word-break: break-all;
+word-wrap: break-word;
+white-space: pre-wrap;
+}
+.hljs{
+ padding-left: 10px;
+padding-right: 10px;
+word-break: break-all;
+word-wrap: break-word;
+white-space: pre-wrap;
+}
+.hljs-ln-numbers {
+-webkit-touch-callout: none;
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+text-align: center;
+color: #fff;
+border-right: 1px solid #CCC;
+vertical-align: top;
+padding-right: 10px;
+
+}
+.hljs-ln td{
+padding:10px;
+word-break: break-all;
+word-wrap: break-word;
+white-space: pre-wrap;
+}
+img{
+max-width:760px;
+}
+
+.hljs-ln-code {
+padding-left: 10px;
+padding-right: 10px;
+word-break: break-all;
+word-wrap: break-word;
+white-space: pre-wrap;
+}
+
+.c-list .down {
+    position: absolute;
+    right: 2px;
+    bottom: 4px;
+}
+.c-list {
+    margin-left: 20px;
+}
+</style>
+ </head> 
+ <body> 
+<include file="gxl:header" /> 
+<div class="j-sub-nav-{$list_pid}" >
+                <div class="sub-nav-in">
+				 <php>$array_listtvid = getlistall($list_pid);</php> 
+                    <p><volist name="array_listtvid" id="gxl">
+                        <a href="{$gxl.list_url}"  title="{$gxl.news_name}" <eq name="gxl.list_id" value="$list_id">class="nav-cur"</eq>>{$gxl.list_name}</a><span>|</span>
+						</volist>
+                    </p>
+                </div>
+</div>
+<main  class="swnetcontent">
+<article class="swnetarticle">
+<h1 class="news_h1">{$news_name}</h1>
+
+<ul class="c-list clearfix" id="list_ul_more">
+						 <volist name="news_topic" id="gxl">
+                        <li>
+                            <div class="top-tit">
+                                <p class="tit"><a href="{$gxl.down_readurl}" title="{$gxl.down_name}" target="_blank">{$gxl.down_name|msubstr=0,36}</a></p>
+                            </div>
+                            <div class="item">
+                         <notempty name="gxl['down_pic']">       <div class="img"><a href="{$gxl.down_readurl}" target="_blank" preview="{$gxl.down_picurl}"  title="{$gxl.down_name}前往下载"><img src="{$gxl.down_picurl}" alt="{$gxl.down_name}"></a></div></notempty>
+                                <div class="con">
+                                    <p class="other">
+                                        <label>大小：</label>{$gxl.down_size|default='10M'}</span>
+										
+                                    </p>
+                                    <p class="desc">{$gxl.down_remark}</p>
+                                </div>
+                                <div class="down"><a href="{$gxl.down_readurl}" target="_blank"  title="{$gxl.down_name}前往下载">立即下载</a></div>
+                            </div>
+                        </li>
+                       		</volist>				
+                    </ul>
+                    
+                    
+<div class="jshwarticle">
+{$news_content}   
+</div>
+</article>
+	{$news_hits_insert}
+<aside class="swnetnews">
+    
+	
+	<div class="lis">
+	    
+		<span><i>推荐内容</i></span>
+		<ul>
+			<php>$qu1 =gxl_mysql_news('ids:'.gxl_rand(10,500).';field:news_id,news_cid,news_name;limit:10;order:news_addtime desc');</php>
+			<volist name="qu1" id="gxl"  >
+						<li><a href="{$gxl.news_readurl}" title="{$gxl.news_name}" target="_blank">{$gxl.news_name}</a></li>
+				</volist>
+					</ul>
+	</div>
+</aside>
+</main>
+
+  <script>
+// first, find all the div.code blocks
+document.querySelectorAll('pre').forEach(el => {
+  // then highlight each
+  hljs.highlightElement(el);
+  hljs.lineNumbersBlock(el);
+});
+
+
+</script> 
+
+  <include file="gxl:fend" /> 
+  
+ </body>
+</html>
+

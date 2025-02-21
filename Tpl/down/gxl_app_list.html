@@ -1,0 +1,155 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{$title}</title>
+	<meta name="keywords" content="{$keywords}" />
+	<meta name="Description" content="{$description}" />
+  <link rel="stylesheet" href="/Public/code/css/index.css">
+<script type="text/javascript" src="/kan/js/jquery-1.8.3.min.js"></script>
+ <script language="JavaScript" type="text/javascript" >Sid=1;Id='0'</script> 
+	<link href="/Public/del/css/global.css" rel="stylesheet">
+ <link rel="stylesheet" href="/layui26/app.css">
+</head>
+<body>    
+
+	<include file="gxl:head" />
+<style>
+    .sxiaw4 .sxiaw_l {
+    width: 1200px;
+    height: 1695px;
+    overflow: hidden;
+}
+.sxiaw4 .sxiaw_l .sxiaw_lit ul {
+    width: 200px;
+    height: 800px;
+    float: left;
+    overflow: hidden;
+}
+.sxiaw4 .sxiaw_l .sxiaw_lit ul li img {
+    width: 60px;
+    height: 60px;
+    float: left;
+    margin-right: 10px;
+}
+.sxiaw4 .sxiaw_l .sxiaw_lit ul li i {
+    display: block;
+}
+</style>
+	  
+    
+
+
+<div class="sxiaw2">
+	<div class="sxiaw_2 fl">
+		<div class="title">热度软件</div>
+		<ul>
+<php>$hot =gxl_mysql_down('cid:'.$list_id.';field:down_id,down_version,down_cid,down_name,down_pic,down_icon,down_hits_week,down_addtime,down_remark;limit:30;order:down_addtime desc');</php>
+			<volist name="hot" id="gxl" offset="0" length='7'>
+			<li class="sxiaw_li_2">
+				<img src="{$gxl.down_iconurl}" class="brand" alt="{$gxl.down_name}软件图片">
+				<div class="name">
+					<p>{$gxl.down_name}</p><span>{$gxl.down_remark|default='软件下载'}</span>
+				</div>
+				<a href="{$gxl.down_readurl}" target="_blank" class="btn" title="{$gxl.down_name}软件下载地址"><span>前往下载</span></a>
+			</li>
+			</volist>
+		</ul>
+	</div>
+	<div class="M2M fl">
+			<volist name="hot" id="gxl" offset="7" length='1' >
+				<div class="xiaa"><i>推荐</i><a href="{$gxl.down_readurl}" target="_blank">{$gxl.down_name}</a></div>
+					</volist>
+				<div class="xiab">
+			<ul><volist name="hot" id="gxl" offset="8" length="8">
+								<li>
+					<span>{$gxl.list_name|default='软件下载'}</span>
+					<a href="{$gxl.down_readurl}" target="_blank">{$gxl.down_name}{$gxl.down_version}</a>
+					<i class="red">{$gxl.down_addtime|date='m-d',###}</i>
+				</li>
+				</volist>
+		</ul>
+			<ul>
+		
+		<volist name="hot" id="gxl" offset="16" length="8"> 
+								<li>
+					<span>{$gxl.list_name|default='软件下载'}</span>
+					<a href="{$gxl.down_readurl}" target="_blank">{$gxl.down_name}{$gxl.down_version}</a>
+					<i class="red">{$gxl.down_addtime|date='m-d',###}</i>
+				</li>
+				</volist>
+							</ul>
+		</div>
+
+	</div>
+	<div class="sxiaw_m2 fr">
+		<div class="title">大家都在下载</div>
+		<ul>
+		
+			<volist name="hot" id="gxl" offset="24" length='4'>
+						<li>
+				<img src="{$gxl.down_picurl}" alt="{$gxl.down_name}软件图片">
+				<a href="{$gxl.down_readurl}" target="_blank" class="info">
+					<p>{$gxl.down_name}</p>
+					<div class="desc"></div>
+					<div class="btn">了解详情</div>
+				</a>
+			</li>
+				</volist>		
+					</ul>
+	</div>
+</div>
+  
+
+<php>$yxarr=['动作竞技','休闲益智','卡牌策略','关卡塔防','模拟经营','格斗街机','游戏辅助','音乐舞蹈','赛车竞速','找物解谜','飞行射击','体育竞技','宠物养成','策略战争','角色扮演','生存冒险','其它游戏']</php>
+
+<div class="sxiaw4">
+	<div class="sxiaw_l fl">
+	
+						<div class="sxiaw_lit">
+					 
+<volist name="yxarr" id="gxl" offset="0" length='6'>
+<php>$down_list = gxl_mysql_down('tag:'.$gxl.';limit:10;sid:171;field:down_id,down_size,down_stars,down_name,down_cid,down_pic,down_addtime,down_remark,down_icon,down_dec;order:down_id desc');$page = $down_list[0]['page'];</php>
+					<ul>
+					<li><span><a href="{:UU('Home-tag/show',array('type'=>'Url','name'=>urlencode($gxl),'mcid'=>171),'',true,false)}" target="_blank">{$gxl}</a></span></li>
+					<volist name="down_list" id="gr" >
+				
+						<a href="{$gr.down_readurl}" target="_blank"><li><img class="lazy" data-original="{$gr.down_iconurl}" alt="{$gr.down_name}手机APP图片" src="{$gr.down_iconurl}" style="display: block;">
+								
+				{$gr.down_name} {$gr.down_dec}
+					<i>{$gr.down_size}</i>
+					</li></a>
+						</volist>		
+					</ul>
+					</volist>				
+				</div>
+								<div class="sxiaw_lit">
+	<volist name="yxarr" id="gxl" offset="6" length='6'>
+<php>$down_list = gxl_mysql_down('tag:'.$gxl.';sid:171;limit:10;field:down_id,down_size,down_stars,down_name,down_cid,down_pic,down_addtime,down_remark,down_icon,down_dec;order:down_id desc');$page = $down_list[0]['page'];</php>
+					<ul>
+					<li><span><a href="{:UU('Home-tag/show',array('type'=>'Url','name'=>urlencode($gxl),'mcid'=>171),'',true,false)}" target="_blank">{$gxl}</a></span></li>
+					<volist name="down_list" id="gr" >
+				    <a href="{$gr.down_readurl}" target="_blank">
+					<li><img class="lazy" data-original="{$gr.down_iconurl}" alt="{$gr.down_name} {$gr.down_dec}手机APP图片" src="{$gr.down_iconurl}" style="display: block;">
+								
+								{$gr.down_name} {$gr.down_dec}
+								<i>{$gr.down_size}</i>
+								</li></a>
+						</volist>		
+					</ul>
+					</volist>	
+									
+				</div>
+								
+					</div>
+
+</div>
+
+</div>
+
+
+
+    <include file="gxl:fend" />	
+
+</body>
+</html>

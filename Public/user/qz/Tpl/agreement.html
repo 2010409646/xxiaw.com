@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+    <title>{$title}-{:C("site_name")}</title>
+    <meta name="Keywords" content="{$title}-{:C("site_name")}">
+    <meta name="Description" content="{$title}-{:C("site_name")}">
+	<link href="/Public/user/{:C('default_user')}/css/login.css" rel="stylesheet">
+	<link href="/Public/user/{:C('default_user')}/layui/css/layui.css" rel="stylesheet">
+	<script src="/Public/user/{:C('default_user')}/layui/layui.js" charset="utf-8"></script>
+	<script src="/Public/user/{:C('default_user')}/js/jquery-3.4.1.min.js" charset="utf-8"></script>
+<body>
+<div class="N-wp">
+  <!-- 通用顶部 -->
+
+<div id="header" class="header">
+    <!-- middlebar -->
+<include file="./Public/user/qz/Tpl/user_top.html" />
+
+  <div class="U-w1030">
+    <h2>{$title}</h2>
+    
+    <div class="form-list regist-box" data-con="form">
+     {$content}
+     
+    </div><!--end form-list-->
+   
+  </div><!--end U-w1030-->
+<div class="N-ft">
+    <div class="footer" style="font-size:12px;padding:8px">
+    <p>{:C('site_copyright')}<br>{:C('site_icp')}</p>
+</div>
+</div><!--end N-wp--><!--找回密码、注册帐号、登录帐号 - 远程js公共模块-->
+
+
+
+</body>
+</html>

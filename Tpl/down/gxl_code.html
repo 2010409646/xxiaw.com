@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<title>下下软件系统html在线编辑器</title>
+<meta name="keywords" content="html在线编辑器,html在线编辑器代码">
+<meta name="description" content="html在线编辑器：提供html+css+script等前端语言的在线编写">
+<meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+	<meta name="applicable-device" content="pc,mobile">
+	<meta name="MobileOptimized" content="width"/>
+	<meta name="HandheldFriendly" content="true"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<link rel="stylesheet" href="/Public/code/css/basic.css" />
+<link rel="stylesheet" href="/Public/code/css/codemirror.css" />
+<script src="/Public/code/js/codemirror.js"></script>
+<script src="/Public/code/js/codemirror_jsx.js"></script>
+<script src="/Public/code/js/htmlmixed.js"></script>
+<script src="/Public/code/js/xml.js"></script>
+<script src="/Public/code/js/javascript.js"></script>
+<script src="/Public/code/js/css.js"></script>
+<script src="/Public/code/js/clike.js"></script>
+<script src='/Public/code/js/php.js'></script>
+<script src='/Public/code/js/python.js'></script>
+
+
+</head>
+
+
+<body>
+
+
+<div id="tiy_header">
+<div id="tiy_logo">
+<h1><a href="https://www.sxiaw.com" title="下下软件系统html在线编辑器" style="float:left;">下下软件系统html在线编辑器</a></h1>
+
+
+</div>
+</div>
+
+
+<div id="navfirst">
+<ul id="menu">
+<li id="tiy_btn_index"><a href="https://www.sxiaw.com/" title="HTML在线教程">HTML在线教程</a></li>
+<li id="tiy_btn_stack"><a href="javascript:void(0);" onclick="restack(currentStack)" title="更改方向">改变方向</a></li>
+<li id="tiy_btn_theme"><a href="javascript:void(0);" onclick="retheme()" title="更改主题">暗黑模式</a></li>
+<li id='tiy_btn_tryit'><a onclick='submitTryit()' title='更改主题'>运行代码</a></li>
+</ul>
+</div>
+
+
+<div id="container">
+
+    <div id="textareacontainer">
+        <div id="textarea">
+            <div id="textareawrapper">
+
+<textarea autocomplete="off" id="textareaCode" wrap="logical" spellcheck="false">
+
+{$code_content}
+
+</textarea>
+            </div>
+        </div>
+    </div>
+        <form id="codeForm" autocomplete="off" style="margin:0px;display:none;">
+          <input type="hidden" name="code" id="code" />
+        </form>
+    <div id="iframecontainer">
+        <div id="iframe">
+            <div id="iframewrapper">
+               
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<script src='/Public/code/js/submit.js'></script>
+
+
+<script>
+function colorcoding() {
+  var ua = navigator.userAgent;
+  //Opera Mini refreshes the page when trying to edit the textarea.
+  if (ua && ua.toUpperCase().indexOf("OPERA MINI") > -1) { return false; }
+  window.editor = CodeMirror.fromTextArea(document.getElementById("textareaCode"), {
+    mode: '{$code_type}',
+    readOnly: true,
+    htmlMode: true,
+    lineWrapping: true,
+    smartIndent: false,
+    addModeClass: true
+  });
+//  window.editor.on("change", function () {window.editor.save();});
+}
+colorcoding();
+</script>
+
+
+<script>
+var currentStack=true;
+
+function restack(vertical) {
+    var tc, ic, t, i, c, n, f, sv, sh, d, height, flt, width;
+    tc = document.getElementById("textareacontainer");
+    ic = document.getElementById("iframecontainer");
+    t = document.getElementById("textarea");
+    i = document.getElementById("iframe");
+    c = document.getElementById("container");
+    n = document.getElementById("navfirst");
+    //sv = document.getElementById("stackV");
+    //sh = document.getElementById("stackH");
+    tc.className = tc.className.replace("horizontal", "");
+    ic.className = ic.className.replace("horizontal", "");
+    t.className = t.className.replace("horizontal", "");
+    i.className = i.className.replace("horizontal", "");
+    c.className = c.className.replace("horizontal", "");
+    n.className = n.className.replace("horizontal", "");
+    //if (sv) {sv.className = sv.className.replace("horizontal", "")};
+    //if (sv) {sh.className = sh.className.replace("horizontal", "")};
+    //stack = "";
+    if (vertical) {
+        tc.className = tc.className + " horizontal";
+        ic.className = ic.className + " horizontal";        
+        t.className = t.className + " horizontal";        
+        i.className = i.className + " horizontal";
+        c.className = c.className + " horizontal";
+        n.className = n.className + " horizontal";
+        //if (sv) {sv.className = sv.className + " horizontal"};
+        //if (sv) {sh.className = sh.className + " horizontal"};
+        //stack = " horizontal";
+        document.getElementById("textareacontainer").style.height = "50%";
+        document.getElementById("iframecontainer").style.height = "50%";
+        document.getElementById("textareacontainer").style.width = "100%";
+        document.getElementById("iframecontainer").style.width = "100%";
+        currentStack=false;
+    } else {
+        document.getElementById("textareacontainer").style.height = "100%";
+        document.getElementById("iframecontainer").style.height = "100%";
+        document.getElementById("textareacontainer").style.width = "50%";
+        document.getElementById("iframecontainer").style.width = "50%";
+        currentStack=true;        
+    }
+}
+</script>
+
+
+<script>
+function retheme() {
+  var cc = document.body.className;
+  if (cc.indexOf("darktheme") > -1) {
+    document.body.className = cc.replace("darktheme", "");
+  } else {
+    document.body.className += " darktheme";
+  }
+}
+</script>
+
+</body>
+
+</html>

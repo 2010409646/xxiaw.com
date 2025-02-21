@@ -1,0 +1,66 @@
+<script type="text/javascript"> Root='/'</script>
+
+<div class="headers">
+ <style>
+.drop-box {
+ 
+    top: 20px;
+  
+}
+#nav-signed{
+  top: 20px;
+  
+}
+.search{
+margin:0 auto;
+}
+.icp{
+text-align:center;
+font-size:32px;
+margin-bottom:30px
+}
+</style>
+
+	
+	  <div class="header-nav">
+            <div class="nav-column">
+                <div class="nav-column-in">
+				
+                    <ul id="j_main_nav">
+					<a title="下下软件系统首页"  href="/"><li class="logo"><img src="/layui26/logo.png" alt="下下软件系统"/></li></a>
+                        <li><a title="下下软件系统首页" <eq name="list_id" value="$list_pid">class="nav-cur" </eq> href="/">首页</a></li>
+<volist name="list_menu" id="gxl" offset="0" length='8'>
+<eq name="gxl.list_pid" value="0">
+<li rel="{$gxl.list_id}" <eq name="gxl.list_id" value="$list_id">class="nav-cur"</eq><eq name="gxl.list_id" value="$list_pid">class="nav-cur"</eq>>  <a href="{$gxl.list_url}"  title="{$gxl.list_name}"  <eq name="gxl.list_id" value="$list_id">class="nav-cur"</eq><eq name="gxl.list_id" value="$list_pid">class="nav-cur"</eq>>{$gxl.list_name}</a></li>
+</eq>
+</volist>						
+                    </ul>
+					
+				
+                </div>
+            </div>
+			<volist name="list_menu" id="gxl">
+            <div class="sub-nav j-sub-nav-{$gxl.list_id}" style="display: none;">
+                <div class="sub-nav-in">
+				 <php>$array_listtvid = getlistall($gxl['list_id']);</php> 
+                    <p><volist name="array_listtvid" id="gxlcms">
+                        <a href="{$gxlcms.list_url}" target="_blank"  title="{$gxlcms.list_name}">{$gxlcms.list_name}</a><span>|</span>
+						</volist>
+                    </p>
+                </div>
+            </div>
+			</volist>
+            
+
+        </div>
+		
+		<div class="search layui-form">
+		<div class="icp">{$list_name}</div>
+	
+		    <script type="text/javascript" src="/layui/layui.js"></script> 
+  <link rel="stylesheet" href="/layui/css/layui.css" /> 
+           
+        </div>
+	</div>
+
+	 

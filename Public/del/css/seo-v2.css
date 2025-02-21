@@ -1,0 +1,1021 @@
+.wrapper{font-size: 14px;}
+.pusmall .Manin01List03,.pusmall .ToolsImgWrap .ToolsFive img,.pusmall .wrapper {
+    width:1200px;
+}
+a,a:hover{
+    text-decoration:none;
+}
+._chinaz-icp-main02{
+    font-size: 14px;
+}
+
+._chinaz-seo-title ._chinaz-seo-titleicon{
+    font-size: 30px;
+    color: #2a99e2;
+    vertical-align: middle;
+}
+._chinaz-seo-title span{
+    float: right;
+}
+._chinaz-seo-title span i{
+    color: #2a99e2;
+    padding-left: 6px;
+    cursor: pointer;
+}
+._chinaz-seo-title b{
+    font-weight: normal;
+    vertical-align: middle;
+}
+/* title2 */
+._chinaz-seo-title2{
+    width: 1200px;
+    height:80px;
+    padding: 0 17px;
+    box-sizing: border-box;
+    border-bottom: solid 1px #eeeeee;
+    background: #fff;
+    border-radius: 3px;
+}
+._chinaz-seo-title2 ._chinaz-seo-t2l{
+    height: 46px;
+    line-height: 46px;
+    margin: 17px 0;
+    padding-left: 7px;
+    float: left;
+    font-size: 16px;
+    color: #222;
+}
+._chinaz-seo-t2r i{
+    color: #2a99e2;
+    font-size: 22px;
+}
+._chinaz-seo-t2r .tdkupd{
+    cursor: pointer;
+}
+._chinaz-seo-title2 ._chinaz-seo-t2r{
+    height: 30px;
+    padding:25px 0;
+    float: right;
+}
+._chinaz-seo-t2r ._chinaz-seo-tbtn{
+    height: 28px;
+    line-height: 28px;
+    padding: 0 8px;
+    background: #FF5722;
+	color:#fff;
+    border: solid 1px #FF5722;
+    border-radius:3px;
+}
+._chinaz-seo-tbtn a{
+	color:#fff;
+}
+.jwSlide_cont_box img{
+	
+	width:900px;
+}
+._chinaz-seo-tbtn i{
+    padding-right: 6px;
+    vertical-align: middle;
+    font-size:18px;
+}
+/* 表格 */
+._chinaz-seo-new1{
+    background: #FFFFFF;
+   display:-webkit-box;
+   float: left;
+    display: block;
+}
+._chinaz-seo-newt{
+    width: 1160px;
+    background: #fff;
+	margin:20px;
+}
+._chinaz-seo-newt td{
+    box-sizing: border-box;
+    border-right: solid 1px #eeeeee;
+    border-bottom: solid 1px #eeeeee;
+}
+._chinaz-seo-newtl{
+    width:120px;
+    text-align: center;
+    color: #222;
+}
+._chinaz-seo-newtc{
+    width: 800px;
+    padding-left: 20px !important;
+}
+._chinaz-seo-newtr{
+    width: 220px;
+}
+._chinaz-seo-newtr .SsiteLogo{
+    border: none;
+}
+._chinaz-seo-newh78{
+    height: 90px;
+    line-height: 30px;
+}
+._chinaz-seo-newh40{
+    height: 60px;
+    line-height: 30px;
+}
+._chinaz-seo-newt td span{
+    color: #888;
+}
+._chinaz-seo-newt td span a{
+    color: #222;
+}
+._chinaz-seo-newt td span a:hover{
+    text-decoration: none;
+    color:#338de6;
+}
+._chinaz-seo-newrank{
+    display: flex;
+    justify-content: space-between;
+}
+.siteRz{
+    display: flex;
+    justify-content: space-between;
+}
+.siteRz span{
+    margin-right:10px;
+}
+._chinaz-seo-newrank span img{
+    vertical-align: middle;
+}
+._chinaz-seo-newt td._chinaz-seo-newinfo{
+    padding: 0 10px 0 18px;
+}
+._chinaz-seo-newinfo img{
+    vertical-align: middle;
+}
+.icots span {
+    position: absolute;
+    display: block;
+    min-width: 170px;
+    height: 40px;
+    border-radius: 3px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+    border: solid 1px #d9e7f6;
+    background: #fff;
+    padding: 0px 10px;
+    margin-left: 70px;
+    z-index: -1;
+    opacity: 0;
+    box-shadow: -1px 3px 5px 3px rgba(82, 148, 218, 0.1);
+}
+
+.icots:hover span{
+    z-index: 99;
+    opacity: 1;
+}
+._chinaz-seo-search {
+    position: absolute;
+    top: 30px;
+    left: 110px;
+    width: 210px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 24px;
+    color: #333333;
+    display: flex;
+}
+._chinaz-seo-search i {
+    font-size: 40px;
+    color: #2a99e2;
+    vertical-align: bottom;
+}
+
+._chinaz-seo-new2 {
+    padding: 0;
+}
+
+._chinaz-seo-new2 .Manin01List01 {
+    height: 145px;
+    border-radius: 3px
+}
+._chinaz-seo-new2 .Ma01LiRow{
+    height: 30px;
+    line-height: 30px;
+    display: flex;
+    justify-content: center;
+}
+._chinaz-seo-new2 .Ma01LiRow:last-child{
+    border-right:0;
+}
+.Ma01LiRow a{
+    color:#222;
+    text-decoration: none;
+}
+._chinaz-seo-new2 .SeoMaWr01Head{
+    background: #fff;
+    border-bottom:none !important;
+}
+.Manin01List01 li{
+    border-bottom:0;
+}
+.Manin01List01 li:first-child{
+    border-bottom:1px solid #eee;
+    margin-bottom: 15px;
+}
+._chinaz-seo-kw{
+    display: inline-block;
+    padding: 2px 8px;
+    font-size: 14px;
+    text-align: center;
+    margin-left: 3px;
+    border-radius: 3px;
+    border: solid 1px #4192E7;
+    line-height: 22px;
+}
+._chinaz-seo-kw i{
+    margin-right:5px;
+}
+._chinaz-seo-kw a{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    background: transparent !important;
+}
+._chinaz-seo-kw458{
+    color: #4584e8;
+    border: solid 1px #4584e8;
+}
+._chinaz-seo-kw458 a{
+    color: #4584e8;
+}
+._chinaz-seo-kwff7{
+    color: #ff7e57;
+    border: solid 1px #ff7e57;
+}
+._chinaz-seo-kwff7 a{
+    color: #ff7e57;
+}
+._chinaz-seo-new4 .titicon{
+    width: 3px;
+    height: 16px;
+    margin-top: 0;
+    float: none;
+    vertical-align: middle;
+    background: #2a99e2;
+}
+._chinaz-seo-new4 .color-63{
+    vertical-align: middle;
+}
+._chinaz-seo-new5,._chinaz-seo-new4,._chinaz-seo-new6{
+    padding: 0;
+    background: #F8FAFB;
+}
+._chinaz-seo-new4{
+    padding-bottom: 0;
+}
+._chinaz-seo-new4 .item-table{
+    height: 249px;
+}
+.item-table .keyworddown_zwsj:hover,
+.item-table .keywordup_zwsj:hover,
+.item-table .baidupc_zwsj:hover,
+.item-table .mobile_zwsj:hover{
+    background: transparent;
+}
+._chinaz-seo-new5 .item-table{
+    height:333px;
+}
+.item-table .tb-head{
+    background-color:#fff;
+    display: flex;
+    justify-content: space-between;
+    color: #888;
+    display: -webkit-box; /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers. */
+    display: -moz-box; /* 老版本语法: Firefox (buggy) */
+    display: -ms-flexbox; /* 混合版本语法: IE 10 */
+    display: -webkit-flex; /* 新版本语法: Chrome 21+ */
+    display: flex; /* 新版本语法: Opera 12.1, Firefox 22+ */
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap; 
+}
+
+.fwnone a{
+    color:#222;
+    text-decoration: none;
+}
+.item-table .fwnone:hover span{
+    z-index:999;
+    opacity: 1;
+}
+._chinaz-rank-n5wcwc{
+    top: -2px
+}
+.item-table .listkey ._chinaz-rank-n5wcwc{
+    top:3px
+}
+.listw .w21-0:hover>._chinaz-rank-n5wcwc {
+    opacity: 1;
+    z-index: 1000;
+}
+.SeoMaWr01Head{
+    height:43px;
+    line-height:41px;
+    padding: 0 20px;
+}
+._chinaz-seo-new5 .SeoMaWr01Head{
+    background: #fff;
+    border-bottom:1px solid #eee !important;
+}
+._chinaz-seo-new5 .dp-time{
+    height: 24px;
+    line-height: 27px;
+    font-size: 16px;
+    font-family: MicrosoftYaHei-Bold, MicrosoftYaHei;
+    font-weight: bold;
+    color: #222;
+}
+.dp-time{
+    padding-top:6px;
+}
+._chinaz-seo-new5 .dp-time a{
+    color: #4192E7;
+    font-weight: 500;
+    border-radius: 3px;
+}
+._chinaz-seo-new5 .dp-time a.on{
+    color: #fff;
+    border: 1px solid #4192E7;
+    background: #4192E7;
+}
+._chinaz-seo-new5 .pc-trend a,._chinaz-seo-new5 .mobile-trend a{
+    width: 74px;
+    padding: 0;
+    height: 28px;
+    text-align:center;
+    line-height:28px;
+    border:1px solid #ccc;
+    color:#555;
+    margin-left: 8px;
+}
+.tp-engine{
+    display: flex;
+    justify-content: space-between;
+}
+.item-table .row {
+    padding: 10px 0px;
+    -webkit-width:432px
+}
+.item-table{
+    width:auto;
+}
+.item-table .listw:nth-of-type(odd){
+    background-color:#fff;
+}
+.item-table .row.bor-t1s04 {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+.metaBox{
+    position: relative;
+}
+.item-table .listw{
+    line-height: 30px;
+    display:flex;
+    justify-content: space-between;
+    display: -webkit-box; /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers. */
+    display: -moz-box; /* 老版本语法: Firefox (buggy) */
+    display: -ms-flexbox; /* 混合版本语法: IE 10 */
+    display: -webkit-flex; /* 新版本语法: Chrome 21+ */
+    display: flex; /* 新版本语法: Opera 12.1, Firefox 22+ */
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap; 
+    position: relative;
+}
+.dataflex{
+    display: flex;
+    text-align: center;
+    margin: auto;
+    width: 130px;
+}
+.item-table .listkey{
+    position: relative;
+}
+
+.item-table .listw:hover{
+    background:#E8F0FB
+}
+._chinaz-seo-new5 .keyexpanChart{
+    border: none;
+}
+.tp-engine dl dd.ne{
+    background-color:#fff;
+    width: 45px;
+    line-height: 15px;
+    margin: auto;
+    color:#222;
+}
+.tp-engine dl dd i{
+    display:block;
+    width:3px;
+    height: 14px;
+    float: left;
+}
+.tp-engine dl {
+    border-right: 1px solid #eee;
+}
+.tp-engine dl:last-child{
+    border-right:0
+}
+.tp-engine dl dd{
+    padding:2px 0;
+    color:#333;
+}
+.keyexpanChart{
+    padding: 19px 0px 0 0px;
+}
+._chinaz-seo-new5 .keyexpanWrap{
+    width: 595px;
+    background: #fff;
+}
+._chinaz-seo-new6 .SeoMeatMain{
+    width: 100%;
+    border-left: none;
+}
+._chinaz-seo-new6 .SeoMeatMain tr:nth-child(1) td:nth-child(2),._chinaz-seo-new6 .SeoMeatMain tr:nth-child(2) td:nth-child(2),._chinaz-seo-new6 .SeoMeatMain tr:nth-child(3) td:nth-child(2){
+    border-right: none;
+}
+.SeoMeatMain td{
+    text-align:left;
+    color: #222;
+    padding:10px 10px 10px 19px;
+}
+.MaLi02Img img{
+    width: auto;
+    height:auto;
+    margin-top: 82px
+}
+._chinaz-seo-title{
+    height:44px;
+    line-height: 44px;
+    font-size: 16px;
+    font-family: MicrosoftYaHei-Bold, MicrosoftYaHei;
+    font-weight: bold;
+    color: #666666;
+    padding-right: 0;
+    border-radius: 3px 3px 0 0;
+}
+._chinaz-seo-title a{
+    font-size: 14px;
+    font-weight:500;
+}
+._chinaz-seo-new7 .item-table .tb-head{
+    font-weight: normal;
+}
+._chinaz-seo-new9{
+    padding: 0;
+    background: #F8FAFB;
+}
+._chinaz-seo-new9 .MaLi03List{
+    width: 595px;
+    border: none;
+    background: #fff;
+    box-shadow: -1px 3px 5px 3px rgba(82, 148, 218, 0.1);
+    border-radius: 3px;
+}
+._chinaz-seo-new9 .MaLi03Img{
+    width: 595px;
+    height: 218px;
+    background: #fff;
+}
+._chinaz-seo-new9 ._chinaz-seo-new9lc{
+    width: 595px;
+    height: 136px;
+}
+._chinaz-seo-new9 ._chinaz-seo-new9lb{
+    height: 40px;
+    line-height: 40px;
+    padding-left: 20px;
+}
+._chinaz-seo-new9lb span{
+    height: 32px;
+    line-height: 32px;
+    font-size: 14px;
+    border: 1px dashed #519AE9;
+    width: 376px;
+    display: block;
+    float: left;
+    margin-right: 10px;
+    text-align: center;
+    color: #888;
+    font-weight:500;
+}
+._chinaz-seo-new10{
+    width: 595px;
+    height: 240px;
+    padding-top: 20px;
+}
+._chinaz-seo-subdomain{
+    width: 297px;
+    height: 20px;
+    float: left;
+    margin-bottom: 20px;
+    line-height: 20px;
+    box-sizing: border-box;
+}
+._chinaz-seo-subdomain ._chinaz-seo-subid{
+    position: relative;
+    width: 20px;
+    height: 20px;
+    float: left;
+    line-height: 20px;
+    text-align: center;
+    font-size: 12px;
+    margin-right: 10px;
+    color: #888;
+    background: #f0f7fc;
+    cursor: pointer;
+}
+._chinaz-seo-subdomain ._chinaz-seo-subname{
+    width: 236px;
+    height: 20px;
+    padding-right: 20px;
+    float: left;
+    color: #222;
+    font-size: 14px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    box-sizing: border-box;
+}
+._chinaz-seo-subid ul{
+    position: absolute;
+    top: 30px;
+    left: -50px;
+    width: 128px;
+    padding: 8px 0;
+    text-align: left;
+    border: solid 1px #e2ecf7;
+    opacity: 0;
+    z-index: -1;
+    transition: all .5s ease-out;
+    background: #fff;
+    box-shadow: 0px 0px 10px 1px #f7f8fa;
+    border-radius: 3px;
+    display:none;
+}
+._chinaz-seo-subid:hover{
+    color: #2a99e2;
+    background: #F0F7FF;
+}
+._chinaz-seo-subid:hover>ul{
+    opacity: 1;
+    z-index: 1000;
+    display:block;
+}
+._chinaz-seo-subid i.jiant{
+    display: block;
+    width: 10px;
+    height: 13px;
+    position: absolute;
+    z-index: 999999;
+    left: 54px;
+    top: -13px;
+    background: url("../images/jiant.png") no-repeat;
+}
+._chinaz-seo-subid ul li{
+    height: 32px;
+    line-height: 32px;
+    padding: 0 9px;
+    font-size: 13px;
+    color: #333333;
+    border-bottom: none;
+}
+._chinaz-seo-subid ul li a{
+    color: #222;
+}
+._chinaz-seo-subid ul li:hover{
+    background: #F0F7FF;
+}
+._chinaz-seo-subid ul li:hover a{
+    text-decoration: none;
+    color:#4192E7
+}
+._chinaz-seo-subid ul li i.iconfont{
+    width:18px;
+    color:#999;
+}
+._chinaz-seo-subid ul li:hover .iconfont{
+    color:#4192E7
+}
+._chinaz-seo-new11{
+    width: 1200px;
+    padding: 0;
+    background: #F8FAFB;
+}
+._chinaz-seo-new11 .MaLi03List{
+    width: 595px;
+    border: none;
+    background: #fff;
+}
+._chinaz-seo-new11 .MaLi03List li{
+    border-bottom:none;
+    background: #fff;
+}
+._chinaz-seo-new11 .MaLi03List .MaLi03Row{
+    /* border-right:none; */
+    padding-left:20px
+}
+.MaLi03List li div{
+    color:#222;
+}
+._chinaz-seo-new11 .MaLi03List .w89,
+._chinaz-seo-new11 .MaLi03List .w100{
+    color:#888888;
+}
+._chinaz-seo-new11 .MaLi03List .w170,
+._chinaz-seo-new11 .MaLi03List .w150{
+    color: #222;
+}
+._chinaz-seo-about{
+    padding-top: 20px;
+    padding-left:20px;
+    font-size: 14px;
+    color: #666666;
+    background: #fff;
+    border-radius: 3px
+}
+._chinaz-seo-new13{
+    background: #F8FAFB;
+}
+._chinaz-seo-new13 ._chinaz-relevant{
+    padding-bottom:0;
+}
+._chinaz-seo-new13 ._chinaz-relevant-tcontent{
+    padding: 0 20px;
+}
+._chinaz-seo-lately{
+    width: 1200px;
+    box-sizing: border-box;
+    background: #f9f9f9;
+}
+._chinaz-seo-latelyc{
+    width:1170px;
+}
+._chinaz-seo-latelyc a{
+    display: block;
+    float: left;
+    width: 195px;
+    height: 30px;
+    line-height: 30px;
+    color: #666666;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+._chinaz-seo-sw ._chinaz-search{
+    margin-bottom: 30px;
+}
+.webrank span a.ico-edit {
+    background: url("//csstools.chinaz.com/tools/images/ico-edit.png") no-repeat;
+    width: 20px;
+    height: 26px;
+    display: inline-block;
+    font-size: 12px;
+    text-indent: 38px;
+    line-height: 26px;
+    vertical-align: -10px
+}
+._chinaz-addkw-tip{
+    width: 300px;
+    padding: 20px;
+    padding-bottom: 0;
+    font-size: 14px;
+    background: #fff;
+}
+._chinaz-addkw{
+    width: 360px;
+    padding: 10px;
+    font-size: 14px;
+    background: #fff;
+}
+._chinaz-addkw label{
+    display: inline-block;
+    width: 60px;
+    padding-right: 10px;
+    /* text-align: justify;
+    text-align-last:justify; */
+}
+._chinaz-addkw textarea{
+    width:250px;
+    height: 150px;
+}
+._chinaz-addkw span{
+    display: block;
+    padding-left: 70px;
+    padding-top: 10px;
+}
+
+/* ip、搜索、快捷功能 */
+._chinaz-seo-search {
+    position: absolute;
+    left: 110px;
+    width: 210px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 24px;
+    color: #222;
+    display: flex;
+}
+._chinaz-seo-search i {
+    font-size: 40px;
+    color: #2a99e2;
+    vertical-align: bottom;
+    background: url(//csstools.chinaz.com/tools/images/ico-seo.png) no-repeat -400px -13px;
+    width: 58px;
+    height: 50px;
+    float: left;
+    display: block;
+}
+._chinaz-ip-show {
+    font-size: 12px;
+}
+
+._chinaz-ip-show a {
+    color: #2898e1;
+}
+
+._chinaz-ip-show i {
+    padding: 0 4px;
+    color: #666666;
+}
+
+._chinaz-search {
+    width: 860px;
+    height: 50px;
+    line-height: 50px;
+    padding-top: 30px;
+    margin-bottom: 30px;
+    padding-left: 300px;
+    font-size: 0;
+    overflow: hidden;
+}
+._chinaz-search-his {
+    display: block;
+    float: left;
+    padding-left: 12px;
+    font-size: 12px;
+    color: #999999;
+}
+._chinaz-search ._chinaz_search-left {
+    position: relative;
+    width: 500px;
+    height: 50px;
+    float: left;
+}
+
+._chinaz_search-left .quickdelete {
+    top: 8px;
+    right: 2px;
+}
+.chartTxt {
+    min-width: 62px;
+    display: block;
+    float: left;
+    text-align: right;
+}
+.updowntip{
+    width: 17px;
+    display: block;
+    float: left;
+}
+/* 搜索历史开始 */
+._chinaz-main-new #ToolBox {
+    margin-top: 5px;
+    box-shadow: 0px 2px 5px 0px #eee;
+}
+
+._chinaz-main-new #ToolBox ul {
+    margin: 0;
+    padding: 10px 0;
+}
+
+._chinaz-main-new #ToolBox li {
+    padding: 0 18px;
+    height: 30px;
+    line-height: 30px;
+    color: #666666;
+    background: transparent;
+}
+
+._chinaz-main-new #ToolBox li a {
+    width: 85%;
+    font-size: 14px;
+    color: #666666;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+._chinaz-main-new #ToolBox li:hover {
+    background: #f0f7ff;
+
+}
+
+._chinaz-main-new #ToolBox li:hover a {
+    color: #4192E7;
+    background: transparent;
+}
+
+._chinaz-main-new ._chinaz-his-icon {
+    float: right;
+    line-height: 30px;
+    font-size: 20px;
+    padding-left: 10px;
+    color: #ccc;
+    cursor: pointer;
+}
+._chinaz-main-new #ToolBox li:hover ._chinaz-his-icon{
+    color:#4192E7;
+}
+/* 搜索历史结束 */
+._chinaz-search ._chinaz_search-input {
+    width: 478px;
+    height: 28px;
+    padding: 10px 0 10px 20px;
+    line-height: 28px;
+    font-size: 16px;
+    color: #222;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    border: solid 1px #2a99e2;
+    overflow: hidden;
+}
+
+._chinaz-search ._chinaz_search-btn {
+    width: 100px;
+    height: 50px;
+    float: left;
+    text-align: center;
+    font-size: 18px;
+    color: #fff;
+    border: none;
+    border-bottom-right-radius:6px;
+    border-top-right-radius: 6px;
+    background: #2a99e2;
+}
+
+.seoItemBox{
+    width:1200px;
+    margin:auto;
+    margin-bottom:10px;
+    display:flex;
+    justify-content: space-between;
+    display: -webkit-box; /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers. */
+    display: -moz-box; /* 老版本语法: Firefox (buggy) */
+    display: -ms-flexbox; /* 混合版本语法: IE 10 */
+    display: -webkit-flex; /* 新版本语法: Chrome 21+ */
+    display: flex; /* 新版本语法: Opera 12.1, Firefox 22+ */
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;    
+}
+.seoItemBox .seoItem{
+    width:224px;
+    margin:auto;
+    padding: 20px 10px 20px 15px;
+    float: left;
+}
+.seoItemBox .seoItem:first-child{
+    margin-left: 0;
+}
+.seoItemBox .seoItem .seoData{
+    display:flex;
+    justify-content: left; 
+    margin-top: 22px;
+    display: -webkit-box; /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers. */
+    display: -moz-box; /* 老版本语法: Firefox (buggy) */
+    display: -ms-flexbox; /* 混合版本语法: IE 10 */
+    display: -webkit-flex; /* 新版本语法: Chrome 21+ */
+    display: flex; /* 新版本语法: Opera 12.1, Firefox 22+ */
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    margin-left: 10px; 
+}
+.seoItemBox .seoItem .seoData i{
+    background:url("//csstools.chinaz.com/tools/images/ico-seo.png") no-repeat;
+    display: block;
+    cursor: pointer;
+}
+.seoItemBox .seoItem .seoData i.ico-baidu{
+    width:55px;
+    background-position: -180px -19px;
+}
+.seoItemBox .seoItem .seoData i.ico-sogou{
+    width:53px;
+    background-position: -323px -19px;
+}
+.seoItemBox .seoItem .seoData i.ico-360{
+    width:53px;
+    background-position: -17px -19px;
+}
+.seoItemBox .seoItem .seoData i.ico-shenm{
+    width:50px;
+    height:49px;
+    background-position: -102px -14px;
+}
+.seoItemBox .seoItem .seoData i.ico-google{
+    width:60px;
+    background-position: -252px -20px;
+}
+.seoItemBox .seoItem .seoData .dataTxt{
+    margin-top: -4px;
+}
+.seoItemBox .seoItem .seoData .dataTxt a{
+    font-size: 14px;
+    font-family: MicrosoftYaHei;
+    color: #222;
+    text-decoration: none;
+}
+.seoItemBox .seoItem .seoData .dataTxt .dataMain{
+    display: flex;
+    height: 28px;
+    position: relative;
+    left: 10px;
+}
+.seoItemBox .seoItem .seoData .dataTxt .dataMain span{
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-decoration: none;
+    width: 63px;
+    text-overflow: clip;
+}
+.seoItemBox .seoItem .seoData .dataTxt .dataMain span a{
+    display: flex;
+}
+.iconjiantoushang{
+    color:#FF463C;
+}
+.iconjiantou1{
+    color:#00B578;
+}
+.keyexpanChart .itemTab{
+    height:42px;
+    line-height:42px;
+}
+.keyexpanChart .itemTab ul{
+    display:flex;
+    justify-content:left;
+    display: -webkit-box; /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers. */
+    display: -moz-box; /* 老版本语法: Firefox (buggy) */
+    display: -ms-flexbox; /* 混合版本语法: IE 10 */
+    display: -webkit-flex; /* 新版本语法: Chrome 21+ */
+    display: flex; /* 新版本语法: Opera 12.1, Firefox 22+ */
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    
+}
+.keyexpanChart .itemTab li{
+    cursor: pointer;
+    padding: 0 20px;
+    text-align:center;
+    color: #555
+}
+.keyexpanChart .itemTab li.active{
+    border-bottom:2px solid #4192E7;
+    color:#4192E7;
+    background: #fff;
+}
+.thishide{
+    display: none;
+}
+.thisopen{
+    display: block;
+}
+.down-box-form{
+    width: 365px;
+    padding-left: 25px;
+    margin: 15px auto 30px auto;
+    text-align: center;
+}
+.down-box-form .loginbtn:hover, .login-reg .loginbtn:hover {
+    background: #FF7920;
+    text-decoration: none;
+}
+.loginbtn {
+    clear: both;
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    color: #fff;
+    background: #17A1FF;
+    border-radius: 3px;
+    display: block;
+    text-align: center;
+    font-size: 14px;
+    cursor: pointer;
+	    margin: 15px auto 30px auto;
+}

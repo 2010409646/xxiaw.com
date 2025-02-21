@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>登录-{:C("site_name")}</title>
+    <meta name="Keywords" content="登录-{:C("site_name")}">
+    <meta name="Description" content="登录-{:C("site_name")}">
+	<link href="/Public/user/{:C('default_user')}/css/login.css" rel="stylesheet">
+	<link href="/Public/user/{:C('default_user')}/layui/css/layui.css" rel="stylesheet">
+	<script src="/Public/user/{:C('default_user')}/layui/layui.js" charset="utf-8"></script>
+	<script src="/Public/user/{:C('default_user')}/js/jquery-3.4.1.min.js" charset="utf-8"></script>
+	</head>
+	<body>
+    <div class="N-wp">
+        <!-- 通用顶部 -->
+
+<div id="header" class="header">
+    <!-- middlebar -->
+ <include file="./Public/user/qz/Tpl/user_top.html" />
+
+        <div class="U-w886">
+            <h2>登录</h2>
+            <div class="form-list login-box layui-form">
+              
+                <div class="loginForm h-form">
+                    <div class="formItem">
+                        <input type="text" lay-verify="username" class="ipt w346" name="username" placeholder="手机号/邮箱" maxlength="100">
+                    </div>
+                    <div class="formItem">
+                        <input type="password" datatype="text" class="ipt w346" name="password" lay-verify="password" placeholder="密码" reqmsg="密码">
+                        <input type="hidden" name="passwd" class="ipt_PassWd">
+                    </div>
+                 
+                    <div class="formItem">
+                        <div class="w358">
+                           
+                            <div class="fr login-fr">
+                                <a href="{:UUU('User/center/reg')}" target="_self">免费注册</a>
+                                <span>|</span>
+                              <a href="{:UUU('User/center/resetpasswdstep')}" target="_self">忘记密码？</a> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="formItem">
+                       <button type="submit"  id="login-btn" class="layui-btn btn btn-default layui-btn-normal" lay-submit="" lay-filter="login">立即登录</button>
+                    
+                    </div>
+                </div>
+            </div>
+   
+</div><!--end login-box-->
+<!-- <div class="other-login">
+  <h3><span>使用第三方账号登录</span></h3>
+  <ul>
+    <li class="other-wx"><a href="/thirdLogin?type=wechat" target="_self"></a></li>
+    <li class="other-wb"><a href="/thirdLogin?type=weibo" target="_self"></a></li>
+    <li class="other-qq"><a href="/thirdLogin?type=qq" target="_self"></a></li>
+</ul>
+</div> --><!--end other-login-->
+</div><!--end U-w886-->
+<div class="N-ft">
+    <div class="footer" style="font-size:12px;padding:8px">
+    <p>{:C('site_copyright')}<br>{:C('site_icp')}</p>
+</div>
+
+</div><!--end N-ft-->
+</div><!--end N-wp--><!--找回密码、注册帐号、登录帐号 - 远程js公共模块-->
+
+
+<script>
+layui.use(['form', 'layedit', 'laydate'], function(){
+  var form = layui.form
+  ,layer = layui.layer
+  
+
+  
+    //自定义验证规则
+  form.verify({
+    username: function(value){
+      if(value.length < 5){
+        return '请输入邮箱或者手机号';
+      }
+    }
+    ,password: [
+      /^[\S]{6,18}$/
+      ,'密码必须6到12位，且不能出现空格'
+    ]
+  });
+ 
+
+
+  
+  //监听提交
+  form.on('submit(login)', function(data){
+  
+  
+		
+		
+		$.ajax({
+            //几个参数需要注意一下
+                type: "POST",//方法类型
+                dataType: "json",//预期服务器返回的数据类型
+                url: "{:UUU('User/center/login')}" ,//url
+                data:{
+                    "username":data.field.username,
+                    "password":data.field.password
+                },
+                success: function (result) {
+                  console.log(result);
+                    if (result.code == 1) {
+                       layer.msg(result.msg,{'icon':2});
+                    }else{
+					layer.msg(result.msg,{'icon':1});
+					window.location.href=result.url;
+					}
+                   
+                },
+                error : function() {
+                   layer.msg('登录异常请联系客服解决',{'icon':2});
+                }
+            });
+   
+    return false;
+  });
+ 
+ 
+ 
+  
+});
+</script>
+
+
+</body>
+</html>

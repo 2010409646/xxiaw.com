@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    
+	<meta charset="utf-8">
+    <title>会员中心-{:C("site_name")}</title>
+    <meta name="Keywords" content="会员中心-{:C("site_name")}">
+    <meta name="Description" content="会员中心-{:C("site_name")}">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link href="/Public/user/{:C('default_user')}/layui/css/layui.css" rel="stylesheet">
+	<script src="/Public/user/{:C('default_user')}/layui/layui.js" charset="utf-8"></script>
+	<script src="/Public/user/{:C('default_user')}/js/jquery-3.4.1.min.js" charset="utf-8"></script>
+	<script src="/Public/user/{:C('default_user')}/js/url.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="/Public/user/{:C('default_user')}/css/comm.css" />
+    <link rel="stylesheet" type="text/css" href="/Public/user/{:C('default_user')}/css/baseinfo.css" />
+
+</head>
+<body class="yunlist2" >
+
+    <div class='new-main'>
+  <include file="./Public/user/qz/Tpl/user_header.html" />
+        
+            <article class="article2">
+                     <include file="./Public/user/qz/Tpl/left.html" />
+
+					
+					
+					
+					
+					
+					
+					
+					
+					
+	<div class="container layui-form">
+                     
+    <!-- 内容头部开始.. -->
+    <nav class="nav2 boderBox">
+        <div class="navContent navContentBorder boderBox noSelect" data-page="textNews">购买链接</div>
+        <!-- <div class="navContent boderBox noSelect" data-page="picNews">图集稿件</div> -->
+    </nav>
+<div class="form-group">
+					<label class="col-sm-3 control-label">购买链接名称</label><div class="col-sm-9"><p class="form-control-static">{$links_name|default="账户充值"}</p></div>
+					<label class="col-sm-3 control-label">购买链接域名</label><div class="col-sm-9"><p class="form-control-static">{$links_link|default="账户充值"}</p></div>
+					<label class="col-sm-3 control-label">购买类型</label><div class="col-sm-9"><p class="form-control-static">1/月</p></div>
+				</div>
+    <!-- 内容头部结束.. -->
+    <!-- main内容区域开始 -->
+    <div id="main2" class="boderBox">
+	
+        <!-- 图文稿件 开始 -->
+        <div id="textNews" class="newsContainer boderBox textNews">
+        
+
+
+ <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+		 
+	
+		 
+  <ul class="layui-tab-title" style="margin-left: 30px;margin-top: 30px;">
+    <li class="layui-this"><img src="/Public/del/img/alipay.png" height="40">  </li>
+    <li><img src="/Public/del/img/WePayLogo.png" height="40"> </li> 
+  </ul>
+   <div class="layui-tab-content" style="padding-top:50px;">
+  
+	
+    <div class="layui-tab-item layui-show">
+	
+		<form class="recharge_form" name="alipayment" action="{:UUU('Pay-Pay/chong','',true,false)}" method="post" target="_blank">	
+				
+			
+<input type="hidden" name="links_id" class="ui-input w100" value="{$links_id}" onpaste="return false"> 
+			 <div class="ui-form-item fn-clear">
+                    <label class="ui-label w130">
+                        购买金额：                    </label>
+                    <input type="text" name="price" class="ui-input w100" value="{$links_money}" id="price" onpaste="return false" readonly> 
+                    &nbsp; 元
+                   
+                </div>
+                                   
+					<input style="margin-left: 140px;" type="submit" class="ui-button w150" value="购  买">
+            </form> 
+	
+	</div>
+    <div class="layui-tab-item">
+	
+	
+		<form class="recharge_form" name="alipayment" action="{:UUU('Pay-Pay/weixin','',true,false)}" method="post" target="_blank">	
+				
+			
+<input type="hidden" name="links_id" class="ui-input w100" value="{$links_id}" onpaste="return false"> 
+			 <div class="ui-form-item fn-clear">
+                    <label class="ui-label w130">
+                        购买金额：                    </label>
+                    <input type="text" name="price" class="ui-input w100" value="{$links_money}" id="price" onpaste="return false" readonly> 
+                    &nbsp; 元
+                   
+                </div>
+                                    
+					<input style="margin-left: 140px;" type="submit" class="ui-button w150" value="购  买">
+            </form> 
+	
+	
+	
+	</div>
+          
+            
+    <!-- 浮窗开始 -->
+   
+					
+					
+					
+		<style>
+	#author-page * {
+    box-sizing: border-box !important;
+}
+
+.page-header {
+    padding-bottom: 9px;
+    margin: 40px 0 40px 0 ;
+    border-bottom: 1px solid #eee;
+}
+
+h3, .h3 {
+    font-size: 24px;
+}
+h1, .h1, h2, .h2, h3, .h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+#author-page .page-header small {
+    font-size: 12px;
+    color: #aaa;
+    font-weight: normal;
+    padding-left: 5px;
+}
+.panel {
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+.panel .panel-body {
+    padding: 10px;
+}
+.vip-item {
+    display: flex;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+    justify-content: space-around;
+    align-items: flex-end;
+    flex-wrap: wrap;
+}
+.vip-item .radio-box.v1 {
+    background-color: #f6f6f6;
+    color: #001529;
+}
+.vip-item .radio-box {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    margin: 0 auto;
+    margin: 0 .5rem;
+    margin-bottom: 20px;
+    padding: 3rem;
+    border-radius: 4px;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: box-shadow .3s cubic-bezier(.215,.61,.355,1),transform .3s cubic-bezier(.215,.61,.355,1),-webkit-box-shadow .3s cubic-bezier(.215,.61,.355,1),-webkit-transform .3s cubic-bezier(.215,.61,.355,1);
+    flex-grow: 1;
+}
+.panel-body label {
+    max-width: 100%;
+}
+
+.vip-item .radio-box .tips-box {
+    position: absolute;
+    top: 10px;
+    right: -30px;
+    z-index: 4;
+    width: 120px;
+    height: 35px;
+    background: #eb4031;
+    color: #fff;
+    line-height: 35px;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.vip-item .radio-box .dec {
+    font-weight: 400;
+    /* font-size: .875rem; */
+}
+.vip-item .radio-box .tips-box span {
+    color: #fff;
+    font-size: 13px;
+}
+.panel-body p {
+    margin: 0 0 10px;
+}
+.vip-item .radio-box input[type=radio] {
+    width: 0;
+    height: 0;
+    opacity: 0;
+}
+.vip-item .radio-box .radio-style {
+    display: inline-block;
+    height: 40px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 40px;
+}
+.vip-item .radio-box input[type=radio]:checked+.radio-style::before {
+    padding: 4px;
+    border-color: #1890ff;
+    background-color: #1890ff;
+    background-clip: content-box;
+}
+.vip-item .radio-box .radio-style::before {
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-right: 10px;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #d9d9d9;
+    border-radius: 50%;
+    content: "";
+}
+.clearfix:before, .clearfix:after, .dl-horizontal dd:before, .dl-horizontal dd:after, .container:before, .container:after, .container-fluid:before, .container-fluid:after, .row:before, .row:after, .form-horizontal .form-group:before, .form-horizontal .form-group:after, .btn-toolbar:before, .btn-toolbar:after, .btn-group-vertical>.btn-group:before, .btn-group-vertical>.btn-group:after, .nav:before, .nav:after, .navbar:before, .navbar:after, .navbar-header:before, .navbar-header:after, .navbar-collapse:before, .navbar-collapse:after, .pager:before, .pager:after, .panel-body:before, .panel-body:after, .modal-footer:before, .modal-footer:after {
+    display: table;
+    content: " ";
+}
+.vip-item {
+    display: flex;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+    justify-content: space-around;
+    align-items: flex-end;
+    flex-wrap: wrap;
+}
+.vip-item .radio-box.v2 {
+    background-color: #eee;
+    color: #001529;
+}
+.vip-item .radio-box.v3 {
+    background-color: #001529;
+    color: #fff;
+}
+.vip-item .radio-box.v4 {
+    background-color: #000;
+    color: #fff;
+}
+.vip-btn {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+.btn, .local-account .btn {
+    text-indent: 0;
+    display: inline-block;
+    padding: 7px 12px;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: top;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 3px;
+}
+#author-page * {
+    box-sizing: border-box !important;
+}
+.btn-primary, .search-input:focus, #bdcs .bdcs-search-form-input:focus, #submit, .plinks ul li a:hover, .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary, .pads h3, .relates h3, .pagetitle h1, .page-title {
+    border-color: #45B6F7;
+}
+#author-page .form-group {
+    margin-bottom: 15px;
+}
+#author-page * {
+    box-sizing: border-box !important;
+}
+.form-horizontal .form-group .control-label {
+    text-align: left;
+    padding-top: 7px;
+    margin-bottom: 0;
+}
+.form-group .col-sm-3 {
+    width: 25%;
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+    float: left;
+	padding-top: 10px;
+padding-bottom: 10px;
+}
+.form-control-static{
+padding-top:10px;
+padding-bottom: 10px;
+}
+@media (min-width: 768px)
+
+.form-horizontal .form-group .control-label {
+    text-align: left;
+    padding-top: 7px;
+    margin-bottom: 0;
+}
+
+</style>
+					
+					
+					
+					
+					
+					
+			  <include file="./Public/user/qz/Tpl/top.html" />		
+					
+					
+					
+					
+					
+					
+					
+					
+					
+            </article>
+            
+        
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+	
+        
+    </div>
+    <!-- main内容区域结束 -->
+
+                </div>
+            </article>
+            
+    <!-- 浮窗开始 -->
+   
+					
+					
+				
+					
+					
+					
+					
+					
+					
+			  <include file="./Public/user/qz/Tpl/top.html" />		
+					
+					
+					
+					
+					
+					
+					
+					
+					
+            </article>
+            
+        
+    </div>
+  <include file="./Public/user/qz/Tpl/user_footer.html" />
+<div class="footer_space"></div>
+
+
+				<script>
+				
+				//注意：选项卡 依赖 element 模块，否则无法进行功能性操作
+layui.use('element', function(){
+  var element = layui.element;
+  
+  //…
+});
+				$(document).ready(function(){
+					$('.recharge_form').submit(function(){
+						$('#price').val( parseInt($('#price').val()) );
+						if( $('#price').val()<1 ){
+							alert("充值金额错误，请重新输入。");
+							return false;
+						}
+					});
+				});
+				function dev_warn(v,msg){
+					if(!v){
+						return false;
+					}
+					else{
+						alert(msg);
+						return true;
+					}
+				}
+				</script>
+
+
+</body>
+</html>

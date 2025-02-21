@@ -1,0 +1,244 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>后台用户管理</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel='stylesheet' type='text/css' href='__PUBLIC__/css/admin-style.css' />
+<script language="JavaScript" type="text/javascript" charset="utf-8" src="__PUBLIC__/jquery/jquery-1.7.2.min.js"></script>
+<script language="JavaScript" type="text/javascript" charset="utf-8" src="__PUBLIC__/js/admin.js"></script>
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/editor/kindeditor-min.js"></script>
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/editor/zh_CN.js"></script>
+<script language="javascript">
+$(document).ready(function(){
+	$("#myform").submit(function(){
+		if($feifeicms.form.empty('myform','down_name') == false){
+			return false;
+		}
+		if($("#down_cid").val()==0){
+			alert('请选择分类');
+			return false;
+		}
+	});
+	$("#tabs>a").click(function(){
+		var no = $(this).attr('id');
+		var n = $("#tabs>a").length;
+		showtab('tabs',no,n);
+		$("#tabs>a").removeClass("on");
+		$(this).addClass("on");
+		return false;
+	});
+});
+</script>
+</head>
+<body class="body">
+<!--图片预览框-->
+<div id="showpic" class="showpic" style="display:none;"><img name="showpic_img" id="showpic_img" width="120" height="160"></div>
+<include file="./Public/system/plus_tags.html" />
+<gt name="down_id" value="0">
+<form name="update" action="?s=Admin-Down-Update" method="post" name="myform" id="myform">
+<input type="hidden" name="down_id" value="{$down_id}">
+<else />
+<form name="add" action="?s=Admin-Down-Insert" method="post" name="myform" id="myform">
+</gt>
+<div class="title">
+	<div class="tabs" id="tabs"><a href="javascript:void(0)" class="on" id="1">{$down_tplname}软件</a><a href="javascript:void(0)" id="2">其它设置</a><a href="javascript:void(0)" id="3">下载地址</a></div>
+    <div class="right"><a href="?s=Admin-Down-Show">返回软件列表</a></div>
+</div>
+<div class="form">
+<table border="0" cellpadding="0" cellspacing="0" class="table" id="tabs1">
+  <tr>
+    <td class="tl">软件名称：</td>
+    <td class="tr" style="position:relative"><ul><input type="text" name="down_name" id="down_name" value="{$down_name}" maxlength="255" error="* 名称不能为空" class="w400"><span id="down_name_error">*</span> <lable><select name="down_cid" id="down_cid" style="width:108px"><option value=0>选择分类</option> <volist name="list_down" id="gxldown"><option value="{$gxldown.list_id}" <eq name="gxldown.list_id" value="$down_cid">selected</eq>>{$gxldown.list_name}</option><volist name="gxldown['son']" id="gxldown"><option value="{$gxldown.list_id}" <eq name="gxldown.list_id" value="$down_cid">selected</eq>>├ {$gxldown.list_name}</option></volist></volist></select> </lable></ul>
+ &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;推送到百度<input name="insertseo" type="checkbox" style="border:none;width:auto; position:absolute; top:5px"  value="5" title="勾选推送到百度">   
+    </td>
+  </tr>
+    <tr>
+    <td class="tl">版本号：</td>
+    <td class="tr"><input type="text" name="down_version" id="down_version" maxlength="255" value="{$down_version}" class="w400 xy_tag"></td>
+  </tr>
+  <tr>
+    <td class="tl">标签TAG：</td>
+    <td class="tr"><input type="text" name="down_keywords" id="down_keywords" maxlength="255" value="{$down_keywords}" class="w400 xy_tag"> <img src="__PUBLIC__/images/admin/edit.gif" onClick="javascript:showtags(2);" class="navpoint" alt="点击选择关键词"></td>
+  </tr>
+   <tr>
+    <td class="tl">出售价格：</td>
+    <td class="tr"><input type="text" name="down_money" id="down_money" maxlength="255" value="{$down_money}" class="w400 xy_tag"></td>
+  </tr>
+  <tr>
+    <td class="tl">软件大小：</td>
+    <td class="tr"><input type="text" name="down_size" id="down_size" maxlength="255" value="{$down_size}" class="w400 xy_tag"></td>
+  </tr>
+    <tr>
+    <td class="tl">语言：</td>
+    <td class="tr"><input type="text" name="down_language" id="down_language" maxlength="255" value="{$down_language}" class="w400 xy_tag"></td>
+  </tr>
+  <tr>
+    <td class="tl">授权方式：</td>
+    <td class="tr"><input type="text" name="down_authorization" id="down_authorization" maxlength="255" value="{$down_authorization}" class="w400 xy_tag"></td>
+  </tr>
+   <tr>
+    <td class="tl">软件类型：</td>
+    <td class="tr"><input type="text" name="down_type" id="down_type" maxlength="255" value="{$down_type}" class="w400 xy_tag"></td>
+  </tr>
+  
+    <tr>
+    <td class="tl">软件官网：</td>
+    <td class="tr"><input type="text" name="down_url" id="down_url" maxlength="255" value="{$down_url}" class="w400 xy_tag"></td>
+  </tr>
+  
+    <tr>
+    <td class="tl">运行环境：</td>
+    <td class="tr"><input type="text" name="down_environment" id="down_environment" maxlength="255" value="{$down_environment}" class="w400 xy_tag"></td>
+  </tr>
+   <tr>
+    <td class="tl">icon图片：</td>
+    <td class="tr"><label style="float:left; margin-top:4px; margin-right:5px"><input type="text" name="down_icon" id="down_icon" maxlength="255" value="{$down_icon}" class="w400" onMouseOver="if(this.value)showpic(event, this.value,'{$Think.config.upload_path}/');" onMouseOut="hiddenpic();"></label><iframe src="?s=Admin-Upload-Show-sid-down-fileback-down_icon" scrolling="no" topmargin="0" width="290" height="28" marginwidth="0" marginheight="0" frameborder="0" align="left" style="margin-top:4px; float:left"></iframe></span></td>
+  </tr>
+  
+  <tr>
+    <td class="tl">软件图片：</td>
+    <td class="tr"><label style="float:left; margin-top:4px; margin-right:5px"><input type="text" name="down_pic" id="down_pic" maxlength="255" value="{$down_pic}" class="w400" onMouseOver="if(this.value)showpic(event, this.value,'{$Think.config.upload_path}/');" onMouseOut="hiddenpic();"></label><iframe src="?s=Admin-Upload-Show-sid-down-fileback-down_pic" scrolling="no" topmargin="0" width="290" height="28" marginwidth="0" marginheight="0" frameborder="0" align="left" style="margin-top:4px; float:left"></iframe></span></td>
+  </tr>
+  <tr>
+    <td class="tl">软件简介：</td>
+    <td class="tr padding-5050"><textarea name="down_remark" id="down_remark" style="width:705px;height:50px;color:#666666" title="如果不填写简介则自动截取内容前100字">{$down_remark}</textarea></td>
+  </tr>  
+  <tr>
+    <td class="tl">软件内容：</td>
+    <td class="tr padding-5050">
+
+<textarea name="down_content" id="content" style="width:99%;height:300px;">{$down_content}</textarea>
+
+</td>
+ 
+  </tr>
+    <tr>
+    <td class="tl">全图图片：</td>
+    <td class="tr padding-5050"><textarea name="down_picall" id="contentpic" style="width:99%;height:300px;">{$down_picall}</textarea>
+
+
+</td>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" class="table" id="tabs2" style="display:none">
+  <tr>
+    <td class="tl">推荐星级：</td>
+    <td class="tr" id="abc"><input name="down_stars" id="down_stars" type="hidden" value="{$down_stars}"><volist name="down_starsarr" id="ajaxstar"><img src="__PUBLIC__/images/admin/star{$ajaxstar}.gif" onClick="addstars('down',{$i});" id="star_{$i}" class="navpoint"></volist></td>
+  </tr>
+  <tr>
+    <td class="tl">软件状态：</td>
+    <td class="tr"><select name="down_status" class="w70"><option value="1">显示</option><option value="0" <eq name="down_status" value="0">selected</eq>>隐藏</option></select></td>
+  </tr>  
+  <tr>
+    <td class="tl">标题颜色：</td>
+    <td class="tr" id="abc">
+	<select name="down_color" id="down_color" class="w70"><option>颜色</option>                               
+    <option value='#62a1fa' style='background-color:#62a1fa' <eq name="down_color" value="#62a1fa">selected</eq>></option>
+    <option value='#fd9e60' style='background-color:#fd9e60' <eq name="down_color" value="#fd9e60">selected</eq>></option>
+    <option value='#3dc644' style='background-color:#3dc644' <eq name="down_color" value="#3dc644">selected</eq>></option>
+    <option value='#f9625c' style='background-color:#f9625c' <eq name="down_color" value="#f9625c">selected</eq>></option>
+    <option value='#1eb7fb' style='background-color:#1eb7fb' <eq name="down_color" value="#1eb7fb">selected</eq>></option>
+    <option value='#9f74dc' style='background-color:#9f74dc' <eq name="down_color" value="#9f74dc">selected</eq>></option>
+    <option value=''>无色</option></select></td>
+  </tr>
+    <tr>
+    <td class="tl">拼音：</td>
+    <td class="tr"><input type="text" name="down_letters" id="down_letters" value="{$down_letters}"  class="w150"></td>
+  </tr> 
+  <tr>
+    <td class="tl">首字母：</td>
+    <td class="tr"><input type="text" name="down_letter" id="down_letter" value="{$down_letter}" maxlength="1" class="w50"></td>
+  </tr>       
+  <tr>
+    <td class="tl">总人气：</td>
+    <td class="tr"><input type="text" name="down_hits" id="down_hits" maxlength="15" value="{$down_hits}" class="w50"></td>
+  </tr> 
+  <tr>
+    <td class="tl">月人气：</td>
+    <td class="tr"><input type="text" name="down_hits_month" id="down_hits_month" maxlength="15" value="{$down_hits_month}" class="w50"></td>
+  </tr> 
+  <tr>
+    <td class="tl">周人气：</td>
+    <td class="tr"><input type="text" name="down_hits_week" id="down_hits_week" maxlength="15" value="{$down_hits_week}" class="w50"></td>
+  </tr>
+  <tr>
+    <td class="tl">日人气：</td>
+    <td class="tr"><input type="text" name="down_hits_day" id="down_hits_day" maxlength="15" value="{$down_hits_day}" class="w50"></td>
+  </tr> 
+  <tr>
+    <td class="tl">评分值：</td>
+    <td class="tr"><input type="text" name="down_gold" id="down_gold" value="{$down_gold}" maxlength="4" class="w50"></td>
+  </tr> 
+  <tr>
+    <td class="tl">评分人数：</td>
+    <td class="tr"><input type="text" name="down_golder" id="down_golder" value="{$down_golder}" maxlength="8" class="w50"></td>
+  </tr> 
+  <tr>
+    <td class="tl">顶：</td>
+    <td class="tr"><input type="text" name="down_up" id="down_up" value="{$down_up}" maxlength="8" class="w50"></td>
+  </tr>
+  <tr>
+    <td class="tl">踩：</td>
+    <td class="tr"><input type="text" name="down_down" id="down_down" value="{$down_down}" maxlength="8" class="w50"></td>
+  </tr> 
+  <tr>
+    <td class="tl">时间：</td>
+    <td class="tr"><input type="text" name="down_addtime" id="down_addtime" maxlength="15" value="{$down_addtime|date='Y-m-d H:i:s',###}" class="w150"> <input name="checktime" type="checkbox" style="border:none;width:auto" value="1" {$checktime} title="勾选则使用系统当前时间"></td>
+  </tr>
+  <tr>
+    <td class="tl">独立模板：</td>
+    <td class="tr"><input type="text" name="down_skin" id="down_skin" value="{$down_skin}" maxlength="25" class="w150"></td>
+  </tr>   
+  <tr>
+    <td class="tl">来源：</td>
+    <td class="tr"><input type="text" name="down_reurl" id="down_reurl" value="{$down_reurl}" maxlength="150" class="w400"></td>
+  </tr> 
+	 <tr>
+    <td class="tl">手册：</td>
+    <td class="tr"><input type="text" name="down_urls" id="down_urls" value="{$down_urls}" maxlength="150" class="w400"></td>
+  </tr> 
+  <tr>
+    <td class="tl">跳转URL：</td>
+    <td class="tr"><input type="text" name="down_jumpurl" id="down_jumpurl" value="{$down_jumpurl}" maxlength="150" class="w400"></td>
+  </tr>    
+</table>
+<table border="0" cellpadding="0" cellspacing="0" class="table" id="tabs3" style="display:none">
+  <tr>
+    <td class="tl">下载地址1：</td>
+    <td class="tr"><label style="float:left; margin-top:4px; margin-right:5px"><input type="text" name="down_down1" id="down_down1" maxlength="255" value="{$down_down1}" class="w400" onMouseOver="if(this.value)showpic(event, this.value,'{$Think.config.upload_path}/');" onMouseOut="hiddenpic();"></label><iframe src="?s=Admin-Upload-Show-sid-down-fileback-down_down1" scrolling="no" topmargin="0" width="290" height="28" marginwidth="0" marginheight="0" frameborder="0" align="left" style="margin-top:4px; float:left"></iframe></td>
+  </tr>
+    <tr>
+    <td class="tl">云盘下载：</td>
+    <td class="tr"><label style="float:left; margin-top:4px; margin-right:5px"><input type="text" name="down_down2" id="down_down2" maxlength="255" value="{$down_down2}" class="w400"></label><span></span>密码用：&&隔开如：http://www.r.com/aa.zip&&1234</span></td>
+  </tr>
+    <tr>
+    <td class="tl">下载地址3：</td>
+    <td class="tr"><label style="float:left; margin-top:4px; margin-right:5px"><input type="text" name="down_down3" id="down_down3" maxlength="255" value="{$down_down3}" class="w400" onMouseOver="if(this.value)showpic(event, this.value,'{$Think.config.upload_path}/');" onMouseOut="hiddenpic();"></label><iframe src="?s=Admin-Upload-Show-sid-down-fileback-down_down3" scrolling="no" topmargin="0" width="290" height="28" marginwidth="0" marginheight="0" frameborder="0" align="left" style="margin-top:4px; float:left"></iframe></td>
+  </tr>
+    <tr>
+    <td class="tl">下载地址4：</td>
+    <td class="tr"><label style="float:left; margin-top:4px; margin-right:5px"><input type="text" name="down_down4" id="down_down4" maxlength="255" value="{$down_down4}" class="w400" onMouseOver="if(this.value)showpic(event, this.value,'{$Think.config.upload_path}/');" onMouseOut="hiddenpic();"></label><iframe src="?s=Admin-Upload-Show-sid-down-fileback-down_down4" scrolling="no" topmargin="0" width="290" height="28" marginwidth="0" marginheight="0" frameborder="0" align="left" style="margin-top:4px; float:left"></iframe></td>
+  </tr>
+    <tr>
+    <td class="tl">安卓下载：</td>
+    <td class="tr"><label style="float:left; margin-top:4px; margin-right:5px"><input type="text" name="down_down5" id="down_down5" maxlength="255" value="{$down_down5}" class="w400" onMouseOver="if(this.value)showpic(event, this.value,'{$Think.config.upload_path}/');" onMouseOut="hiddenpic();"></label><iframe src="?s=Admin-Upload-Show-sid-down-fileback-down_down5" scrolling="no" topmargin="0" width="290" height="28" marginwidth="0" marginheight="0" frameborder="0" align="left" style="margin-top:4px; float:left"></iframe></td>
+  </tr>
+    <tr>
+    <td class="tl">IOS下载：</td>
+    <td class="tr"><label style="float:left; margin-top:4px; margin-right:5px"><input type="text" name="down_down6" id="down_down6" maxlength="255" value="{$down_down6}" class="w400" onMouseOver="if(this.value)showpic(event, this.value,'{$Think.config.upload_path}/');" onMouseOut="hiddenpic();"></label><iframe src="?s=Admin-Upload-Show-sid-down-fileback-down_down6" scrolling="no" topmargin="0" width="290" height="28" marginwidth="0" marginheight="0" frameborder="0" align="left" style="margin-top:4px; float:left"></iframe></td>
+  </tr>
+</table>
+<ul class="footer">
+	<input type="submit" name="submit" value="提交"> <input type="reset" name="reset" value="重置">
+</ul>
+</div>
+</form>
+<include file="./Public/system/plus_kedit.html" />
+<include file="./Public/system/plus_jqmodal.html" />
+<style>
+#dia_title{height:25px;line-height:25px}
+.jqmWindow{height:500px;width:800px;top:10px;left:310px;overflow:hidden}
+</style>
+<include file="./Public/system/footer.html" />
+</body>
+</html>

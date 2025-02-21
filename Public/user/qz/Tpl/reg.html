@@ -1,0 +1,211 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+    <title>注册-{:C("site_name")}</title>
+    <meta name="Keywords" content="注册-{:C("site_name")}">
+    <meta name="Description" content="注册-{:C("site_name")}">
+	<link href="/Public/user/{:C('default_user')}/css/login.css" rel="stylesheet">
+	<link href="/Public/user/{:C('default_user')}/layui/css/layui.css" rel="stylesheet">
+	<script src="/Public/user/{:C('default_user')}/layui/layui.js" charset="utf-8"></script>
+	<script src="/Public/user/{:C('default_user')}/js/jquery-3.4.1.min.js" charset="utf-8"></script>
+<body>
+<div class="N-wp">
+  <!-- 通用顶部 -->
+
+<div id="header" class="header">
+    <!-- middlebar -->
+    <include file="./Public/user/qz/Tpl/user_top.html" />
+
+  <div class="U-w1030">
+    <h2>注册账号</h2>
+    <ul class="regist-tab" data-tab="li" style="display:none">
+      <li class="cur">手机号注册</li>
+      <li>邮箱注册</li>
+    </ul>
+    <div class="form-list regist-box" data-con="form">
+      <form action="/registerAdd" method="post" id="registForm" style="display: none;">
+        <div class="regForm h-form">
+          <div class="formItem clearfix">
+            <div class="form-label fl"><em class="red">*</em>手机号:</div>
+            <div class="form-cont fl">
+              <input type="text" datatype="mobile" name="mobile" class="ipt w346" id="phone-nb" placeholder="请输入注册时的手机号" reqmsg="手机号码" errmsg="请填写正确的手机号码">
+            </div>
+          </div>
+          <div class="formItem clearfix" id="code-wrapper">
+            <div class="form-label fl"><em class="red">*</em>验证码:</div>
+            <div class="form-cont fl">
+              <input type="text" datatype="vcode-4" name="image_captcha" class="ipt input_code" placeholder="请输入右边验证码" reqmsg="右边验证码" errmsg="验证码为4位" data-action="/checkImageCaptcha">
+              <span class="yz-img yz-refresh" href="/getImageCaptcha" style="margin:0"><img src="/getImageCaptcha"></span>
+              <span href="/getImageCaptcha" class="yz-refresh"></span>
+              <em class="error" style="clear:both;float:left"></em>
+            </div>
+          </div>
+          <div class="formItem clearfix">
+            <div class="form-label fl"><em class="red">*</em>短信验证码:</div>
+            <div class="form-cont fl">
+              <input type="text" class="ipt input_code" name="captcha" maxlength="6" minlength="6" placeholder="请输入短信验证码" reqmsg="短信验证码" errmsg="短信验证码为6位">
+              <span type="button" class="btn yz-sms disabled" data-phone="#phone-nb" data-freq="60" data-api="/sendCaptcha" disabled="disabled" style="margin:0">获取验证码</span>
+              <em class="error" style="clear:both;float:left"></em>
+            </div>
+          </div>
+          <div class="formItem clearfix">
+            <div class="form-label fl"><em class="red">*</em>密码:</div>
+            <div class="form-cont fl">
+              <input type="password" datatype="text" class="ipt w346" id="user-pw" minlength="6" maxlength="15" placeholder="请输入6-18位新密码，字母、数字、符号" datatarget="#user-pw-cfm"  >
+              <input type="hidden" name="passwd" class="ipt_PassWd">
+            </div>
+          </div>
+          <div class="formItem clearfix">
+            <div class="form-label fl"><em class="red">*</em>确认密码:</div>
+            <div class="form-cont fl">
+              <input type="password" datatype="text" class="ipt w346" id="user-pw-cfm" subdatatype="reconfirm" datatarget="#user-pw" placeholder="重复输入新密码" reconfirmmsg="确认密码和用户密码不一致" minlength="6" maxlength="15" reqmsg="确认密码" errmsg="请填写正确的确认密码">
+            </div>
+          </div>
+          <div class="formItem clearfix">
+            <div class="form-label fl"></div>
+            <div class="form-cont fl">
+              <input type="hidden" name="purpose" value="register">
+              <div id="regist-btn" type="submit" class="btn btn-default layui-btn-normal">马上注册</div>
+              <div class="regist-bottom">
+                <div class="fl regist-pact">
+                 <a href="{:UUU('User/center/agreement','','','')}" class="red" target="_blank" >注册协议</a><em class="error"></em>
+                </div>
+                <a href="{:UUU('User-Center/login','','','')}" target="_self" class="fr red">立即登录</a>
+              </div>
+              </div>
+          </div>
+        </div>
+      </form>
+
+     
+        <div class="regForm h-form layui-form" >
+          <div class="formItem cleafix">
+            <div class="form-label fl"><em class="red">*</em>邮箱：</div>
+            <div class="form-cont fl">
+              <input type="text" datatype="email" class="ipt w346" name="email" lay-verify="email"  placeholder="请输入邮箱"  autocomplete="off" class="layui-input">
+            </div>
+          </div>
+          <div class="formItem cleafix">
+            <div class="form-label fl"><em class="red">*</em>密码：</div>
+            <div class="form-cont fl">
+              <input type="password" datatype="text" class="ipt w346" id="user-pw2" lay-verify="passwd" minlength="6" name="password" maxlength="15" placeholder="请输入6-18位新密码，字母、数字、符号" datatarget="#user-pw-cfm2">
+            
+            </div>
+          </div>
+          <div class="formItem cleafix">
+            <div class="form-label fl"><em class="red">*</em>确认密码：</div>
+            <div class="form-cont fl">
+			<input type="password" datatype="text" class="ipt w346" id="user-pw-cfm2" lay-verify="password"  subdatatype="reconfirm" name="password_one" datatarget="#user-pw2" placeholder="重复输入新密码"  minlength="6"  maxlength="15" ></div>
+          </div>
+          <div class="formItem cleafix">
+            <div class="form-label fl"></div>
+            <div class="form-cont fl">
+            
+			   <button type="submit"  id="regist-btn" class="layui-btn btn btn-default layui-btn-normal" lay-submit="" lay-filter="login">立即注册</button>
+              <div class="regist-bottom">
+                <div class="fl regist-pact">
+                  <input type="checkbox" checked="checked" lay-skin="primary" name="checkbox" lay-verify="checkbox" id="key_service"> 我已经阅读并同意
+				  <a href="{:UUU('User/center/agreement','','','')}" class="red" target="_blank" >注册协议</a>
+                </div>
+                   <a href="{:UUU('User-Center/login','','','')}" target="_self" class="fr red">立即登录</a>
+              </div>
+            </div>
+          </div>
+        </div>
+     
+    </div><!--end form-list-->
+   
+  </div><!--end U-w1030-->
+<div class="N-ft">
+    <div class="footer" style="font-size:12px;padding:8px">
+    <p>{:C('site_copyright')}<br>{:C('site_icp')}</p>
+</div>
+</div><!--end N-wp--><!--找回密码、注册帐号、登录帐号 - 远程js公共模块-->
+
+
+<script>
+layui.use(['form', 'layedit', 'laydate'], function(){
+  var form = layui.form
+  ,layer = layui.layer
+  
+
+  var checked=document.getElementById("key_service");
+    //自定义验证规则
+  form.verify({
+    password: function(value){
+      if(value.length < 5){
+        return '请输入6-18位新密码，字母、数字、符号';
+      }
+    }
+    ,email: [/^[a-z0-9._%-]+@([a-z0-9-]+\.)+[a-z]{2,4}$|^1[3|4|5|7|8]\d{9}$/, '邮箱格式不对']
+	,checkbox:function () {
+     
+		if(checked.checked==false){
+			layer.msg("请勾选协议",{icon:5,time:2000,anim: 6})
+			 return false;
+		}
+        }
+  });
+ 
+
+
+  
+  //监听提交
+  form.on('submit(login)', function(data){
+  
+		
+		
+		if(data.field.password!=data.field.password_one){
+		
+		 layer.msg('两次输入密码不一致',{'icon':2});
+		  return false;
+		}
+		
+		
+	//	layer.alert(JSON.stringify(data.elem), {
+		//  title: '最终的提交信息'
+		//})
+		//layer.msg('请勾选注册协议',{'icon':2});
+
+	
+		
+		
+		$.ajax({
+            //几个参数需要注意一下
+                type: "POST",//方法类型
+                dataType: "json",//预期服务器返回的数据类型
+                url: "{:UUU('User/center/reg')}",//url
+                data:{
+                    "email":data.field.email,
+                    "password":data.field.password,
+					"password_one":data.field.password_one,
+					"is":checked.checked
+                },
+                success: function (result) {
+                  console.log(result);
+                    if (result.code == 1) {
+                       layer.msg(result.msg,{'icon':2});
+                    }else{
+					var index = layer.load();
+					layer.msg(result.msg);
+					window.location.href=result.url;
+					}
+                   
+                },
+                error : function() {
+                   layer.msg('登录异常请联系客服解决',{'icon':2});
+                }
+            });
+   		return false;
+  
+  });
+ 
+ 
+ 
+  
+});
+</script>
+</body>
+</html>

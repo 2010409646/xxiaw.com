@@ -1,0 +1,92 @@
+<html>
+<head>
+<title>用户中心-{$sitename}</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="/Public/wxcode/qrcode.js"></script>
+	<script type="text/javascript" src="/Public/wxcode/Base.js"></script>
+	<script type="text/javascript" src="/Public/wxcode/prototype.js"></script>
+	<script type="text/javascript" src="/Public/wxcode/mootools.js"></script>
+	<script type="text/javascript" src="/Public/wxcode/Ajax/ThinkAjax.js"></script>
+<link href="/Public/wxcode/wechat_pay.css" rel="stylesheet">
+</head>
+<body class="body-f">
+	<script language="JavaScript">
+	    function Check()
+	    {
+	    	var out_trade_no = "<?php echo $out_trade_no; ?>"; 
+	    	ThinkAjax.send('{:UUU("pay-pay/orderQuery",'',true,false)}','ajax=1&out_trade_no='+out_trade_no,goto);
+	    }
+	    function goto(data,status){
+	    	if (status==1)
+	    	{
+	    		alert("支付成功！");//弹出信息
+	    		window.location.href="{:UUU('pay-pay/pay','',true,false)}";//跳转地址
+	    	}
+	    	}
+	    window.setInterval("Check()",3000); 
+	</script>
+
+	
+	
+	<div class="body">
+    <h1 class="mod-title">
+        <span class="ico-wechat"></span><span class="text">微信支付</span>
+    </h1>
+    <div class="mod-ct">
+        <div class="order">
+        </div>
+        <div class="amount">￥{$price}.00</div>
+		<div align="center" id="qrcode">
+		</div>
+        <!--detail-open 加上这个类是展示订单信息，不加不展示-->
+        <div class="detail detail-open" id="orderDetail" style="">
+            <dl class="detail-ct">
+               
+                <dt>商品名称</dt>
+                <dd id="productName">听豆充值</dd>
+                <dt>交易单号</dt>
+                <dd id="billId">{$out_trade_no}</dd>
+                <dt>创建时间</dt>
+                <dd id="createTime">{$time|date='Y-m-d H:i:s',###}</dd>
+            </dl>
+            <a href="javascript:void(0)" class="arrow"><i class="ico-arrow"></i></a>
+        </div>
+        <div class="tip">
+            <span class="dec dec-left"></span>
+            <span class="dec dec-right"></span>
+            <div class="ico-scan"></div>
+            <div class="tip-text">
+                <p>请使用微信扫一扫</p>
+                <p>扫描二维码完成支付</p>
+            </div>
+        </div>
+     </div>
+
+    <div class="foot">
+        <div class="inner">
+            <p>您若对上述交易有疑问</p>
+            <p>请联系腾讯云企业QQ <a href="javascript:void(0);" class="link">800033878</a></p>
+        </div>
+    </div>
+
+</div>
+    <script>
+        if(<?php echo $unifiedOrderResult["code_url"] != NULL; ?>)
+        {
+            var url = "<?php echo $code_url;?>";
+            //参数1表示图像大小，取值范围1-10；参数2表示质量，取值范围'L','M','Q','H'
+            var qr = qrcode(10, 'L');
+            qr.addData(url);
+            qr.make();
+            var wording=document.createElement('p');
+            var code=document.createElement('DIV');
+            code.innerHTML = qr.createImgTag();
+            var element=document.getElementById("qrcode");
+            element.appendChild(wording);
+            element.appendChild(code);
+        }
+    </script>
+
+</body>
+</html>

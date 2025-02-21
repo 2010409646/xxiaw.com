@@ -1,0 +1,59 @@
+  <script language="JavaScript" type="text/javascript" >Sid=1;Id="{$down_id}"</script> 
+ 
+ <script type="text/javascript" src="/kan/js/read.js"></script>
+
+<div style="display:none">
+<div class="login-box" id="login-dialog">
+<div class="login-top"><a  rel="nofollow" id="login1" onclick="setTab('login',1,2);" >登录</a></div>
+<div class="login-form" id="nav-signin">
+ <!-- <div class="login-ico"><a rel="nofollow" class="qq" id="qqlogin" target="_blank" href="{:UUU('User-Center/qqlogin','',true,false)}"> QQ </a></div>  -->
+
+
+<div class="login-box-form" id="con_login_1">
+<form id="loginform" action="{:UUU('User-Center/login','',true,false)}" method="post" onsubmit="return false;">
+<p class="int-text">
+<input class="email" id="username" name="username" type="text" value="用户名或Email" onfocus="if(this.value=='用户名或Email'){this.value='';}" onblur="if(this.value==''){this.value='用户名或Email';};" ></p>
+<p class="int-text">
+<input class="password1" type="password" id="password" name="password"  value="******"  onBlur="if(this.value=='') this.value='******';" onFocus="if(this.value=='******') this.value='';" >
+</p>
+<p class="int-info">
+                <label class="ui-label">&nbsp;</label>
+                <label for="agreement" class="ui-label-checkbox">
+                <input type="checkbox" value="" name="cookietime" id="cookietime" checked="checked" value="2592000">
+                <input type="hidden" name="notforward" id="notforward" value="1">
+                <input  type="hidden" name="dosubmit" id="dosubmit" value="1">记住我的登录 </label>                           
+       <a rel="nofollow" class="aright" href="{:UUU('User-Center/resetpasswdstep','',true,false)}" target="_blank"> 忘记密码？ </a></p>
+  <p class="int-btn"><a rel="nofollow" id="loginbt"  class="loginbtn"><span>登录</span></a></p> 
+  </form>
+</div>
+
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+</div>
+ 
+<script type="text/javascript" src="/kan/js/foot_js.js"></script>  

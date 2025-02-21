@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>下下软件系统-留言本</title>
+<meta name="keywords" content="下下软件系统-留言本">
+<meta name="description" content="下下软件系统求片留言本，本站管理员将在第一时间回复与处理你的回复！">
+<meta content="all" name="robots" />
+<link href="/Public/jquery/style.css" type="text/css" rel="stylesheet">
+<script language="javascript">var Root='{$root}';var Sid='{$sid}';var Cid='{$list_id}';<if condition="$sid eq 1">var Id='{$vod_id}';<else />var Id='{$news_id}';</if></script>
+<script language="javascript" src="/Public/jquery/jquery-1.7.2.min.js" charset="utf-8"></script>
+<script language="javascript">
+var reloadcode = function(){
+	$('#safecode').attr('src','{$root}index.php?s=Vcode-Index-time='+new Date());
+}
+$(document).ready(function(){
+	$('#gb_content').focus(function(){
+		if($('#gb_content').val() == '请留下您的宝贵意见，最多200个字。'){
+			$('#gb_content').val('');
+		}
+	});
+   $('#nickname').focus(function(){
+		if($('#nickname').val() == '请输入昵称！'){
+			$('#nickname').val('');
+		}
+	});
+   	$('#nickname').blur(function(){
+		if($('#nickname').val() == ''){
+			$('#nickname').val('请输入昵称！');
+		}
+	});	
+	$('#gb_content').blur(function(){
+		if($('#gb_content').val() == ''){
+			$('#gb_content').val('请留下您的宝贵意见，最多200个字。');
+		}
+	});	
+	$('#gb_vcode').focus(function(){
+		$('#gb_vcode_html').html('<a href="javascript:reloadcode()"><img src="{$root}index.php?s=Vcode-Index" alt="看不清楚换一张" name="safecode" border="0" align="absbottom" id="safecode"></a>');
+	});
+	$("#guestbook").submit( function () {
+		if($('#gb_content').val().length>200){
+			$('#gb_tips').html('您输入的留言信息过长，请删减一些！');
+  			return false;
+		}
+		if($('#gb_content').val() == '请留下您的宝贵意见，最多200个字。'){
+			$('#gb_content').select();
+			$('#gb_tips').html('请输入留言信息！');
+  			return false;
+		}
+		if($('#nickname').val() == '请输入昵称！'){
+			$('#nickname').select();
+			$('#gb_nickname').html('请输入昵称！');
+  			return false;
+		}
+		if($('#gb_vcode').val() == ''){
+			$('#gb_tips').html('请输入验证码！');
+			return false;
+		}		
+	});
+});
+</script>
+<script type="text/javascript">
+$(document).ready(function() {
+    // back-to-top
+    var $back = $("<div id='back-to-top'><a href='javascript:void(0);'>Back to Top</a></div>");
+    $back.appendTo(".wrap");
+    $(window).scroll(function(){
+        if ($(window).scrollTop()>100){
+            $("#back-to-top").fadeIn(100);
+        }else{
+            $("#back-to-top").fadeOut(100);
+        }
+    });	
+    $("#back-to-top").click(function(){
+        $('body,html').animate({scrollTop:0},100);
+        return false;
+    });
+    $(".ui-input").focus(function(){
+        $(this).parent().addClass("ui-input-parent");
+    }).hover(function(){
+        $(this).parent().addClass("ui-input-parent-hover");
+    },function(){
+        $(this).parent().removeClass("ui-input-parent-hover");
+    });
+    $(".ui-input").blur(function(){
+        $(this).parent().removeClass("ui-input-parent");
+    });	
+    // #gb_types
+    $("#gb_types li").bind('click',function(e){									
+        $("#gb_types li").each(function(){
+            $(this).removeClass('selected');
+        });
+        $(this).addClass('selected');
+        $("#gb_cid").val($(this).attr('val'));
+    });
+});
+</script>
+</head>
+<style>
+
+.ui-gb-item{
+    line-height: 50px;
+    color: #fff;
+    font-size: 18px;
+}
+.header {
+  position: fixed;
+    left: 0;
+    right: 0;
+    _position: absolute;
+    _top: expression(documentElement.scrollTop + "px");
+    z-index: 99;
+    background-color: #151515;
+    border-bottom: 2px solid #0083ce;
+}
+.ui-form .ui-input {
+    width: 300px;
+    float: left;
+    clear: both;
+    padding: 5px 8px;
+    height: 22px;
+    overflow: hidden;
+    color: #17a1ff;
+    border: 1px solid #373737;
+    border-radius: 1px;
+    background-color: #212122;
+}
+.ui-form .ui-button {
+    width: 100px;
+    float: right;
+    height: 34px;
+    line-height: 32px;
+    overflow: hidden;
+    text-align: center;
+    cursor: pointer;
+    font-weight: bold;
+    color: #fff;
+    border: 1px solid #17a1ff;
+    background: #17a1ff;
+    border-radius: 1px;
+}
+#gb_types li.selected {
+    color: #fff;
+    font-weight: bold;
+    border: 1px solid #17a1ff;
+    background: #17a1ff;
+}
+</style>
+<body>
+<!-- // Header Start -->
+<div class="header">
+	<div class="head-bar fn-clear">
+		<div class="logo fn-left">
+		
+		</div>
+		<!-- // Logo End -->
+		<div class="gb-logo fn-left">
+		<a href="/"><img src="/layui26/logo.png" alt="网站logo" /></a>
+		</div>
+		<!-- // Logo End -->
+		<div class="top-bar fn-right">
+			<a href="/">网站首页</a>
+		
+		</div>
+		<!-- // top-bar End -->
+		<!-- // search End -->
+	</div>
+
+</div>	
+<!-- // Header End -->
+<div class="wrap">
+	<div class="container fn-clear">
+		<div class="ui-gbook fn-left">
+    
+	<!-- // ui-gb-num End -->
+	
+	<div class="ui-gb-item fn-clear">
+	联系QQ<br>397879576(仅做合作使用不解决站内问题)
+	<br>
+广告投放须知<br>
+1.广告方式只提供包月、包年、不做联盟广告，不做点击广告<br>
+
+2.广告不提供试用，先付款并款到帐后开始投放广告。<br>
+
+3.本站不负责广告图片的制作，请自备图片。如果实在不会，站长也可以代工，但是图样图森破，你可别嫌弃o(*￣︶￣*)o。<br>
+
+4.广告价格会不定期做适当调整，以上价格仅供参考，具体以咨询客服告知的为准。<br>
+
+5.本站所有位置广告最低1个月起投，多月投放可适当优惠，投放日期最多不超过12个月。<br>
+
+6.本站没有给广告刷IP的行为，本站里面的所有网址每个IP访问一天只计1次。<br>
+
+7.本站不接受色情，政治等违反法律的广告！<br>
+
+8.如站长在到期之前询问您是否续费的，请尽快回复，48小时内若不回复，我们会在到期时立即关闭广告，请知悉。<br>
+</div>
+
+<!-- // ui-gb-item End -->
+		<div class="bot"></div>	
+
+		</div>
+		<!-- // ui-gbook End -->
+		<div class="ui-bar fn-right">
+<!--        <div class="gbsearch">
+			<form action="/index.php?s=Guestbook-Search" method="post" name="guestsearch" id="guestsearch">
+				<div class="gbsearchbox">
+					<div class="gbinputbox">
+						<input class="input_name" name="wd" id="gb_search" type="text" value="输入昵称或者留言内容" />
+						<input class="submit_search" type="submit" id="gb_search_btn"  value="$nbsp;"/>
+						<div class="cl"></div>
+					</div>
+				</div>
+			</form>
+		</div>-->
+	<div class="ui-form">
+				<form action="{$root}index.php?s=User-gb-insert" method="post" name="guestbook" id="guestbook">
+                <input name="gb_cid" type="hidden" value="{.id}" />
+					<div class="ui-form-title"></div>
+					<div class="ui-form-item">
+						<label class="ui-label">请输入您的联系方式：</label>
+                         <input name="gb_uid" id="gb_uid" type="hidden" value="{$userid}" />
+                         <input name="gb_down_id" id="gb_down_id" type="hidden" value="{$vod_id}" />
+                         <input class="ui-input"  name="nickname" id="nickname" type="text" placeholder="<if condition="$userid eq 0">请输入QQ/微信号！<else />{$nickname}</if>" <if condition="$userid eq 0"><else />readonly="readonly"</if>/>
+					</div>
+					<div class="ui-form-item ui-form-type">
+						<label class="ui-label">选择类型：</label>
+						<ul id="gb_types">	
+							<li val="11">广告合作</li>
+							<li val="12">版权投诉</li>
+							<li val="1">网站建议</li>
+							<li val="2">其他留言</li>
+							<input name="gb_cid" type="hidden" id="gb_cid" value="0"/>
+						</ul>
+					</div>
+					<div class="ui-form-item ui-form-type-msg">
+						<p>请选择留言类型！</p>
+					</div>
+					<div class="ui-form-item">
+						<label class="ui-label">请输入您的留言内容：</label>
+						<textarea name="gb_content" id="gb_content" rows="6" cols="50" class="gb_content">{$gb_content|default='请留下您的宝贵意见，最多200个字。'}</textarea>
+					</div>
+					 <div class="ui-form-item">		
+            <if condition="C('user_vcode') eq 1"><div class="vcodde"><div class="vcode">验证码：</div><input name="gb_code" type="text" class="ui-code" id="gb_vcode"/>$nbsp;<span id="gb_vcode_html"></span></div></if>
+            <label id="gb_tips"></label>
+            <input  class="ui-button" type="submit"  value="发送留言" id="gb_button"  />
+					</div>
+				</form>	
+			</div>
+			<!-- // ui-bar End -->	
+			<div class="ui-message">
+				<p>你可以在顶部的搜索框输入你留言时的用户名就可以看到回复拉！</p>
+			
+				
+			</div>
+			<!-- // ui-message End -->		
+		</div>
+		<!-- // ui-bar End -->
+	</div>
+	<!-- // container End -->
+	<div class="ui-copyright">
+		Copyright {:C(site_copyright)}</div>
+</div>	
+<!-- // wrap End -->
+</body>
+</html>

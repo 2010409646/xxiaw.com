@@ -1,0 +1,26 @@
+if (!-e $request_filename) {
+rewrite ^/doc/([0-9]+).html$ /index.php?s=/news-read-id-$1 last;
+rewrite ^/domain/(.*)$ /index.php?s=/Home-icp-search-wd-$1 last;
+rewrite ^/user-center-(.*)$ /index.php?s=/User-center-$1 last;
+rewrite ^/user-upload-(.*)$ /index.php?s=/User-upload-$1 last;
+rewrite ^/pay-pay-(.*)$ /index.php?s=/pay-pay-$1 last;
+rewrite ^/(.*)/index([0-9]+).html$ /index.php?s=Home-icp-show-dir-$1-p-$2 last;
+rewrite ^/(.*)/index([0-9]+).html$ /index.php?s=Home-news-show-dir-$1-p-$2 last;
+rewrite ^/linkslist/(.*)-p-(.*)$ /index.php?s=/Home-links-show-id-$1-p-$2 last;
+rewrite ^/code/(.*)/(.*)$  /index.php?s=/Home-doc-code-id-$2 last;
+rewrite ^/links/(.*)$ /index.php?s=/Home-links-read-id-$1 last;
+rewrite ^/icp/(.*)$ /index.php?s=/Home-icp-read-id-$1 last;
+rewrite ^/user-checkcode-(.*)$ /index.php?s=/User-checkcode-$1 last;
+rewrite ^/home-icp-update.html$ /index.php?s=/Home-icp-update last;
+rewrite ^/(.*)/doc.html$ /index.php?s=/doc-show-dir-$1 last;
+rewrite ^/api$ /index.php?s=/Home-icp-icp_api last;
+rewrite ^/icp_api$ /index.php?s=/Home-icp-api last;
+rewrite ^/(.*)/$ /index.php?s=/Home-icp-show-dir-$1 last;
+rewrite ^/icp_api$ /index.php?s=/Home-icp-api last;
+rewrite ^/(.*)/(.*).html$ /index.php?s=/doc-type-name-$2 last;
+rewrite ^/(.*).html$ /index.php?s=/doc-read-name-$1 last;
+rewrite ^/(.*)$ /index.php?s=/doc-type-name-$1 last;
+rewrite ^/user-upload-(.*)$ /index.php?s=/User-upload-$1 last;
+rewrite ^/(md5|time|code|codes|xmljson|convutf|html).html$  /index.php?s=/my-show-id-$1 last;
+
+}

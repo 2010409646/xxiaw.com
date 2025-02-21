@@ -1,0 +1,406 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>{$down_name}-{$down_name}软件-{$list_name}</title>
+
+	<meta name="keywords" content="{$down_name}下载,{$down_name}软件下载，{$down_name}绿色版，{$down_name}激活码,{$down_name}去除广告版,{$down_name}免广告版" />
+
+	<meta name="description" content="{$down_remark}" />
+
+        <link href="/Public/del/css/global.css" rel="stylesheet">
+
+	<link rel="stylesheet" href="/Public/code/css/main.css">
+<script type="text/javascript" src="/tongji.js"></script>
+	<link rel="stylesheet" href="/Public/code/css/system.css">
+ <script language="JavaScript" type="text/javascript" >Sid=1;Id={$down_id}</script> 
+<script type="text/javascript" src="/kan/js/jquery-1.8.3.min.js"></script>
+<meta http-equiv="Content-Language" content="zh-cn">
+
+</head>
+
+<body>
+
+<style>
+
+
+
+.intro-box img{width: 95%;}
+
+
+
+</style>
+
+<include file="gxl:header" />
+
+
+
+    <div class="content">
+
+	<div class="con_L fl">
+
+		<div class="details_cont soft_cont">
+
+		<div class="iconimg">
+
+<notempty name="down_icon">
+
+                <img class="lazy" data-original="{$down_iconurl}" alt="{$down_name}软件logo图" src="{$down_iconurl}" style="display: inline;">	</notempty>
+
+            </div>
+
+		<h1 class="title">{$down_name}</h1>
+
+			<div class="details_info">
+
+				<div class="img"><notempty name="down_pic"><span>{$down_version}</span><img src="{$down_picurl}" alt="{$down_name}" class="lazy"></notempty></div>
+
+				<ul class="lis">
+
+					<li>软件大小：<span>{$down_size}</span></li>
+
+					<li>授权方式：<span>{$down_authorization|default="免费软件"}</span></li>
+
+					<li>软件类型：<span>{$list_namedefault="免费"}</span></li>
+
+					<li>软件语言：<span>{$down_language|default="简体中文"}</span></li>
+
+					<li>运行环境：<span>{$down_environment|default="Win All"}</span></li>
+					<empty name="down_url">
+					<li>来源：<span>{$down_url|default="网友上传"}</span></li>
+					<else/>
+					<li>来源：<span><a href="{$down_url}" rel="nofollow" target="_blank">官方网站</a></span></li>
+                    </empty>
+					<li>更新日期：<span>{$down_addtime|date='Y-m-d',###}</span></li>
+
+				
+
+					
+
+
+				</ul>
+				</ul>
+
+					
+
+			
+			</div>
+
+
+
+			<!-- 定位 -->
+
+			<div class="conthd">
+
+
+
+				<ul class="">
+
+					<li class="on" data-wrap="posA">软件介绍</li>
+
+					<li data-wrap="posB" class="">下载地址</li>
+
+					<li data-wrap="posE" class="">大家都在用</li>
+                  
+				</ul>
+
+			</div>
+
+			<!-- 内容 -->
+
+			<div class="art_cont" id="posA">
+
+
+
+
+
+
+
+{$down_content}
+
+
+<h3 style="text-align:left;">
+
+	{$down_name}免责声明：
+
+</h3>
+
+<p>
+
+	1、本软件及软件版权属各自产权人所有，
+
+</p>
+
+<p>
+
+	2、只用于个人封装技术研究交流使用，不得用于商业用途，
+
+</p>
+
+<p>
+
+	3、且本网站不承担任何技术及版权问题，请在试用后24小时内删除。
+
+</p>
+
+<p>
+
+	4、如果您对本软件有任何意见和建议，欢迎到反馈，请购买正版软件！
+
+</p>			</div>
+
+					</div>
+
+		<!-- 下载 -->
+
+		<div class="Qz_title" id="posB">
+
+			<span>下载地址</span>
+
+			<div class="downltips">如发现侵权或者不健康内容可以给我们反馈！<a href="{:UUU('/gb',array('p'=>1,'id'=>$down_id),true,true,true)}"  target="_blank">举报</a></div>
+
+		</div>
+
+		<div class="downl_lis">
+
+
+
+			<div class="lis">
+
+			
+	
+			<!-- 	<a href="{:UU('Home-down/down',array('id'=>$down_id,'type'=>1))}" class="bendi"  title="{$down_name}下载地址"><i></i>本地下载<u>（优质下载)</u></a> -->
+            <notempty name="down_down1">
+			<a href="{:UU('Home-down/down',array('id'=>$down_id,'type'=>1))}"   title="{$down_name}下载地址"  class="bendi"><i></i>本地下载<u>（优质下载)</u></a>	
+            </notempty>
+			<notempty name="down_down2" ><a href="javascript:;" class="baidu" onclick="$('.fixed_bg').fadeIn()"  rel="nofollow">
+
+					<i></i>网盘下载
+
+				</a>
+
+						
+
+				
+
+							
+
+						<div class="fixed_bg">
+
+				<div class="tiquma">
+
+					<notempty name="down_code"><h4>提取码</h4>
+
+					<p>{$down_code}</p><else/><h4>链接地址</h4><p style="font-size:12px">{$down_baidu}</notempty>
+
+					<div class="tiquma-bottom">
+
+						<a href="javascript:;" class="shut_tiquma" onclick="$('.fixed_bg').fadeOut()" rel="nofollow">关闭</a>
+
+						<a href="{$down_baidu}" rel="nofollow" target="_blank" title="{$down_name}前往下载">前往下载
+
+						</a>
+
+					</div>
+
+				</div>
+
+			</div></notempty>
+	</div>	
+			</div>
+
+<include file="gxl:gb" />
+
+		<div class="Qz_title" id="posE">
+
+
+
+			<span>大家正在用</span>
+
+			<a href="{$list_url}" class="more">更多<i></i></a>
+
+		</div>
+
+<php>$gamet =gxl_mysql_down('cid:'.$down_cid.';field:down_id,down_cid,down_name,down_version,down_size,down_pic,down_addtime;limit:23;order:down_hits_day desc');</php>
+
+		<ul class="use_lis">
+
+			<volist name="gamet" id="gxl" offset="0" length='6' >
+
+						<li>
+
+				<span class="tag">{$gxl.down_version}</span>				<div class="info">
+
+					<a href="{$gxl.down_readurl}" target="_blank" class="bt"  title="{$gxl.down_name}">{$gxl.down_name}</a>
+
+					<div class="lis">
+
+						<p>语言：<span>{$gxl.down_language|default="简体中文"}</span></p>
+
+						<p>大小：<span>{$gxl.down_size|default="1G"}</span></p>
+
+						<p>更新日期：<i>{$gxl.down_addtime|date='m-d',###}</i></p>
+
+					</div>
+
+					<div class="btn">
+
+						<a href="{$gxl.down_readurl}" target="_blank"  title="{$gxl.down_name}前往下载">前往下载</a>
+
+					</div>
+
+				</div>
+
+			</li>
+
+					</volist>	
+
+					</ul>
+
+	</div>
+
+	<div class="con_R fr">
+
+		<!-- 排行 -->
+
+		<div class="Qz_title">
+
+			<span>{$list_name}<i>相关软件</i></span>
+
+			
+
+		</div>
+
+		<div class="Rtab_bd Rtab_bd2">
+
+			<ul style="display: block;">
+
+
+
+			<volist name="gamet" id="gxl" offset="6" length='6' >
+
+							<eq name="i" value="1">	<li class="on">
+
+					<a href="{$gxl.down_readurl}" target="_blank" class="bt"  title="{$gxl.down_name}">{$gxl.down_name}</a>
+
+					<div class="info">
+
+						<a href="{$gxl.down_readurl}" class="img">
+
+							<img src="{$gxl.down_picurl}" alt="{$gxl.down_name}">
+
+						</a>
+
+						<p>语言：<span>{$gxl.down_language|default="简体中文"}</span></p>
+
+						<p>大小：<span>{$gxl.down_size|default="1G"}</span></p>
+
+						<p>更新日期：<span>{$gxl.down_addtime|date='m-d',###}</span></p>
+
+					</div>
+
+				</li><else/>
+
+								<li>
+
+					<a href="{$gxl.down_readurl}" target="_blank" class="bt"  title="{$gxl.down_name}">{$gxl.down_name}</a>
+
+					<div class="info">
+
+						<a href="{$gxl.down_readurl}" class="img">
+
+							<img src="{$gxl.down_picurl}" alt="{$gxl.down_name}">
+
+						</a>
+
+						<p>语言：<span>{$gxl.down_language|default="简体中文"}</span></p>
+
+						<p>大小：<span>{$gxl.down_size|default="1G"}</span></p>	
+
+						<p>更新日期：<span>{$gxl.down_addtime|date='m-d',###}</span></p>
+
+					</div>
+
+				</li></eq></volist>
+
+							</ul>
+
+			
+
+		</div>
+
+
+
+		<!-- 排行 -->
+
+		<div class="Qz_title">
+
+			<span>{$list_name}下载排行</span>
+
+			
+
+		</div>
+
+		<div class="Rtab_bd">
+
+			<ul style="display: block;">
+
+				<volist name="gamet" id="gxl" offset="12" length='10' >
+
+				<li >
+
+					<i class="icon{$i-1}"></i>
+
+					<a href="{$gxl.down_readurl}" target="_blank" class="bt"  title="{$gxl.down_name}">{$gxl.down_name}</a>
+
+					<div class="info">
+
+						<a href="{$gxl.down_readurl}" class="img">
+
+							<img src="{$gxl.down_picurl}" alt="{$gxl.down_name}">
+
+						</a>
+
+							<p>语言：<span>{$gxl.down_language|default="简体中文"}</span></p>
+
+						<p>大小：<span>{$gxl.down_size|default="1G"}</span></p>	
+
+						<p>更新日期：<span>{$gxl.down_addtime|date='m-d',###}</span></p>
+
+					</div>
+
+				</li>
+
+						</volist>	</ul>
+
+			
+
+		</div>
+
+
+
+	
+
+	
+
+	
+
+	
+
+	</div>
+
+</div>
+
+<script src="/Public/code/js/main.js"></script>
+
+
+
+<include file="gxl:fend" />	
+
+</body>
+
+</html>

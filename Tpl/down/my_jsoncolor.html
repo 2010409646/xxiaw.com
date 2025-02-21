@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="">
+<link rel="icon" href="favicon.ico">
+<title>Json着色</title>
+<meta name="keywords" content="Json着色" />
+<meta name="description" content="Json着色" />
+<link href="/code/static/css/bootstrap.min.css" rel="stylesheet">
+<link href="/code/static/css/style.css" rel="stylesheet">
+  <script type="text/javascript" src="/kan/js/jquery-1.8.3.min.js"></script> 
+<script src="/code/static/js/ie-emulation-modes-warning.js"></script>
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="/code/static/js/html5shiv.min.js"></script>
+  <script src="/code/static/js/respond.min.js"></script>
+<![endif]-->
+ <link href="/Public/del/css/global.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/Public/del/img/index.css" /> 
+</head>
+<body>
+    <include file="gxl:header" /> 
+    <include file="gxl:jsonheader" /> 
+    
+<!-- Static navbar -->
+<style type="text/css">
+#menusbu {
+	padding: 0;
+	margin: 0;
+}
+
+#menusbu th {
+	font: bold 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+	color: #4f6b72;
+	border-right: 1px solid #C1DAD7;
+	border-bottom: 1px solid #C1DAD7;
+	border-top: 1px solid #C1DAD7;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	text-align: left;
+	padding: 6px 6px 6px 12px;
+	background: #dff0d8 no-repeat;
+}
+
+#menusbu td {
+	border-right: 1px solid #C1DAD7;
+	border-bottom: 1px solid #C1DAD7;
+	background: #fff;
+	padding: 6px 6px 6px 12px;
+	color: #4f6b72;
+}
+
+#menusbu tr{
+   white-space:nowrap;
+}
+.bat{
+        border-radius: 20px;
+    padding: 5px 23px;
+    background: #17a1ff;
+    color: #fff;
+}
+
+</style>
+
+<nav class="navbar navbar-default" role="navigation">
+	
+
+<div class="container">
+  <div class="tabbable tabs-left" style="margin-top:10px;">
+
+    <div class="tab-content" style="padding-left:30px;margin-bottom:42px;">
+      <div class="tab-pane active" id="btn-help-a">
+        <form style="padding:0;margin:0" name="cat=Angle;focuscolor=blue;focusweight=bold">
+          <fieldset>
+          <legend>Json着色</legend>
+          <div id="page-wrapper">
+            <div style="height: 10px;"></div>
+            <div></div>
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="panel panel-default">
+                  <div class="panel-heading"> JSON格式化高亮 </div>
+                  <!-- /.panel-heading -->
+                  <div class="panel-body">
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <div class="form-group">
+                          <label>JSON</label>
+                          <textarea class="form-control json" rows="5">{"code":0,"data":[{"icp_id":"1","icp_domain":"www.sxiaw.com","icp_domainid":"10000245113","icp_homeurl":"www.sxiaw.com","icp_leadername":"","icp_limitaccess":"否","icp_mainid":"282751","icp_mainlicence":"京30173号","icp_naturename":"企业","icp_serviceid":"282911","icp_servicelicence":"京73号-1","icp_servicename":"sxiaw","icp_unitname":"北京www.sxiaw.com有限公司","icp_updaterecordtime":"2021-08-30 13:10:24","icp_is":"0","icp_addtime":"1630300224","icp_referer":"","icp_ip":""}],"msg":"查询成功"}</textarea>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-lg-1">
+                        <button type="button" class="btn btn-outline btn-primary btn-format">高亮显示</button>
+                      </div>
+                      <div class="col-lg-2">
+                        <div class="form-group">
+                          <label>缩进</label>
+                          <label class="radio-inline">
+                          <input type="radio" name="tab" class="tab" value="2">
+                          2 </label>
+                          <label class="radio-inline">
+                          <input type="radio" name="tab" class="tab" value="4" checked="">
+                          4 </label>
+                        </div>
+                      </div>
+                      <div class="col-lg-9">
+                        <div class="form-group">
+                          <input type="checkbox" class="QuoteKeys" checked="">
+                          &nbsp;引号
+                          <input type="checkbox" class="CollapsibleView" checked="">
+                          &nbsp;显示控制&nbsp;&nbsp;&nbsp;&nbsp; <a href="javascript:;" class="expandAll">展开</a>&nbsp;&nbsp; <a href="javascript:;" class="collapseAll">叠起</a>&nbsp;&nbsp; <a href="javascript:;" class="expand bat" data-level="3">2级</a>&nbsp;&nbsp; <a href="javascript:;" class="expand bat" data-level="4">3级</a>&nbsp;&nbsp; <a href="javascript:;" class="expand bat" data-level="5">4级</a>&nbsp;&nbsp; <a href="javascript:;" class="expand bat" data-level="6">5级</a>&nbsp;&nbsp; <a href="javascript:;" class="expand bat" data-level="7">6级</a>&nbsp;&nbsp; <a href="javascript:;" class="expand bat" data-level="8">7级</a>&nbsp;&nbsp; <a href="javascript:;" class="expand bat" data-level="9">8级</a> </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <div class="Canvas"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<link href="/code/static/css/jsonformater.css" rel="stylesheet">
+<script src="/code/static/js/jsonformater.js"></script>
+<script type="text/javascript">
+    (function(){
+
+        $(document).ready(function () {
+            var jf;
+            var format = function(){
+                var options = {
+                    dom: '.Canvas',
+                    isCollapsible: $('.CollapsibleView').prop('checked'),
+                    quoteKeys: $('.QuoteKeys').prop('checked'),
+                    tabSize: $('input[name=tab]:checked').val()
+                };
+
+                jf = new JsonFormater(options);
+                jf.doFormat($('.json').val());
+            };
+
+            $(".btn-format").on('click', function(){
+                format();
+            });
+            $('.expandAll').click(function () {
+                jf.expandAll();
+            });
+            $('.collapseAll').click(function () {
+                jf.collapseAll();
+            });
+            $('.tab, .CollapsibleView, .QuoteKeys').change(function () {
+                format();
+            });
+            $('.expand').click(function () {
+                format();
+                var level = $(this).data('level');
+                jf.collapseLevel(level);
+            });
+
+        });
+
+
+    })();
+    </script>
+
+<hr>
+
+<style>
+.nav > {z-index: 99999999;}
+.nav > li:hover .dropdown-menu {display: block;z-index: 99999999;}
+.navbar{    margin-bottom: 4px;    min-height: 0px;}
+.navbar-nav>li>a {padding-top: 10px;}
+</style>
+<script src="/code/static/js/bootstrap.min.js"></script>
+<include file="gxl:fend" /> 
+
+</body>
+</html>

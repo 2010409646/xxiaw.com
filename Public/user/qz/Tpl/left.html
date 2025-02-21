@@ -1,0 +1,32 @@
+<link rel="stylesheet" type="text/css" href="/Public/user/{:C('default_user')}/css/icon.css" />
+<aside class="aside2 boderBox" id="aside2">
+
+
+<li class="asideLi boderBox" data-href="###" data-state=1>
+<a href="javascript:;" class="asideRadio">
+<span class="asideSpan boderBox noSelect asideSpan_b">设置</span>
+</a>
+</li>
+<li class="asideLi boderBox">
+<a href="{:UUU('User/center/record')}" class="asideRadio">
+<span class="asideSpan boderBox noSelect asideSpan_l <eq name="action_name" value="record"> asideSpan_l_bg</eq> ">个人设置</span>
+<img src="/Public/user/{:C('default_user')}/img/t01eab9b3777b6efc89.png" alt="" class="asideImg">
+</a>
+</li>
+<if condition="C('admin_links_no')==1 "> 
+<li class="asideLi boderBox">
+<a href="{:UUU('User/center/withdrawal')}" class="asideRadio">
+<span class="asideSpan boderBox noSelect asideSpan_l <eq name="action_name" value="withdrawal"> asideSpan_l_bg</eq> ">申请提现</span>
+<img src="/Public/user/{:C('default_user')}/img/t01eab9b3777b6efc89.png" alt="" class="asideImg">
+</a>
+</li> 
+</if>
+<li class="asideLi boderBox">
+<a href="{:UUU('User/center/security')}" class="asideRadio">
+<span class="asideSpan boderBox noSelect asideSpan_l <eq name="action_name" value="security"> asideSpan_l_bg</eq> ">安全设置</span>
+<img src="/Public/user/{:C('default_user')}/img/anquan.png" alt="" class="asideImg">
+</a>
+</li>
+			</ul>
+<span class="aide-border"></span>
+</aside> 

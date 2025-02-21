@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    
+	<meta charset="utf-8">
+    <title>会员中心-{:C("site_name")}</title>
+    <meta name="Keywords" content="会员中心-{:C("site_name")}">
+    <meta name="Description" content="会员中心-{:C("site_name")}">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <link rel="stylesheet" href="/Public/user/{:C('default_user')}/css/comm.css" />
+    <link rel="stylesheet" type="text/css" href="/Public/user/{:C('default_user')}/css/homepage.css" />
+
+
+
+
+</head>
+<body class="yunlist2" >
+
+    <div class='new-main'>
+  <include file="./Public/user/qz/Tpl/user_header.html" />
+        
+            <article class="article2">
+                     <include file="./Public/user/qz/Tpl/left.html" />
+
+					 <div class="container">
+                     
+<nav class="nav2 boderBox">
+    <div class="nav-home">
+        <div class="homepage-header"><span>主页</span></div>
+    </div>
+</nav>
+<div class="main-home">
+    <div class="homepage-catalog clearfix">
+        <ul>
+            <li>
+                <span class="red">{$count}</span>
+                <p>发布软件</p>
+            </li>
+            <li>
+            <span class="black">{$money}</span>
+            <p>金额</p>
+            </li>
+            <li><span class="black">{$yesterday}</span><p>昨天</p></li>
+            <li class="last-no-border">
+                <span class="red">{$day}</span>
+                <p>今天</p>
+            </li>
+        </ul>
+        <a href="" class="distribute"><em></em>立即发布</a>
+    </div>
+   
+</div><!-- 回到顶部 -->
+
+	  <include file="./Public/user/qz/Tpl/top.html" />
+
+                </div>
+            </article>
+            
+        
+    </div>
+  <include file="./Public/user/qz/Tpl/user_footer.html" />
+<div class="footer_space"></div>
+  
+
+</body>
+</html>

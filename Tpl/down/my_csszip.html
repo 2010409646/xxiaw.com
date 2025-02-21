@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="keywords" content="CSS格式化 CSS压缩">
+<meta name="description" content="CSS格式化 CSS压缩">
+<title>CSS 格式化与压缩</title>
+
+  <link href="/Public/del/css/global.css" rel="stylesheet" />  
+  <script type="text/javascript" src="/kan/js/jquery-1.8.3.min.js"></script> 
+   <link rel="stylesheet" href="/Public/del/img/index.css" /> 
+<style type="text/css">
+	html,body,form,fieldset,textarea { height:100%; margin:0; padding:0; border:0; font-size:14px; background:#eee; }
+	form { margin:0 1%; overflow:hidden; }
+	legend { line-height:3em; font-weight:bold; }
+	button {    width: 180px;
+    margin: 1% 1% 0 0 !important;
+    cursor: pointer;
+    border-radius: 20px;
+    padding: 5px 23px !important;
+    background: #17a1ff;
+    color: #fff;}
+	textarea { width:100%; height:20em; border:1px solid #ccc; display:block; background:#fff; }
+</style>
+</head>
+<body>
+<include file="gxl:header" /> 
+ <include file="gxl:jsonheader" />
+<form action="" onsubmit="return false;">
+	<fieldset>
+		<legend>样式表(CSS) 格式化整理与压缩</legend>
+		<textarea name="" rows="" cols="" id="csszipsxiaw">@charset "utf-8";
+	.ymsc_wrap {
+	padding-top:32px;
+}
+.ymsc_wrap>p {
+	font-size:18px;
+}
+.ymsc_wrap>p a {
+	float:right;
+	color:#666;
+	font-size:14px;
+}
+.ymsc_wrap>p a:hover {
+	color:#007bb7;
+}
+.ymsc_wrap ul li {
+	float:left;
+	width:285px;
+	height:140px;
+	box-sizing:border-box;
+	background:#fff;
+	margin-right:13px;
+	border:solid 1px #e8e8e8;
+	margin-top:20px;
+	padding:10px 20px;
+}
+.ymsc_wrap ul li:nth-child(4n) {
+	margin-right:0;
+}
+.ymsc_wrap ul li p {
+	font-size:14px;
+	line-height:22px;
+	color:#999;
+}
+.ymsc_wrap ul li .dname {
+	color:#17A1FF;
+	font-size:16px;
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	line-height:28px;
+}
+.yd_btn_box {
+	margin-top:10px;
+}
+.yd_btn {
+	float:right;
+	width:76px;
+	height:26px;
+	line-height:26px;
+	text-align:center;
+	border-radius:4px;
+	border:solid 1px #17A1FF;
+	color:#17A1FF;
+	font-size:12px;
+}
+.yd_btn:hover {
+	color:#fff;
+	background:#17A1FF;
+}
+.clearfix:after {
+	content:".";
+	display:block;
+	height:0;
+	clear:both;
+	visibility:hidden}
+.jj_price {
+	font-size:20px;
+	color:#fda82f;
+	font-weight:bold;
+}
+.jj_btn_box {
+	margin-top:32px;
+}
+.idx_wt_new {
+	background:#fff;
+}
+.idx_wt_new .commission2 {
+	height:71.5%;
+}
+</textarea>
+	<button type="button" id="compress">压缩代码</button>
+		<button type="button" id="compressWithNote">压缩代码(保留注释)</button><br/>
+		<button type="button" id="multiLine">格式化(多行)</button>
+		<button type="button" id="multiLineWithNote">格式化(多行)(保留注释)</button><br/>
+		<button type="button" id="singleLine">格式化(单行)</button>
+		<button type="button" id="singleLineWithNote">格式化(单行)(保留注释)</button><br/>	
+		<button type="button" id="restore">还原代码</button>
+	</fieldset>
+</form>
+<include file="gxl:fend" /> 
+<script type="text/javascript" src="/layui/csszip/cssformating.js"></script>
+<script type="text/javascript">
+
+
+function $ids(id) {
+	return document.getElementById(id);
+}
+
+var codeText =$ids('csszipsxiaw');
+var format = new CSSFormating(codeText);
+$ids('compressWithNote').onclick = function() {
+	codeText.value = format.compress(true);
+}
+$ids('compress').onclick = function() {
+	codeText.value = format.compress(false);
+}
+$ids('multiLineWithNote').onclick = function() {
+	codeText.value = format.multiLine(true);
+}
+$ids('multiLine').onclick = function() {
+	codeText.value = format.multiLine(false);
+}
+$ids('singleLineWithNote').onclick = function() {
+	codeText.value = format.singleLine(true);
+}
+$ids('singleLine').onclick = function() {
+	codeText.value = format.singleLine(false);
+}
+$ids('restore').onclick = function() {
+	codeText.value = format.restore();
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,153 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>登录-{:C("site_name")}</title>
+    <meta name="Keywords" content="登录-{:C("site_name")}">
+    <meta name="Description" content="登录-{:C("site_name")}">
+	<link href="/Public/user/{:C('default_user')}/css/login.css" rel="stylesheet">
+	<link href="/Public/user/{:C('default_user')}/layui/css/layui.css" rel="stylesheet">
+	<script src="/Public/user/{:C('default_user')}/layui/layui.js" charset="utf-8"></script>
+	<script src="/Public/user/{:C('default_user')}/js/jquery-3.4.1.min.js" charset="utf-8"></script>
+	</head>
+	<body>
+    <div class="N-wp">
+        <!-- 通用顶部 -->
+
+<div id="header" class="header">
+    <!-- middlebar -->
+ <include file="./Public/user/qz/Tpl/user_top.html" />
+
+<div class="U-w1030">
+    <h2>请输入新密码</h2>
+    <div class="form-list regist-box layui-form">
+      <form action="/reset" method="post" id="registForm">
+        <div class="resetForm h-form">
+        <div class="formItem cleafix">
+            <div class="form-label fl"><em class="red">*</em>密码：</div>
+            <div class="form-cont fl">
+              <input type="password" datatype="text" class="ipt w346" id="user-pw2" lay-verify="password" minlength="6" name="password" maxlength="15" placeholder="请输入6-18位新密码，字母、数字、符号" >
+            
+            </div>
+          </div>
+          <div class="formItem cleafix">
+            <div class="form-label fl"><em class="red">*</em>确认密码：</div>
+            <div class="form-cont fl">
+			<input type="password" datatype="text" class="ipt w346" id="user-pw-cfm2" lay-verify="password1"  subdatatype="reconfirm" name="password_one"  placeholder="重复输入新密码"  minlength="6"  maxlength="15" ></div>
+          </div>
+          <div class="formItem clearfix">
+            <div class="form-label fl"></div>
+            <div class="form-cont fl">
+              <input type="hidden" name="purpose" value="register">
+            <button type="submit"  id="regist-btn" class="layui-btn btn btn-default layui-btn-normal" lay-submit="" lay-filter="login">提交</button>
+             
+            </div>
+          </div>
+        </div>
+      </form>
+    </div><!--end form-list-->
+  </div><!--end U-w1030-->
+<!-- <div class="other-login">
+  <h3><span>使用第三方账号登录</span></h3>
+  <ul>
+   <span type="button" class="btn yz-sms disabled" data-phone="#phone-nb" data-freq="60" data-api="/sendCaptcha" disabled="disabled">获取验证码</span>
+   
+   
+   
+    <li class="other-wb"><a href="/thirdLogin?type=weibo" target="_self"></a></li>
+    <li class="other-qq"><a href="/thirdLogin?type=qq" target="_self"></a></li>
+</ul>
+</div> --><!--end other-login-->
+</div><!--end U-w886-->
+<div class="N-ft">
+    <div class="footer" style="font-size:12px;padding:8px">
+    <p>{:C('site_copyright')}<br>{:C('site_icp')}</p>
+</div>
+
+</div><!--end N-ft-->
+</div><!--end N-wp--><!--找回密码、注册帐号、登录帐号 - 远程js公共模块-->
+
+<script>
+layui.use(['form', 'layedit', 'laydate'], function(){
+  var form = layui.form
+  ,layer = layui.layer
+  
+
+    form.verify({
+			password: function(value){
+			
+			
+			  if(value.length < 6){
+				return '请输入6-18位新密码，字母、数字、符号';
+			  }
+			},
+			password1: function(value){
+			  if(value.length < 5){
+				return '请输入6-18位新密码，字母、数字、符号';
+			  }
+			}
+   
+		  });
+
+ 
+
+
+  
+  //监听提交
+  form.on('submit(login)', function(data){
+  
+		    //自定义验证规则
+		
+		
+		if(data.field.password!=data.field.password_one){
+		
+		 layer.msg('两次输入密码不一致',{'icon':2});
+		  return false;
+		}
+		
+		
+	//	layer.alert(JSON.stringify(data.elem), {
+		//  title: '最终的提交信息'
+		//})
+		//layer.msg('请勾选注册协议',{'icon':2});
+
+	
+		 
+		
+		$.ajax({
+            //几个参数需要注意一下
+                type: "POST",//方法类型
+                dataType: "json",//预期服务器返回的数据类型
+                url: "{:UUU('User/center/resetpasswdstep1')}",//url
+                data:{
+                    "password":data.field.password,
+					"password_one":data.field.password_one
+                },
+                success: function (result) {
+                  console.log(result);
+                    if (result.code == 1) {
+                       layer.msg(result.msg,{'icon':2});
+                    }else{
+					layer.msg(result.msg,{'icon':1});
+					window.location.href=result.url;
+					}
+                   
+                },
+                error : function() {
+                   layer.msg('登录异常请联系客服解决',{'icon':2});
+                }
+            });
+   		return false;
+  
+  });
+ 
+ 
+ 
+  
+});
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{$down_name}-{$list_name}</title>
+	<meta name="keywords" content="{$down_name}下载,{$down_name}破解版下载" />
+	<meta name="description" content="{$down_remark}" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+<script src="https://cdn.bootcdn.net/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+     <link href="/Public/del/css/global.css" rel="stylesheet">
+  
+
+	<link rel="stylesheet" href="/Public/code/css/main.css">
+	<link rel="stylesheet" href="/Public/code/css/system.css">
+<script type="text/javascript" src="/kan/js/jquery-1.8.3.min.js"></script>
+
+</head>
+<body>
+<style>
+
+.intro-box img{width: 95%;}
+.title{
+    font-size: 30px;
+    text-align: center;
+    padding: 30px;
+	display: block;
+}
+.msg{
+padding: 20px;
+background: #eee;
+font-size: 20px;
+margin:60px 0;
+}
+.use_lis li .info {
+    width: 1100px;
+}
+.use_lis li .info .lis p span {
+    color: #333;
+}
+.use_lis li .info .lis {
+    width: 500px;
+    height: 30px;
+    float: left;
+    margin: 10px 0 0 30px;
+    line-height: 30px;
+}
+</style>
+<include file="gxl:header" />
+
+    <div class="content">
+
+<h1><span class="title">{$down_name}</span></h1>
+	
+	<span class="title"><font color="#17A1FF" id="timer">2秒后启动下载</font>
+	
+	<a color="#000000" onclick="chong()" style="display:none;font-size:30px" id="chong">重试下载</a>
+	
+	</span>
+		{$down_hits_insert}
+	<div class="msg" style="display:none"><font class="red">无法下载请复制此链接进行下载1：</font><b style="font-size:16px" id="downs">https://jifendownload.yl234.com/jifen_2345/p8_k46047111_v2.0.exe</b></span></div>
+	
+	<div class="msg" style="display:none"><font class="red">无法下载请复制此链接进行下载2：</font><b style="font-size:16px" id="downd">https://jifendownload.yl234.com/jifen_2345/p8_k46047111_v2.0.exe</b></span></div>
+	<!-- 在用 -->
+		<div class="Qz_title" id="posE">
+
+			<span>大家正在用</span>
+			<a href="{$list_url}" class="more">更多<i></i></a>
+		</div>
+		    	<php>$gamet =gxl_mysql_down('cid:'.$list_id.';field:down_id,down_cid,down_name,down_version,down_size,down_language,down_addtime;limit:10;order:down_hits_day desc');</php>
+		<ul class="use_lis">
+			<volist name="gamet" id="gxl" >
+						<li>
+								
+				<div class="info">
+					<a href="{$gxl.down_readurl}" target="_blank" class="bt">{$gxl.down_name}</a>
+					<div class="lis">
+						<p>语言：<span>{$gxl.down_language|default="简体中文"}</span></p>
+						<p>大小：<span>{$gxl.down_size|default="1G"}</span></p>
+						<p>更新日期：<i>{$gxl.down_addtime|date='m-d',###}</i></p>
+					</div>
+					<div class="btn">
+						<a href="{$gxl.down_readurl}" target="_blank">前往下载</a>
+					</div>
+				</div>
+			</li>
+					</volist>	
+					</ul>
+	</div>
+<script src="/Public/code/js/main.js"></script>
+ <script>
+			var maxtime =1; //一个小时，按秒计算，自己调整!
+			let down=JSdecrypt('{$urls}')
+            function CountDown() {
+                if (maxtime >= 0) {
+                    minutes = Math.floor(maxtime / 60);
+                    seconds = Math.floor(maxtime % 60);
+                    msg = seconds;
+                    document.all["timer"].innerHTML = msg+'秒后启动下载';
+                    if (maxtime == 5 * 60)alert("还剩5分钟");
+                        --maxtime;
+                      
+                } else{
+					document.all["timer"].innerHTML = '如无法下载请点击:';
+                    clearInterval(timer);
+					open_without_referrer(down);
+					$('#chong').show();
+
+                }
+              $('.msg').show();
+			  $('#downs').html(down);
+			   $('#downd').html(convertURL(down));
+            }
+            timer = setInterval("CountDown()", 1000);
+			function chong(){
+			  $('.msg').show();
+			  $('#downs').html(down);
+			    $('#downd').html(convertURL(down));
+			  open_without_referrer(down);
+		
+			}
+			function convertURL(url) {
+  if (url.startsWith('https://')) {
+    return url.replace('https://', 'http://');
+  }
+  return url;
+}
+			function open_without_referrer(link)
+{
+            // 检查当前页面的域名和协议
+
+    window.location.href =link;
+
+
+// 	document.body.appendChild(document.createElement('iframe')).src='javascript:"<script>top.location.replace(\''+link+'\')<\/script>"';
+}
+function JSdecrypt(e) {
+    let o = "{$randomString}";
+    let t = o.substr(0, 32)//密钥加密字符串
+        , s = e.substr(0, 64)//密钥加密盐
+        , r = e.substr(64, 32)//偏移量待加密
+        , n = e.substr(96)//加密字符串
+        , u = CryptoJS.PBKDF2(t, CryptoJS.enc.Hex.parse(s), {
+            keySize: 4,
+            iterations: 1e3,
+            hasher: CryptoJS.algo.SHA256
+        })//密钥
+        , i = CryptoJS.AES.decrypt(n, u, {
+            iv: CryptoJS.enc.Hex.parse(r),//偏移量
+            mode:CryptoJS.mode.CBC,
+        })//解密开的对象
+        , l = i.toString(CryptoJS.enc.Utf8);
+    return l
+}
+</script>
+<include file="gxl:fend" />	
+</body>
+</html>

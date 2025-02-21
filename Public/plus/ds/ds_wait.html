@@ -1,0 +1,37 @@
+<table border='0' cellpadding='0' cellspacing='0' width='760' height='100%' align='center' style="border:1px solid #CCCCCC; font-size:12px">
+<tr><td valign='top' id='caiji' height='25%'>定时采集等侍中...</td></tr>
+<tr><td valign='top' height='1' style="background:#e8e8e8"></td></tr>
+</table>
+<span id="session"></span>
+<script>
+var $time = new Array();
+$time['caiji'] = {$caiji};
+$time['data'] = {$min};//采集时间间隔+生成时间间隔
+$time['index'] = {$index};
+$time['list'] = {$list};
+if($time['caiji'] > 0){
+	setInterval('$caiji()',1000*60*{$caiji});
+}
+if($time['data'] > $time['caiji']){
+	setInterval('$data()',1000*60*{$min});
+}
+
+
+var urln = 0;
+var array_url = new Array();<volist name="url" id="ppvod">array_url[{$key}]='{$ppvod}';</volist>
+function $caiji(){
+	if(urln < array_url.length-1){
+		urln++;
+	}else{
+		urln=0;
+	}
+	if(array_url[urln]){
+	document.getElementById("caiji").innerHTML = "<iframe width='100%' height='200' src='"+array_url[urln]+"' scrolling='auto'></iframe>";
+	}
+}
+
+function $session(){
+	document.getElementById("session").innerHTML = "<iframe width='100%' height='100' src='index.php?s=Admin-Index-Right' scrolling='auto' style='display:none'></iframe>";
+}
+setInterval('$session()',1000*60*5);//防止后台超时
+</script>

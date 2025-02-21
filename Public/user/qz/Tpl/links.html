@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    
+	<meta charset="utf-8">
+    <title>会员中心-{:C("site_name")}</title>
+    <meta name="Keywords" content="会员中心-{:C("site_name")}">
+    <meta name="Description" content="会员中心-{:C("site_name")}">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link href="/Public/user/{:C('default_user')}/layui/css/layui.css" rel="stylesheet">
+	<script src="/Public/user/{:C('default_user')}/layui/layui.js" charset="utf-8"></script>
+	<script src="/Public/user/{:C('default_user')}/js/jquery-3.4.1.min.js" charset="utf-8"></script>
+	<script src="/Public/user/{:C('default_user')}/js/url.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="/Public/user/{:C('default_user')}/css/comm.css" />
+    <link rel="stylesheet" type="text/css" href="/Public/user/{:C('default_user')}/css/fwindow.css" />
+   <link rel="stylesheet" type="text/css" href="/Public/user/{:C('default_user')}/css/publish.css" />
+
+
+
+</head>
+<body class="yunlist2" >
+
+    <div class='new-main'>
+  <include file="./Public/user/qz/Tpl/user_header.html" />
+        
+            <article class="article2">
+                     <include file="./Public/user/qz/Tpl/left.html" />
+
+					
+					
+					
+					
+					
+					
+					
+					
+					
+	<div class="container layui-form">
+                     
+    <!-- 内容头部开始.. -->
+    <nav class="nav2 boderBox">
+        <div class="navContent navContentBorder boderBox noSelect" data-page="textNews">发布链接</div>
+        <!-- <div class="navContent boderBox noSelect" data-page="picNews">图集稿件</div> -->
+    </nav>
+    <!-- 内容头部结束.. -->
+    <!-- main内容区域开始 -->
+    <div id="main2" class="boderBox">
+        <!-- 图文稿件 开始 -->
+        <div id="textNews" class="newsContainer boderBox textNews">
+            <div class="text-title j-title">
+               <input type="text" placeholder="请在这里输入网站标题,不少于2个字" lay-verify="links_name" name="links_name" value="{$links_name}">
+                <span class="limit">
+                    <i>32</i>/32
+                </span>
+            </div>
+			
+			<input name="links_id" type="hidden" value="{$links_id}">
+          
+
+           
+		
+			<div class="channel-text w400"> 
+			<label>域名</label> 
+			<div class="layui-input-inline" style="width:300px;">
+			<input type="text" name="links_link" placeholder="禁止携带http://或者https://" autocomplete="off" class="layui-input" value="{$links_link}"  lay-verify="links_link">
+			</div>
+			
+			
+			
+			</div>
+		
+	  
+			<div class="channel-text w400"> 
+			<label class="layui-form-label ">隐藏域名</label>
+			<div class="layui-input-inline">
+			  <input type="checkbox" <eq name="links_is" value="1" >checked</eq> name="links_is" lay-skin="switch" lay-filter="switchTest" lay-text="是|否">
+			</div>
+			 <div class="layui-form-mid layui-word-aux">保护域名不被百度发现域名自动*表示</div>
+			</div>
+				<div class="channel-text w400"> 
+			<label>QQ号</label> 
+			<div class="layui-input-inline" style="width:300px;">
+			<input type="text" name="links_qq" placeholder="" autocomplete="off" class="layui-input" value="{$links_qq}"  lay-verify="links_qq">
+			</div>
+			
+			
+			
+			</div>
+			<div class="channel-text w400"> 
+			<label>微信号</label> 
+			<div class="layui-input-inline" style="width:300px;">
+			<input type="text" name="links_weixin" placeholder="" autocomplete="off" class="layui-input" value="{$links_weixin}"  lay-verify="links_weixin">
+			</div>
+			
+			
+			
+			</div>
+	<div class="channel-text"> <label>分类</label> 
+			
+			<div class="layui-input-inline">
+        <select name="list_id">
+		
+	
+          <option value="" name="list_id">请选择分类</option>
+		  	<volist name="list_audio" id="gr">
+         <option name="list_id" value="{$gr.list_id}" <eq name="gr[list_id]" value="$links_cid"> selected </eq> >{$gr.list_name} </option>
+		  <volist name="gr['son']" id="gxl">
+            <option name="list_id" value="{$gxl.list_id}" <eq name="gxl[list_id]" value="$links_cid"> selected </eq> >|---{$gxl.list_name}</option>
+			</volist>
+         
+         </volist>
+        </select>
+      </div>
+	  </div>
+			<div class="channel-text "> 
+			<label>百度</label> 
+			<div class="layui-input-inline" >
+			<input type="radio" name="links_baidu_weight" value="0" title="权重0"  <eq name="links_baidu_weight" value="0">checked</eq>>
+			<input type="radio" name="links_baidu_weight" value="1" title="权重1" <eq name="links_baidu_weight" value="1">checked</eq>>
+			<input type="radio" name="links_baidu_weight" value="2" title="权重2" <eq name="links_baidu_weight" value="2">checked</eq>>
+			<input type="radio" name="links_baidu_weight" value="3" title="权重3" <eq name="links_baidu_weight" value="3">checked</eq>>
+			<input type="radio" name="links_baidu_weight" value="4" title="权重4" <eq name="links_baidu_weight" value="4">checked</eq>>
+			<input type="radio" name="links_baidu_weight" value="5" title="权重5" <eq name="links_baidu_weight" value="5">checked</eq>>
+			<input type="radio" name="links_baidu_weight" value="6" title="权重6" <eq name="links_baidu_weight" value="6">checked</eq>>
+			<input type="radio" name="links_baidu_weight" value="7" title="权重7" <eq name="links_baidu_weight" value="7">checked</eq>>
+			<input type="radio" name="links_baidu_weight" value="8" title="权重8" <eq name="links_baidu_weight" value="8">checked</eq>>
+			<input type="radio" name="links_baidu_weight" value="9" title="权重9" <eq name="links_baidu_weight" value="9">checked</eq>>
+			</div>
+			</div>
+			<div class="channel-text "> 
+			<label>搜狗</label> 
+			<div class="layui-input-inline" >
+			<input type="radio" name="links_sogou_weight" value="0" title="权重0" <eq name="links_sogou_weight" value="0">checked</eq>>
+			<input type="radio" name="links_sogou_weight" value="1" title="权重1"  <eq name="links_sogou_weight" value="1">checked</eq>>
+			<input type="radio" name="links_sogou_weight" value="2" title="权重2"  <eq name="links_sogou_weight" value="2">checked</eq>>
+			<input type="radio" name="links_sogou_weight" value="3" title="权重3"  <eq name="links_sogou_weight" value="3">checked</eq>>
+			<input type="radio" name="links_sogou_weight" value="4" title="权重4" <eq name="links_sogou_weight" value="4">checked</eq>>
+			<input type="radio" name="links_sogou_weight" value="5" title="权重5" <eq name="links_sogou_weight" value="5">checked</eq>>
+			<input type="radio" name="links_sogou_weight" value="6" title="权重6" <eq name="links_sogou_weight" value="6">checked</eq>>
+			<input type="radio" name="links_sogou_weight" value="7" title="权重7" <eq name="links_sogou_weight" value="7">checked</eq>>
+			<input type="radio" name="links_sogou_weight" value="8" title="权重8" <eq name="links_sogou_weight" value="8">checked</eq>>
+			<input type="radio" name="links_sogou_weight" value="9" title="权重9" <eq name="links_sogou_weight" value="9">checked</eq>>
+			</div>
+			</div>
+			<div class="channel-text "> 
+			<label>google</label> 
+			<div class="layui-input-inline" >
+			<input type="radio" name="links_google_weight" value="0" title="权重0"  <eq name="links_google_weight" value="0">checked</eq>>
+			<input type="radio" name="links_google_weight" value="1" title="权重1" <eq name="links_google_weight" value="1">checked</eq>>
+			<input type="radio" name="links_google_weight" value="2" title="权重2" <eq name="links_google_weight" value="2">checked</eq>>
+			<input type="radio" name="links_google_weight" value="3" title="权重3" <eq name="links_google_weight" value="3">checked</eq>>
+			<input type="radio" name="links_google_weight" value="4" title="权重4" <eq name="links_google_weight" value="4">checked</eq>>
+			<input type="radio" name="links_google_weight" value="5" title="权重5" <eq name="links_google_weight" value="5">checked</eq>>
+			<input type="radio" name="links_google_weight" value="6" title="权重6" <eq name="links_google_weight" value="6">checked</eq>>
+			<input type="radio" name="links_google_weight" value="7" title="权重7" <eq name="links_google_weight" value="7">checked</eq>>
+			<input type="radio" name="links_google_weight" value="8" title="权重8" <eq name="links_google_weight" value="8">checked</eq>>
+			<input type="radio" name="links_google_weight" value="9" title="权重9" <eq name="links_google_weight" value="9">checked</eq>>
+			</div>
+			</div>
+			<div class="channel-text "> 
+			<label>SO</label> 
+			<div class="layui-input-inline" >
+			<input type="radio" name="links_so_weight" value="0" title="权重0" <eq name="links_so_weight" value="0">checked</eq>>
+			<input type="radio" name="links_so_weight" value="1" title="权重1" <eq name="links_so_weight" value="1">checked</eq>>
+			<input type="radio" name="links_so_weight" value="2" title="权重2" <eq name="links_so_weight" value="2">checked</eq>>
+			<input type="radio" name="links_so_weight" value="3" title="权重3" <eq name="links_so_weight" value="3">checked</eq>>
+			<input type="radio" name="links_so_weight" value="4" title="权重4" <eq name="links_so_weight" value="4">checked</eq>>
+			<input type="radio" name="links_so_weight" value="5" title="权重5" <eq name="links_so_weight" value="5">checked</eq>>
+			<input type="radio" name="links_so_weight" value="6" title="权重6" <eq name="links_so_weight" value="6">checked</eq>>
+			<input type="radio" name="links_so_weight" value="7" title="权重7" <eq name="links_so_weight" value="7">checked</eq>>
+			<input type="radio" name="links_so_weight" value="8" title="权重8" <eq name="links_so_weight" value="8">checked</eq>>
+			<input type="radio" name="links_so_weight" value="9" title="权重9" <eq name="links_so_weight" value="9">checked</eq>>
+			</div>
+			</div>
+	  
+			<div class="channel-text w400"> 
+			<label>价格</label> 
+			<div class="layui-input-inline" style="width: 100px;">
+			<input type="text" name="links_money" placeholder="￥" autocomplete="off" class="layui-input" value="{$links_money}">
+			</div>
+			
+			 <div class="layui-form-mid layui-word-aux">价格不填写或者0，免费交换链接</div>
+			
+			</div>
+			<div class="channel-text w400 w100"> 
+			<label class="layui-form-label ">是否接受敏感词</label>
+			<div class="layui-input-block">
+			  <input type="checkbox" <eq name="links_sensitive" value="1" >checked</eq> name="links_sensitive" lay-skin="switch" lay-filter="switchTest" lay-text="是|否">
+			</div>
+			
+			</div>	
+			
+			
+			<div class="channel-text"> <label>关键词</label> 
+			
+			<div class="layui-input-inline">
+			
+			  <include file="./Public/user/qz/Tpl/tag.html" />
+			
+			</div> </div>
+			
+				
+			<div class="cover-pic">
+			 <label>缩略图</label> 
+			 	<div class="layui-upload-drag j-title"">
+			
+			 <a class="del_img" onclick="del_img()" style="display:none">删除</a>
+			 
+			 <div  id="img">
+			  <i class="layui-icon ts_img">&#xe64a;</i>
+			  <p id="txt_img">点击上传图片,或将图片拖拽到此处</p>
+			  <div class="layui-hide" id="uploadDemoView_img">
+			
+				<img src=""  style="max-width: 196px" id="img_src">
+			  </div>
+			</div>
+		
+			</div>
+			
+			
+			
+			
+			</div>
+			  <div class="text-summary j-title">
+                <textarea class="summary" placeholder="摘要（10-200个字）（选填）" lay-verify="remark" name="links_remark" >{$links_remark}</textarea>
+                <span class="limit">
+                    <i>200</i>/200
+                </span>
+            </div>
+			 <div class="rich-text text-summary">
+                <include file="./Public/user/qz/Tpl/ueditor.html" />
+            </div> 
+        </div>
+    
+
+				<div class="confirm-panel">
+       
+                     <button type="submit"  id="login-btn" class="layui-btn btn submit publish" lay-submit="" lay-filter="login">发表内容</button>
+                    </div>
+
+        
+    </div>
+    <!-- main内容区域结束 -->
+
+                </div>
+            </article>
+            
+    <!-- 浮窗开始 -->
+   
+					
+					
+					
+			<style>
+			.layui-form-radio * {
+    font-size: 10px;
+}
+.layui-form-radio{
+    margin: 6px 0 0 0;
+}
+			.w100 label{
+			width:100px;
+			}
+			.w400{
+			width:400px;
+			float: left;
+			}
+			.w200{
+			width:200px;
+			float: left;
+			}
+			.del,.del_img{position: absolute;
+
+right: 1px;
+
+top: 1px;
+
+font-size: 12px;
+
+color: #009688;}
+.layui-upload-drag {
+    position: relative;
+    padding: 30px;
+    border: 1px dashed #e2e2e2;
+    background-color: #fff;
+    text-align: center;
+    cursor: pointer;
+    color: #999;
+    width: 200px;
+}
+layui-inputs, .layui-textarea {
+
+    display: block;
+    width: 100%;
+    padding-left: 10px;
+
+}
+.layui-inputs, .layui-select, .layui-textarea {
+
+  line-height: 1.3;
+
+line-height: 38px\9;
+
+border-width: 1px;
+
+border-style: none;
+
+background-color: #fff;
+
+border-radius: 2px;
+
+}
+.layui-badge-rim, .layui-colla-content, .layui-colla-item, .layui-collapse, .layui-elem-field, .layui-form-pane .layui-form-item[pane], .layui-form-pane .layui-form-label, .layui-inputs, .layui-layedit, .layui-layedit-tool, .layui-quote-nm, .layui-select, .layui-tab-bar, .layui-tab-card, .layui-tab-title, .layui-tab-title .layui-this::after, .layui-textarea {
+
+    border-color: #e6e6e6;
+
+}
+.layui-btn, .layui-inputs, .layui-select, .layui-textarea, .layui-upload-button {
+
+    outline: 0;
+    -webkit-appearance: none;
+    transition: all .3s;
+    -webkit-transition: all .3s;
+    box-sizing: border-box;
+
+}
+.layui-form-mid{
+float:right
+}
+.layui-layer-loading {
+   
+    margin-left: -150px;
+}
+</style>			
+					
+					
+					
+					
+					
+					
+			  <include file="./Public/user/qz/Tpl/top.html" />		
+					
+					
+					
+					
+					
+					
+					
+					
+					
+            </article>
+            
+        
+    </div>
+  <include file="./Public/user/qz/Tpl/user_footer.html" />
+<div class="footer_space"></div>
+
+  <script>
+  //加载组件
+			layui.config({
+				base: '/Public/user/{:C('default_user')}/layui/static/xmSelect/'
+			}).extend({
+				xmSelect: 'xm-select'
+			}).use(['xmSelect'], function(){
+				var xmSelect = layui.xmSelect;
+var demo3 = xmSelect.render({
+	el: '#areas', 
+	model: { label: { type: 'text' } },
+	radio: true,
+	clickClose: true,
+	filterable: true,
+	name:'area_id',
+	tree: {
+		show: true,
+		strict: false,
+		expandedKeys: [ -1 ],
+	},
+	height: '300px',
+	data(){
+		return [
+		<volist name="list_area" id="gr">
+			{name: '{$gr.area_name}', value: {$gr.area_id}, children: [
+				 <volist name="gr['son']" id="gxl">
+				{name: '{$gxl.area_name}', value: {$gxl.area_id} <eq name="gxl['area_id']" value="$links_area">,selected: true</eq>},
+				</volist>
+			]},
+			</volist>
+		]
+	}
+})
+})
+
+<notempty name="links_audio" >
+		$(".ts_audio").html("&#xe6fc;");
+		$("#txt_p").html('<font color="#009688">上传成功</font><input type="hidden"  lay-verify="audio" name="audio" value="{$links_audio}">');
+		$(".del").show();
+		
+		</notempty>
+<notempty name="links_id" >var uurl="{:UUU('User/center/links_update')}" ;<else/>var uurl="{:UUU('User/center/links_add')}";</notempty>
+<notempty name="links_pic" >
+	
+		$("#img_src").attr('src',"{$links_pic}");
+		$(".ts_img").hide();
+		$("#txt_img").hide();
+		$(".del_img").show();
+		$(".layui-hide").removeClass();  
+		</notempty>
+</script>
+<script>
+
+//数据安全着想不做数据后台删除
+function del_img(){
+$(".ts_img").show();
+$("#txt_img").show();
+$(".del_img").hide();
+layer.msg('删除成功',{'icon':2});
+//layui.$('#uploadDemoView_img').removeClass('layui-hide').find('img').attr('src', '');
+ $('#uploadDemoView_img img').remove();  
+}
+
+ layui.config({
+    base: '/Public/user/{:C('default_user')}/layui/modules/' //假设这是你存放拓展模块的根目录
+  }).extend({ //设定模块别名
+    tag: 'tag' //如果 tag.js 是在根目录，也可以不用设定别名
+  }).use(['form', 'layedit', 'upload','tag'], function(){
+  
+  var form = layui.form
+  ,layer = layui.layer
+,upload = layui.upload
+,tag = layui.tag;
+    //自定义验证规则
+  form.verify({
+    links_name: function(value){
+      if(value.length < 2){
+        return '请输入大于4个文字的标题';
+      }
+    },
+	links_link:function(value){
+      if(value.length < 4){
+        return '域名输入不正确';
+      }
+    }
+  });
+ 
+	
+
+
+  //选完文件后不自动上传
+  upload.render({
+    elem: '#img'
+    ,url: "{:UUU('User/Upload/Upload/type/img')}" //改成您自己的上传接口
+    ,links: true
+	,accept:'images'
+	,exts:'{$upload_class}'
+    ,bindAction: '#test9'
+    ,done: function(res){
+	
+		if(res.status==0){
+		layer.msg(res.info,{'icon':2});
+		return false;
+		}else{
+		layer.msg(res.info,{'icon':1});
+		layui.$('#uploadDemoView_img').removeClass('layui-hide').find('img').attr('src', res.url);
+		$(".ts_img").hide();
+		$("#txt_img").hide();
+		$(".del_img").show();
+		}
+   
+      console.log(res)
+    }
+  });
+  tag.on('add(audio_tag)', function(data){
+  console.log(data.othis);
+});
+  //监听提交
+  form.on('submit(login)', function(data){
+var links_url=data.field.links_link;
+var parser = new DomainParser(links_url);
+//解析
+parser.parse();
+//判断是否正常
+if (parser.hasError()) {
+    //错误信息
+    var msg = parser.getMessage();
+	 layer.msg(msg,{'icon':2});
+    return;
+}
+
+ var content =UE.getEditor("container").getContent();//
+ var img_ico=$("#img_src").attr('src');
+ //if(!content){
+  //layer.msg('请输入内容',{'icon':2});
+ // return false;
+ //}
+ //if(!img_ico){
+  // layer.msg('请上传图片',{'icon':2});
+  // return false;
+ //}
+ 
+  if(!data.field.list_id){
+  layer.msg('请选择分类',{'icon':2});
+  return false;
+ }
+
+	layer.msg('正在请求权重接口，数据排队中....', {
+  time: 333000 //2秒关闭（如果不配置，默认是3秒）
+}, function(){
+  //do something
+});   
+
+	//console.log(JSON.stringify(data));
+	var indexg = layer.load(1, {
+		  shade: [0.1,'#fff'] //0.1透明度的白色背景
+		});
+	
+		$.ajax({
+            //几个参数需要注意一下
+                type: "POST",//方法类型
+                dataType: "json",//预期服务器返回的数据类型
+                url:uurl ,//url
+                data:{
+                    "title":data.field.links_name,
+					"links_id":data.field.links_id,
+                    "remark":data.field.links_remark,
+					"links_money":data.field.links_money,
+					"links_is":data.field.links_is,
+					"links_qq":data.field.links_qq,
+					"links_weixin":data.field.links_weixin,
+					"links_link":data.field.links_link,
+					"links_sensitive":data.field.links_sensitive,
+					"links_baidu_weight":data.field.links_baidu_weight,
+					"links_google_weight":data.field.links_google_weight,
+					"links_sogou_weight":data.field.links_sogou_weight,
+					"links_so_weight":data.field.links_so_weight,
+					"img":img_ico,
+					"content":content,
+					"tag":$('.tag-item').text(),
+					"list_id":data.field.list_id
+                },
+                success: function (result) {
+					layer.close(indexg);
+                    if (result.code == 1) {
+                       layer.msg(result.msg,{'icon':2});
+                    }else{
+					var index = layer.load();
+					layer.msg(result.msg,{'icon':1});
+					setTimeout(window.location.href=result.url,3000);
+					}
+                   
+                },
+                error : function() {
+                   layer.msg('登录异常请联系客服解决',{'icon':2});
+                }
+            });
+   
+    return false;
+  });
+ 
+ 
+ 
+  
+});
+</script>
+
+</body>
+</html>

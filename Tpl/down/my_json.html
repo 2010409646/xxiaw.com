@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <meta charset="UTF-8" /> 
+ <title>JSON在线格式化工具</title>
+<meta name="keywords" content="JSON,在线json, json格式, json解析, JSON在线格式化工具,JSON在线转换, JSON验证工具, 在线JSON在线格式化工具" />
+<meta name="description" content="JSON,在线json, json格式, json解析, JSON在线格式化工具,JSON在线转换, JSON验证工具, 在线JSON在线格式化工具" />
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+  <link href="/Public/del/css/global.css" rel="stylesheet" />  
+  <script type="text/javascript" src="/kan/js/jquery-1.8.3.min.js"></script> 
+    <link rel="stylesheet" type="text/css" href="/static/css/all.css">
+    <script type="text/javascript" src="/static/js/clipboard.min.js"></script>
+    <script type="text/javascript" src="/static/js/bignumber.min.js"></script>
+    <script type="text/javascript" src="/static/js/ext-base.js"></script>
+    <script type="text/javascript" src="/static/js/ext-all.js"></script>
+<script type="text/javascript" src="/static/js/jsonviewercn_encode.js"></script>
+  <link rel="stylesheet" href="/Public/del/img/index.css" /> 
+
+ </head> 
+ <body> 
+<include file="gxl:header" /> 
+ <include file="gxl:jsonheader" /> 
+<button id="copyTxt" style="height: 0;width: 0;overflow: hidden"></button>
+<div class="copy-success" id="copySuccess"></div>
+<div id="cpbtn"></div>
+<div id="sxiaw"></div>
+<script>
+        window.onload = function () {
+            var oTxt = document.getElementById("edit");
+            oTxt.onkeydown = function (ev) {
+                var oEvent = ev || event;
+                if (oEvent.keyCode == 9) {
+                    if (oEvent.preventDefault) {
+                        oEvent.preventDefault();
+                    } else {
+                        window.event.returnValue = false;
+                    }
+                    oTxt.value += "    "; //这里放入了4个空格
+                }
+
+            }
+
+            var temp_str = sessionStorage.getItem('temp_str');
+            if (temp_str) {
+                document.getElementById("edit").value = temp_str;
+
+            }
+
+
+        }
+</script>
+
+    <style type="text/css">.br0 {
+        COLOR: #009900
+    }
+    #textwwPanel{
+        z-index: -1;
+    }
+    .st0 {
+        COLOR: #3366cc
+    }
+
+    .sy0 {
+        COLOR: #339933
+    }
+    .copy-success{
+        position: fixed;
+        z-index: 999999;
+        top: 50%;
+        left: 50%;
+        margin-left: -75px;
+        width: 200px;
+        background-color: rgba(0,0,0,.5);
+        color: #fff;
+        text-align: center;
+        display: none;
+        padding: 10px 0;
+    }
+    </style>
+
+<include file="gxl:fend" /> 
+  
+ </body>
+</html>
+

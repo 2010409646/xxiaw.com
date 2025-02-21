@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>后台用户管理</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel='stylesheet' type='text/css' href='__PUBLIC__/css/admin-style.css' />
+<script language="JavaScript" type="text/javascript" charset="utf-8" src="__PUBLIC__/jquery/jquery-1.7.2.min.js"></script>
+<script language="JavaScript" type="text/javascript" charset="utf-8" src="__PUBLIC__/js/admin.js"></script>
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/editor/kindeditor-min.js"></script>
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/editor/zh_CN.js"></script>
+
+</head>
+<body class="body">
+<!--图片预览框-->
+<div id="showpic" class="showpic" style="display:none;"><img name="showpic_img" id="showpic_img" width="120" height="160"></div>
+<include file="./Public/system/plus_tags.html" />
+
+<form name="update" action="?s=Admin-admin-agreement_update" method="post" name="myform" id="myform">
+<input type="hidden" name="id" value="{$id}">
+
+<div class="title">
+	
+</div>
+<div class="form">
+<table border="0" cellpadding="0" cellspacing="0" class="table" id="tabs1">
+  <tr>
+    <td class="tl">名称：</td>
+    <td class="tr" style="position:relative"><ul><input type="text" name="title" id="title" value="{$title}" maxlength="255" error="* 名称不能为空" class="w400"> </ul>
+ 
+    </td>
+  </tr>
+   
+  
+
+  <tr>
+    <td class="tl">内容：</td>
+    <td class="tr padding-5050"><textarea name="content" id="content" style="width:99%;height:300px;">{$content}</textarea></td>
+  </tr>
+</table>
+
+<ul class="footer">
+	<input type="submit" name="submit" value="提交"> <input type="reset" name="reset" value="重置">
+</ul>
+</div>
+</form>
+<include file="./Public/system/plus_kedit.html" />
+<include file="./Public/system/plus_jqmodal.html" />
+<style>
+#dia_title{height:25px;line-height:25px}
+.jqmWindow{height:500px;width:800px;top:10px;left:310px;overflow:hidden}
+</style>
+<include file="./Public/system/footer.html" />
+</body>
+</html>

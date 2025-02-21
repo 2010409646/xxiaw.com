@@ -1,0 +1,201 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>找回密码-{:C("site_name")}</title>
+    <meta name="Keywords" content="找回密码-{:C("site_name")}">
+    <meta name="Description" content="找回密码-{:C("site_name")}">
+	<link href="/Public/user/{:C('default_user')}/css/login.css" rel="stylesheet">
+	<link href="/Public/user/{:C('default_user')}/layui/css/layui.css" rel="stylesheet">
+	<script src="/Public/user/{:C('default_user')}/layui/layui.js" charset="utf-8"></script>
+	<script src="/Public/user/{:C('default_user')}/js/jquery-3.4.1.min.js" charset="utf-8"></script>
+	</head>
+	<body>
+    <div class="N-wp">
+        <!-- 通用顶部 -->
+
+<div id="header" class="header">
+    <!-- middlebar -->
+ <include file="./Public/user/qz/Tpl/user_top.html" />
+
+<div class="U-w1030">
+    <h2>找回密码</h2>
+    <div class="form-list regist-box layui-form">
+      <form  method="post" id="registForm">
+        <div class="resetForm h-form">
+          <div class="formItem clearfix">
+            <div class="form-label fl"><em class="red">*</em>邮箱：</div>
+            <div class="form-cont fl">
+              <input type="text" datatype="email" name="email" class="ipt w346" id="email" placeholder="请输入注册的邮箱" lay-verify="email">
+            </div>
+          </div>
+          <div class="formItem clearfix" id="code-wrapper">
+            <div class="form-label fl"><em class="red">*</em>校验码：</div>
+            <div class="form-cont fl">
+              <input type="text" id="image_captcha" name="image_captcha" class="ipt input_code" placeholder="请输入右边校验码"  lay-verify="image_captcha" >
+              <span class="yz-img yz-refresh" id="verimgbut" ><img src="{:UUU('User/Checkcode/index')}" id="verimg"></span>
+              <div class=""><em class="u-error-1"></em></div>
+            </div>
+          </div>
+          <div class="formItem clearfix">
+            <div class="form-label fl"><em class="red">*</em>邮箱验证码：</div>
+            <div class="form-cont fl">
+              <input type="text" class="ipt input_code" name="email_captcha" maxlength="6" minlength="6" placeholder="请输入短信验证码" lay-verify="email_captcha">
+              <span type="button" class="btn yz-sms disabled" id="yz-sms" data-freq="60" >获取验证码</span>
+              <div class=""><em class="u-error-2"></em></div>
+            </div>
+          </div>
+          <div class="formItem clearfix">
+            <div class="form-label fl"></div>
+            <div class="form-cont fl">
+              <input type="hidden" name="purpose" value="passwd_reset">
+                 <button type="submit"  id="regist-btn" class="layui-btn btn btn-default layui-btn-normal" lay-submit="" lay-filter="login">找回密码</button>
+            
+            </div>
+          </div>
+        </div>
+      </form>
+    </div><!--end form-list-->
+  </div><!--end U-w1030-->
+<!-- <div class="other-login">
+  <h3><span>使用第三方账号登录</span></h3>
+  <ul>
+   <span type="button" class="btn yz-sms disabled" data-phone="#phone-nb" data-freq="60" data-api="/sendCaptcha" disabled="disabled">获取验证码</span>
+   
+   
+   
+    <li class="other-wb"><a href="/thirdLogin?type=weibo" target="_self"></a></li>
+    <li class="other-qq"><a href="/thirdLogin?type=qq" target="_self"></a></li>
+</ul>
+</div> --><!--end other-login-->
+</div><!--end U-w886-->
+<div class="N-ft">
+    <div class="footer" style="font-size:12px;padding:8px">
+    <p>{:C('site_copyright')}<br>{:C('site_icp')}</p>
+</div>
+
+</div><!--end N-ft-->
+</div><!--end N-wp--><!--找回密码、注册帐号、登录帐号 - 远程js公共模块-->
+
+
+<script>
+//刷新验证码
+$("#verimgbut,#verimg").click(function(){
+$("#verimg").attr('src',"/?s=user-checkcode-index-" + Math.random());
+
+});
+
+//监听邮箱输入
+$("#email").bind("input propertychange",function(event){
+      
+	  var str = /^[\w\-\.]+@[\w\-\.]+(\.\w+)+$/;
+	  var email = $('#email').val();
+	 if(!str.test(email)){       
+			 $("#yz-sms").removeClass("ti"); 
+	   $("#yz-sms").addClass("disabled"); 
+		
+    }else{
+		 console.log("222");
+		 $("#yz-sms").removeClass("disabled"); 
+		 $("#yz-sms").addClass("ti"); 
+	}
+		
+});
+
+//请求发送邮箱验证码
+$(document).on('click','.ti',function () {
+   console.log(111);
+			$.ajax({
+            //几个参数需要注意一下
+                type: "POST",//方法类型
+                dataType: "json",//预期服务器返回的数据类型
+                url: "{:UUU('User/center/resetpwd')}",//url
+                data:{
+                    "email":$('#email').val(),
+                    "image_captcha":$('#image_captcha').val()
+                },
+                success: function (result) {
+                  console.log(result);
+                    if (result.code == 1) {
+                       layer.msg(result.msg,{'icon':2});
+                    }else{
+					layer.msg(result.msg,{'icon':1});
+					
+					}
+                   
+                },
+                error : function() {
+                   layer.msg('邮件服务器配置错误，请联系客服解决',{'icon':2});
+                }
+            });
+});
+layui.use(['form', 'layedit', 'laydate'], function(){
+  var form = layui.form
+  ,layer = layui.layer
+  
+
+  
+    //自定义验证规则
+  //自定义验证规则
+  form.verify({
+    image_captcha: function(value){
+      if(value.length < 1){
+        return '验证码不能为空';
+      }
+    }
+    ,email: [/^[a-z0-9._%-]+@([a-z0-9-]+\.)+[a-z]{2,4}$|^1[3|4|5|7|8]\d{9}$/, '邮箱格式不对']
+	 ,email_captcha: function(value){
+      if(value.length < 1){
+        return '邮箱验证码不能为空';
+      }
+    }
+   
+	
+  });
+ 
+
+
+  
+  //监听提交
+  form.on('submit(login)', function(data){
+  
+  
+		//alert(JSON.stringify(data));
+		
+		$.ajax({
+            //几个参数需要注意一下
+                type: "POST",//方法类型
+                dataType: "json",//预期服务器返回的数据类型
+                url: "{:UUU('User/center/resetpasswdstep')}" ,//url
+                data:{
+                    "email":data.field.email,
+                    "email_captcha":data.field.email_captcha
+                },
+                success: function (result) {
+                  console.log(result);
+                    if (result.code == 1) {
+                       layer.msg(result.msg,{'icon':2});
+                    }else{
+					layer.msg(result.msg,{'icon':1});
+					window.location.href=result.url;
+					}
+                   
+                },
+                error : function() {
+                   layer.msg('登录异常请联系客服解决',{'icon':2});
+                }
+            });
+   
+    return false;
+  });
+ 
+ 
+ 
+  
+});
+</script>
+
+
+</body>
+</html>

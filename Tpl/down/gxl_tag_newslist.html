@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{$tag_name}-下下软件系统</title>
+	<meta name="keywords" content="{$tag_name}相关内容" />
+	<meta name="Description" content="{$tag_name}-相关内容" />
+    <link href="/Public/del/css/global.css" rel="stylesheet">
+    <link href="/Public/del/css/index.css" rel="stylesheet">
+    <script src="/Public/del/js/jquery-1.8.3.min.js"></script>
+	<script src="/Public/del/js/global.js"></script>
+	 <link rel="stylesheet" href="/layui26/index.css">
+</head>
+<body>    
+<style>
+.swnetcontent{
+	width: 1200px;
+    margin: 0 auto;
+    line-height:30px;
+    font-size: 0.8rem;
+}
+.c-hd h1 span {
+    display: block;
+    float: left;
+    height: 43px;
+    border-bottom: 3px solid #17A1FF;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 0 4px;
+}
+.swnetarticle{
+width: 71%;
+float:left;
+word-break: break-all;
+word-wrap: break-word;
+    padding: 20px;
+}
+</style>
+	<include file="gxl:header" />
+	<div class="j-sub-nav-{$list_pid}" >
+                <div class="sub-nav-in">
+           <php>$tag_list = gxl_mysql_tags('cid:7;limit:64;page:true;order:tag_id desc');$page = $news_list[0]['page'];</php>
+			
+</div>
+    <div class="swnetcontent">
+        <article class="swnetarticle">
+
+        <div class="position">您的位置：<a href="{$site_url}">首页</a> >> {$tag_name}</div>
+
+        <div class="content">
+
+            <div>
+                         
+				
+			
+                <div class="c-hd">
+                    <h3><span>{$list_name}列表</span></h3>
+                </div>
+
+					 <php>$news_list = gxl_mysql_news('tag:'.$tag_name.';limit:20;field:news_id,news_name,news_cid,news_pic,news_addtime,news_remark;page:true;order:news_id desc');$page = $news_list[0]['page'];</php>
+                <div class="c-soft-list">					
+                   
+                    <ul class="c-list clearfix" id="list_ul_more">
+						 <volist name="news_list" id="gxl">
+                        <li>
+                            <div class="top-tit">
+                                <p class="tit"><a href="{$gxl.news_readurl}" title="{$gxl.news_name}" target="_blank">{$gxl.news_name|msubstr=0,36}</a></p>
+                               						                                          
+                            </div>
+                            <div class="item">
+                         <notempty name="gxl['news_pic']">       <div class="img"><a href="{$gxl.news_readurl}" target="_blank" preview="{$gxl.news_picurl}"  title="{$gxl.news_name}查看"><img src="{$gxl.news_picurl}" alt="{$gxl.news_name}"></a></div></notempty>
+                                <div class="con">
+                                    <p class="other">
+                                        <span class="intro"><label>分类：</label>{$gxl.list_name}</span>
+										
+                                    </p>
+                                    <p class="desc">{$gxl.news_remark}</p>
+                                </div>
+                                <div class="down"><a href="{$gxl.news_readurl}" target="_blank"  title="{$gxl.news_name}">查看</a></div>
+                            </div>
+                        </li>
+                       		</volist>				
+                    </ul>                    
+                    <div class="page">{$page}
+</div>
+                </div>
+            </div>
+
+            
+
+            <div class="clear"></div>
+
+        </div>
+    
+
+ </article>
+<aside class="swnetnews">
+	
+	<div class="lis">
+		<span><i>推荐内容</i></span>
+		<ul>
+			<php>$qu1 =gxl_mysql_news('ids:'.gxl_rand(10).';field:news_id,news_cid,news_name;limit:10;order:news_addtime desc');</php>
+			<volist name="qu1" id="sw"  >
+						<li><a href="{$sw.news_readurl}" target="_blank"  title="{$sw.list_name}">{$sw.news_name}</a></li>
+				</volist>
+					</ul>
+	</div>
+
+
+
+</aside>
+</div>
+    <include file="gxl:fend" />	
+
+   
+</script>
+</body>
+</html>

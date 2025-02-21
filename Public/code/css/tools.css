@@ -1,0 +1,107 @@
+
+.tool .title{
+	background: #fff;
+    font-size: 16px;
+}
+.tool .title i{
+	
+    font-size: 15px;
+}
+
+.tool dl{
+	padding-bottom: 20px;
+}
+.tool dd{
+	
+}
+.tool dd a{
+	display: block;
+	padding: 5px;
+	 background-color: #fff;
+    overflow: hidden;
+    margin-bottom: 20px;
+	border-radius: 3px;
+    border: 1px solid #e5e5e5;
+
+}
+
+.tool dd img{
+	display: block;
+	float: left;
+	width: 50px;
+	height: 50px;
+}
+.tool .info{
+	float: left;
+	width: 70%;
+}
+.tool dd h2{
+	color: #333;
+    display: block;
+    padding: 5px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    line-height: 16px;
+}
+.tool dd p{
+	font-size: 12px;
+    color: #999;
+    margin: 4px 5px;
+    white-space: nowrap;
+    overflow:hidden;
+    text-overflow: ellipsis;
+}
+.letter {
+float: left;
+width: 65px;
+height: 90px;
+line-height: 85px;
+color: #fff;
+text-align: center;
+background-color: #878F94;
+margin-top: -20px;
+padding-left: 10px;
+padding-right: 10px;
+font-size: 20px;
+margin-bottom: -20px;
+align-items: center;
+text-align: center;
+display: grid;
+word-break: break-all;
+}
+.manual-nav {
+    font-size: 18px;
+    font-family: MicrosoftYaHei;
+    color: rgba(51, 51, 51, 1);
+    line-height: 24px;
+    margin:15px 0;
+	display:block;
+}
+.tool dd a {
+
+    display: block;
+
+    padding: 20px 0px 20px 0px;
+
+}
+.headtit {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 38px;
+}
+.ptb10 {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+}.headtit span {
+    border-bottom: 2px solid #4192E7;
+    padding-bottom: 11px;
+}
+.fz22 {
+    font-size: 22px;
+}
+.col-blue01 {
+    color: #338de6 !important;
+}.headtit i.iconfont {
+    color: #4192E7;
+    font-size: 20px;
+}

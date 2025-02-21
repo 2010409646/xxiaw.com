@@ -1,0 +1,2 @@
+a:1:{i:0;a:15:{s:7:"list_id";s:3:"173";s:8:"list_pid";s:1:"0";s:8:"list_oid";s:1:"0";s:8:"list_sid";s:1:"2";s:9:"list_name";s:12:"手游攻略";s:9:"list_skin";s:12:"gxl_newslist";s:16:"list_skin_detail";s:8:"gxl_news";s:14:"list_skin_play";s:7:"pp_play";s:14:"list_skin_type";s:8:"gxl_type";s:8:"list_dir";s:9:"app_games";s:11:"list_status";s:1:"1";s:13:"list_keywords";s:33:"手游攻略，攻略教程大全";s:10:"list_title";s:33:"手游攻略，攻略教程大全";s:16:"list_description";s:182:"手游攻略为手机游戏玩家提供手机游戏攻略、软件应用教程、网游活动，还有一些游戏视频攻略，希望这些攻略教程可以帮大家解决问题
+";s:12:"list_jumpurl";s:7:"http://";}}

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    
+	<meta charset="utf-8">
+    <title>会员中心-{:C("site_name")}</title>
+    <meta name="Keywords" content="会员中心-{:C("site_name")}">
+    <meta name="Description" content="会员中心-{:C("site_name")}">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link href="/Public/user/{:C('default_user')}/layui/css/layui.css" rel="stylesheet">
+	<script src="/Public/user/{:C('default_user')}/layui/layui.js" charset="utf-8"></script>
+	<script src="/Public/user/{:C('default_user')}/js/jquery-3.4.1.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="/Public/user/{:C('default_user')}/css/comm.css" />
+    <link rel="stylesheet" type="text/css" href="/Public/user/{:C('default_user')}/css/fwindow.css" />
+   <link rel="stylesheet" type="text/css" href="/Public/user/{:C('default_user')}/css/publish.css" />
+
+
+
+</head>
+<body class="yunlist2" >
+
+    <div class='new-main'>
+  <include file="./Public/user/qz/Tpl/user_header.html" />
+        
+            <article class="article2">
+                     <include file="./Public/user/qz/Tpl/left.html" />
+					
+	<div class="container layui-form">
+                     
+    <!-- 内容头部开始.. -->
+    <nav class="nav2 boderBox">
+        <div class="navContent navContentBorder boderBox noSelect" data-page="textNews">安全设置</div>
+        <!-- <div class="navContent boderBox noSelect" data-page="picNews">图集稿件</div> -->
+    </nav>
+    <!-- 内容头部结束.. -->
+    <!-- main内容区域开始 -->
+    <div id="layerDemo"class="boderBox">
+      
+	  <div class="layui-form-item">
+      <label class="layui-form-label">Token:</label>
+      <div class="layui-input-inline" style="width:300px">
+        <input type="text" name="api_token" lay-verify="api_token" autocomplete="off" class="layui-input" value="{$api_token}" disabled="">
+      </div>
+	   <div class="layui-form-mid layui-word-aux"  data-method="chong">重置</div>
+    </div>
+
+	
+	<div class="layui-form-item">
+      <label class="layui-form-label">邮箱</label>
+      <div class="layui-input-inline">
+        <input type="text" name="email" lay-verify="email" autocomplete="off" class="layui-input" value="{$mail}" disabled="">
+      </div>
+	   <div class="layui-form-mid layui-word-aux"  data-method="notice">修改</div>
+    </div>
+        
+    </div>
+	
+    <!-- main内容区域结束 -->
+
+                </div>
+            </article>
+            
+    <!-- 浮窗开始 -->
+   
+					
+					
+					
+			<style>
+		.layui-form-item {
+
+    margin-top: 30px;
+
+}
+.layui-input-block {
+
+    width: 500px;
+
+}
+.layui-form-item .layui-input-inline {
+    float: left;
+    width: 200px;
+    margin-right: 10px;
+}
+
+body .demo-class .layui-layer-btn0{
+    border-color: #E6E3E6;
+    background-color: #FFF;
+    color: black;
+  }
+  body .demo-class .layui-layer-btn1{
+    border-color: #4898d5;
+    background-color: #2e8ded;
+    color: #fff;
+  }
+
+</style>			
+					
+					
+					
+					
+					
+					
+			  <include file="./Public/user/qz/Tpl/top.html" />		
+					
+					
+					
+					
+					
+					
+					
+					
+					
+            </article>
+            
+        
+    </div>
+  <include file="./Public/user/qz/Tpl/user_footer.html" />
+<div class="footer_space"></div>
+  
+<script>
+
+layui.use(['form', 'layedit', 'upload'], function(){
+  var $ = layui.jquery
+  ,form = layui.form
+  ,layer = layui.layer
+	,upload = layui.upload;
+    //自定义验证规则
+ 
+ 
+
+ 
+  //触发事件
+  var active = {
+  notice: function(){
+      //示范一个公告层
+      layer.open({
+		 type: 1
+        ,title: false //不显示标题栏
+        ,closeBtn: true
+        ,area: '500px;'
+        ,shade: 0.8
+		,skin: 'demo-class'
+        ,id: 'LAY_layuipro' //设定一个id，防止重复弹出
+        ,btn: ['取消', '确定修改']
+        ,btnAlign: 'c'
+        ,moveType: 1 //拖拽模式，0或者1
+        ,content: '<div class="layui-form"><div class="layui-form-item"><label class="layui-form-label">新邮箱</label><div class="layui-input-inline"><input type="text" name="email" id="email" autocomplete="off" class="layui-input" value="" ></div></div><div class="layui-form-item"><label class="layui-form-label">校验码</label> <div class="layui-input-inline" style="width: 90px;"><input type="text" name="img_code" id="img_code" autocomplete="off" class="layui-input" value="" ></div><span class="yz-img yz-refresh" id="verimgbut" style="float: left;margin-right: 10px;" ><img src="{:UUU('User/Checkcode/index')}" id="verimg" onclick="verimg()"></span><button class="layui-btn "   onclick="code()" id="J_getCode">发送验证码</button><button class="layui-btn " id="J_resetCode" style="display:none;"><span id="J_second">60</span>秒后重发</button></div><div class="layui-form-item"><label class="layui-form-label">邮箱验证码</label><div class="layui-input-inline"><input type="text" name="code" id="code" autocomplete="off" class="layui-input" value="" ></div></div></div>'
+        ,yes: function(index){
+     
+		layer.close(index)
+		return false;
+	 
+		},btn2:function(index) {
+			//alert(JSON.stringify(index));
+			
+			
+			var mail = $('#email').val();
+			var img_code = $('#img_code').val();
+			var code = $('#code').val();
+			
+			$.ajax({
+            //几个参数需要注意一下
+                type: "POST",//方法类型
+                dataType: "json",//预期服务器返回的数据类型
+                url: "{:UUU('User/center/modify_email')}",//url
+                data:{
+                    "email":mail,
+                    "email_captcha":code
+                },
+                success: function (result) {
+                 
+                    if (result.code == 1) {
+                     layer.msg(result.msg,{'icon':2});
+                    }else{
+					layer.msg(result.msg,{'icon':1});
+					layer.close(index)
+					window.location.reload();
+					}
+                   
+                },
+                error : function() {
+                   layer.msg('邮件服务器配置错误，请联系客服解决',{'icon':2});
+                }
+            });
+			return false;
+		}
+
+      });
+    },
+	chong: function(){
+      //示范一个公告层
+      layer.open({
+		 type: 1
+        ,title: false //不显示标题栏
+        ,closeBtn: true
+        ,area: '500px;'
+        ,shade: 0.8
+		,skin: 'demo-class'
+        ,id: 'LAY_layuipro' //设定一个id，防止重复弹出
+        ,btn: ['取消', '确定']
+        ,btnAlign: 'c'
+        ,moveType: 1 //拖拽模式，0或者1
+        ,content: '<div class="layui-form"><h1 style="text-align: center;margin: 30px;color: #000;">是否确认重置Token</h1></div>'
+        ,yes: function(index){
+     
+		layer.close(index)
+		return false;
+	 
+		},btn2:function(index) {
+			//alert(JSON.stringify(index));
+			
+			
+			var mail = $('#email').val();
+			var img_code = $('#img_code').val();
+			var code = $('#code').val();
+			
+			$.ajax({
+            //几个参数需要注意一下
+                type: "POST",//方法类型
+                dataType: "json",//预期服务器返回的数据类型
+                url: "{:UUU('User/center/token')}",//url
+                data:{
+                    "token":'132'
+                },
+                success: function (result) {
+                 
+                    if (result.code == 1) {
+                     layer.msg(result.msg,{'icon':2});
+                    }else{
+					layer.msg(result.msg,{'icon':1});
+					layer.close(index)
+					window.location.reload();
+					}
+                   
+                },
+                error : function() {
+                   layer.msg('token接口异常，请稍后重置',{'icon':2});
+                }
+            });
+			return false;
+		}
+
+      });
+    }
+  
+  };
+  $('#layerDemo .layui-form-mid').on('click', function(){
+    var othis = $(this), method = othis.data('method');
+    active[method] ? active[method].call(this, othis) : '';
+  });
+
+
+  
+});
+     //刷新验证码
+
+function verimg(){
+
+$("#verimg").attr('src',"/?s=user-checkcode-index-" + Math.random());
+}
+function code(){
+ var mail = $('#email').val();
+
+ if (mail != '') {
+    var reg = '/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/';
+	
+    if(!$("#email").val().match(/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/))
+	{
+       layer.msg('新邮箱格式不正确',{'icon':2});
+       return false;
+	}
+	}else{
+	 layer.msg('请填写邮箱',{'icon':2});
+		   return false;
+	}
+var img_code = $('#img_code').val();
+
+if(img_code ==''){
+
+ layer.msg('校验码不能为空',{'icon':2});
+  return false;
+}
+ 
+	$.ajax({
+            //几个参数需要注意一下
+                type: "POST",//方法类型
+                dataType: "json",//预期服务器返回的数据类型
+                url: "{:UUU('User/center/modify_mail')}",//url
+                data:{
+                    "email":mail,
+                    "image_captcha":img_code
+                },
+                success: function (result) {
+				
+                  
+                    if (result.code == 1) {
+                       layer.msg(result.msg,{'icon':2});
+                    }else{
+					resetCode();
+					console.log(result);
+					layer.msg(result.msg,{'icon':1});
+					
+					}
+                   
+                },
+                error : function() {
+                   layer.msg('邮件服务器配置错误，请联系客服解决',{'icon':2});
+                }
+            });
+ //layer.msg('登录异常请联系客服解决',{'icon':2});
+}
+
+
+//倒计时
+function resetCode(){
+	$('#J_getCode').hide();
+	$('#J_second').html('60');
+	$('#J_resetCode').show();
+	var second =60;
+	var timer = null;
+	timer = setInterval(function(){
+		second -= 1;
+		if(second >0 ){
+			$('#J_second').html(second);
+		}else{
+			clearInterval(timer);
+			$('#J_getCode').show();
+			$('#J_resetCode').hide();
+		}
+	},1000);
+}
+</script>
+
+</body>
+</html>

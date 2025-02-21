@@ -1,0 +1,17 @@
+<js href="/Public/js/jquery-2.0.2.js" />
+<js href="/Public/ueditor/ueditor.config.js" />    
+<js href="/Public/ueditor/ueditor.all.min.js" />
+<script  type="text/plain"   >
+    
+    </script>
+	
+	 <textarea id="container"  class="rich-text" name="auto_content" placeholder="请输入内容" lay-verify="auto_content" >{$links_content}</textarea>
+  <script>
+    $(function(){
+        var ue = UE.getEditor('container',{
+            serverUrl :'{:UUU('User/center/ueditor','','')}'
+        });
+		
+		
+    })
+    </script>
