@@ -6,7 +6,7 @@
 
 软件分为软件模块以及资讯模块，可以更好的让你进行傻瓜式操作
 
-
+[官方说明](https://www.xxiaw.com/cms/guide/background.html)  (PC版本)
 
 
 ##环境要求
