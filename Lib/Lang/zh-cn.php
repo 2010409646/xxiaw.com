@@ -2,9 +2,9 @@
 return array(
 	'appname'=>'下下',
 	'gxlnews_welcome'=>'下下软件系统',
-	'gxlnews_version'=>'V1.0',
+	'gxlnews_version'=>'V1.1',
 	'gxlnews_homeurl'=>'http://www.xxiaw.com',
-	'gxlnews_version_js'=>'http://cs.bchongw.com/cms/update.js?version=1',
+	'gxlnews_version_js'=>'http://cs.bchongw.com/cms/update.js?version=2',
 	'gxlnews_tj'=>'',
 	'install_error'=>'已经安装过下下软件系统,重新安装请先删除Runtime/Install/install.lock 文件!',
 	'install_success'=>'恭喜您！下下软件系统安装完成，1秒后自动进入后台管理!',	
